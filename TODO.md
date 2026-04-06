@@ -11,12 +11,12 @@
 
 ## Chapter 01 — 表示・変数・演算
 
-- [ ] `docs/chapter01.md` — 基礎説明 + 問題文
-- [ ] `src/Chapter01/Chapter01.vbproj` — プロジェクトファイル
-- [ ] `src/Chapter01/Exercises.vb` — 骨格コード
-- [ ] `tests/Chapter01.Tests/Chapter01.Tests.vbproj` — テストプロジェクトファイル
-- [ ] `tests/Chapter01.Tests/ExercisesTests.vb` — ユニットテスト
-- [ ] `notebooks/chapter01.ipynb` — Polyglot Notebook
+- [x] `docs/chapter01.md` — 基礎説明 + 問題文
+- [x] `src/Chapter01/Chapter01.vbproj` — プロジェクトファイル
+- [x] `src/Chapter01/Exercises.vb` — 骨格コード
+- [x] `tests/Chapter01.Tests/Chapter01.Tests.vbproj` — テストプロジェクトファイル
+- [x] `tests/Chapter01.Tests/ExercisesTests.vb` — ユニットテスト
+- [x] `notebooks/chapter01.ipynb` — Polyglot Notebook
 
 ## Chapter 02 — 入力
 
