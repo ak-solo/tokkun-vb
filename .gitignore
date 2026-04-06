@@ -1,0 +1,51 @@
+# .NET ビルド成果物
+bin/
+obj/
+out/
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+project.lock.json
+project.assets.json
+
+# テスト結果
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Visual Studio / VSCode
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+
+# .NET Interactive / Jupyter
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# dotnet tool
+.dotnet/
+.tool-manifest
+
+# OS
+## Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+## macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+## Linux
+*~
