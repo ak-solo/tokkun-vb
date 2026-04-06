@@ -20,12 +20,12 @@
 
 ## Chapter 02 — 入力
 
-- [ ] `docs/chapter02.md` — 基礎説明 + 問題文
-- [ ] `src/Chapter02/Chapter02.vbproj`
-- [ ] `src/Chapter02/Exercises.vb` — 骨格コード
-- [ ] `tests/Chapter02.Tests/Chapter02.Tests.vbproj`
-- [ ] `tests/Chapter02.Tests/ExercisesTests.vb` — ユニットテスト
-- [ ] `notebooks/chapter02.ipynb` — Polyglot Notebook
+- [x] `docs/chapter02.md` — 基礎説明 + 問題文
+- [x] `src/Chapter02/Chapter02.vbproj`
+- [x] `src/Chapter02/Exercises.vb` — 骨格コード
+- [x] `tests/Chapter02.Tests/Chapter02.Tests.vbproj`
+- [x] `tests/Chapter02.Tests/ExercisesTests.vb` — ユニットテスト
+- [x] `notebooks/chapter02.ipynb` — Polyglot Notebook
 
 ## Chapter 03 — 分岐
 
