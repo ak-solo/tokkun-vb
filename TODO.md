@@ -47,12 +47,12 @@
 
 ## Chapter 05 — 配列
 
-- [ ] `docs/chapter05.md` — 基礎説明 + 問題文
-- [ ] `src/Chapter05/Chapter05.vbproj`
-- [ ] `src/Chapter05/Exercises.vb` — 骨格コード
-- [ ] `tests/Chapter05.Tests/Chapter05.Tests.vbproj`
-- [ ] `tests/Chapter05.Tests/ExercisesTests.vb` — ユニットテスト
-- [ ] `notebooks/chapter05.ipynb` — Polyglot Notebook
+- [x] `docs/chapter05.md` — 基礎説明 + 問題文
+- [x] `src/Chapter05/Chapter05.vbproj`
+- [x] `src/Chapter05/Exercises.vb` — 骨格コード
+- [x] `tests/Chapter05.Tests/Chapter05.Tests.vbproj`
+- [x] `tests/Chapter05.Tests/ExercisesTests.vb` — ユニットテスト
+- [x] `notebooks/chapter05.ipynb` — Polyglot Notebook
 
 ## Chapter 06 — メソッド
 
