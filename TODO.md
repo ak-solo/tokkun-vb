@@ -29,12 +29,12 @@
 
 ## Chapter 03 — 分岐
 
-- [ ] `docs/chapter03.md` — 基礎説明 + 問題文
-- [ ] `src/Chapter03/Chapter03.vbproj`
-- [ ] `src/Chapter03/Exercises.vb` — 骨格コード
-- [ ] `tests/Chapter03.Tests/Chapter03.Tests.vbproj`
-- [ ] `tests/Chapter03.Tests/ExercisesTests.vb` — ユニットテスト
-- [ ] `notebooks/chapter03.ipynb` — Polyglot Notebook
+- [x] `docs/chapter03.md` — 基礎説明 + 問題文
+- [x] `src/Chapter03/Chapter03.vbproj`
+- [x] `src/Chapter03/Exercises.vb` — 骨格コード
+- [x] `tests/Chapter03.Tests/Chapter03.Tests.vbproj`
+- [x] `tests/Chapter03.Tests/ExercisesTests.vb` — ユニットテスト
+- [x] `notebooks/chapter03.ipynb` — Polyglot Notebook
 
 ## Chapter 04 — 繰り返し
 
