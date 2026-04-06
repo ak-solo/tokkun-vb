@@ -38,12 +38,12 @@
 
 ## Chapter 04 — 繰り返し
 
-- [ ] `docs/chapter04.md` — 基礎説明 + 問題文
-- [ ] `src/Chapter04/Chapter04.vbproj`
-- [ ] `src/Chapter04/Exercises.vb` — 骨格コード
-- [ ] `tests/Chapter04.Tests/Chapter04.Tests.vbproj`
-- [ ] `tests/Chapter04.Tests/ExercisesTests.vb` — ユニットテスト
-- [ ] `notebooks/chapter04.ipynb` — Polyglot Notebook
+- [x] `docs/chapter04.md` — 基礎説明 + 問題文
+- [x] `src/Chapter04/Chapter04.vbproj`
+- [x] `src/Chapter04/Exercises.vb` — 骨格コード
+- [x] `tests/Chapter04.Tests/Chapter04.Tests.vbproj`
+- [x] `tests/Chapter04.Tests/ExercisesTests.vb` — ユニットテスト
+- [x] `notebooks/chapter04.ipynb` — Polyglot Notebook
 
 ## Chapter 05 — 配列
 
