@@ -74,12 +74,12 @@
 
 ## Chapter 08 — クラスⅡ
 
-- [ ] `docs/chapter08.md` — 基礎説明 + 問題文
-- [ ] `src/Chapter08/Chapter08.vbproj`
-- [ ] `src/Chapter08/Exercises.vb` — 骨格コード（Animal、Cat、Dog クラス等）
-- [ ] `tests/Chapter08.Tests/Chapter08.Tests.vbproj`
-- [ ] `tests/Chapter08.Tests/ExercisesTests.vb` — ユニットテスト
-- [ ] `notebooks/chapter08.ipynb` — Polyglot Notebook
+- [x] `docs/chapter08.md` — 基礎説明 + 問題文
+- [x] `src/Chapter08/Chapter08.vbproj`
+- [x] `src/Chapter08/Exercises.vb` — 骨格コード（Animal、Cat、Dog クラス等）
+- [x] `tests/Chapter08.Tests/Chapter08.Tests.vbproj`
+- [x] `tests/Chapter08.Tests/ExercisesTests.vb` — ユニットテスト
+- [x] `notebooks/chapter08.ipynb` — Polyglot Notebook
 
 ---
 
