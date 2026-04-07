@@ -65,12 +65,12 @@
 
 ## Chapter 07 — クラスⅠ
 
-- [ ] `docs/chapter07.md` — 基礎説明 + 問題文
-- [ ] `src/Chapter07/Chapter07.vbproj`
-- [ ] `src/Chapter07/Exercises.vb` — 骨格コード（Dog、CoinCase クラス等）
-- [ ] `tests/Chapter07.Tests/Chapter07.Tests.vbproj`
-- [ ] `tests/Chapter07.Tests/ExercisesTests.vb` — ユニットテスト
-- [ ] `notebooks/chapter07.ipynb` — Polyglot Notebook
+- [x] `docs/chapter07.md` — 基礎説明 + 問題文
+- [x] `src/Chapter07/Chapter07.vbproj`
+- [x] `src/Chapter07/Exercises.vb` — 骨格コード（Dog、CoinCase クラス等）
+- [x] `tests/Chapter07.Tests/Chapter07.Tests.vbproj`
+- [x] `tests/Chapter07.Tests/ExercisesTests.vb` — ユニットテスト
+- [x] `notebooks/chapter07.ipynb` — Polyglot Notebook
 
 ## Chapter 08 — クラスⅡ
 
