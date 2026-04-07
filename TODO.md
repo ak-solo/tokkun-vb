@@ -56,12 +56,12 @@
 
 ## Chapter 06 — メソッド
 
-- [ ] `docs/chapter06.md` — 基礎説明 + 問題文
-- [ ] `src/Chapter06/Chapter06.vbproj`
-- [ ] `src/Chapter06/Exercises.vb` — 骨格コード
-- [ ] `tests/Chapter06.Tests/Chapter06.Tests.vbproj`
-- [ ] `tests/Chapter06.Tests/ExercisesTests.vb` — ユニットテスト
-- [ ] `notebooks/chapter06.ipynb` — Polyglot Notebook
+- [x] `docs/chapter06.md` — 基礎説明 + 問題文
+- [x] `src/Chapter06/Chapter06.vbproj`
+- [x] `src/Chapter06/Exercises.vb` — 骨格コード
+- [x] `tests/Chapter06.Tests/Chapter06.Tests.vbproj`
+- [x] `tests/Chapter06.Tests/ExercisesTests.vb` — ユニットテスト
+- [x] `notebooks/chapter06.ipynb` — Polyglot Notebook
 
 ## Chapter 07 — クラスⅠ
 
