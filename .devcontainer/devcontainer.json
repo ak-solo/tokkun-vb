@@ -3,15 +3,16 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
+  "postCreateCommand": "dotnet restore",
   "customizations": {
     "vscode": {
       "extensions": [
         "ms-dotnettools.vscode-dotnet-runtime",
-        "ms-dotnettools.vscode-dotnet-pack",
-        "ms-dotnettools.polyglot-notebooks"
+        "ms-dotnettools.vscode-dotnet-pack"
       ],
       "settings": {
-        "dotnet.defaultSolution": "tokkun-vb.sln"
+        "dotnet.defaultSolution": "tokkun-vb.sln",
+        "dotnetAcquisitionExtension.existingSdkPath": "/usr/share/dotnet"
       }
     }
   }
