@@ -23,7 +23,6 @@ TestResults/
 *.suo
 *.userosscache
 *.sln.docstates
-.vscode/settings.json
 .vscode/launch.json
 .vscode/tasks.json
 
