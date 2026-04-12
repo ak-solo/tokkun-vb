@@ -8,7 +8,8 @@
     "vscode": {
       "extensions": [
         "ms-dotnettools.vscode-dotnet-runtime",
-        "ms-dotnettools.vscode-dotnet-pack"
+        "ms-dotnettools.vscode-dotnet-pack",
+        "ms-dotnettools.csdevkit"
       ],
       "settings": {
         "dotnet.defaultSolution": "tokkun-vb.sln",
