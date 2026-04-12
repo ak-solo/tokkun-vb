@@ -3,7 +3,7 @@
 ## プロジェクト概要
 
 VB.NET を題材にした初学者向けプログラミング学習教材。
-「基礎説明 → 問題を解く → ユニットテストで自己検証 → Polyglot Notebook で体験する」
+「基礎説明 → 問題を解く → ユニットテストで自己検証 → プレイグラウンドで体験する」
 というサイクルで、手を動かしながら学べることを目指す。
 
 ### 学習の流れ
@@ -12,7 +12,7 @@ VB.NET を題材にした初学者向けプログラミング学習教材。
 1. docs/ の README（基礎説明 + 問題文）を読む
 2. src/ の骨格コードに実装を書く
 3. dotnet test でユニットテストを実行し、全テストが通るまで修正する
-4. notebooks/ の Polyglot Notebook を開き、引数を変えながら実行して動作を体感する
+4. dotnet run --project playground/ChapterXX で動作を体感する
 ```
 
 ---
@@ -40,9 +40,11 @@ tokkun-vb/
 │   │   └── ExercisesTests.vb   # ユニットテスト（変更しない）
 │   ├── Chapter02.Tests/
 │   └── ...
-├── notebooks/
-│   ├── chapter01.ipynb         # Polyglot Notebook（章ごと）
-│   ├── chapter02.ipynb
+├── playground/
+│   ├── Chapter01/
+│   │   ├── Chapter01.Playground.vbproj
+│   │   └── Program.vb          # 値を変えながら実行できる実験用コード
+│   ├── Chapter02/
 │   └── ...
 ├── tokkun-vb.sln
 └── CLAUDE.md
@@ -161,27 +163,43 @@ End Class
 
 ---
 
-## Polyglot Notebooks（notebooks/）
+## プレイグラウンド（playground/）
 
 ### 目的
 
 - 引数を変えながら関数の動作を確認する「実験の場」
-- コンソールアプリでは見えにくい「途中の値」を可視化する
 - テストとは別に、自分の実装が直感的に正しいか体感できる
 
-### ノートブック構成（各章）
+### 実行方法
 
-```
-セル 1: 説明テキスト（問題の概要と学ぶポイント）
-セル 2: #load "../src/ChapterXX/Exercises.vb"  ← 実装を読み込む
-セル 3: 関数を呼び出す実験用セル（値を変えて何度でも実行）
-セル 4: 発展的な例や可視化
+```bash
+dotnet run --project playground/Chapter01   # Chapter01 を実行
+dotnet run --project playground/Chapter02   # Chapter02 を実行
 ```
 
-### 使用カーネル
+### ファイル構成
 
-`.NET Interactive` の **VB.NET カーネル** を使用する。
-Polyglot Notebooks は VB.NET カーネルをネイティブサポートしているため、C# への変換は不要。
+```vbnet
+' playground/Chapter01/Program.vb
+
+Module Program
+    Sub Main()
+        ' ===== 問題 1-1 〜 1-3: 文字列の表示 =====
+        Console.WriteLine(Exercises.Problem1_1())
+
+        ' ===== 問題 1-9: 倍数（x の値を変えて試してみよう）=====
+        Dim x9 As Integer = 3   ' ← この値を変えて実行してみよう
+        Dim r9 = Exercises.Problem1_9(x9)
+        Console.WriteLine($"{x9} の 2 倍: {r9(0)}")
+    End Sub
+End Module
+```
+
+### プレイグラウンドの原則
+
+- `Program.vb` の変数の値（コメントで `← 変えて試そう` と示した箇所）を書き換えて実行する
+- `Module Program` / `Sub Main()` で囲む（VB.NET はトップレベルステートメント非対応）
+- 同じ変数名が複数必要な場合はサフィックスで区別する（例: `x9`, `x10`, `x13`）
 
 ---
 
@@ -220,19 +238,18 @@ End Class
 
 ### 含める環境
 
-- .NET SDK（LTS の最新版）
-- .NET Interactive（Polyglot Notebooks 用）
+- .NET 10 SDK
 - VSCode 拡張機能
   - `ms-dotnettools.vscode-dotnet-runtime`
-  - `ms-dotnettools.dotnet-interactive-vscode`（Polyglot Notebooks）
   - `ms-dotnettools.vscode-dotnet-pack`
 
 ### 確認コマンド
 
 ```bash
-dotnet --version            # SDK の確認
-dotnet test                 # 全テストを実行
-dotnet test tests/Chapter01.Tests  # 特定の章のみ
+dotnet --version                            # SDK の確認
+dotnet test                                 # 全テストを実行
+dotnet test tests/Chapter01.Tests          # 特定の章のみ
+dotnet run --project playground/Chapter01  # プレイグラウンドを実行
 ```
 
 ---
@@ -274,8 +291,7 @@ dotnet test tests/Chapter01.Tests  # 特定の章のみ
 | 関数名 | `Problem[章]-[番号]` + 補足 | `Problem1_4()`, `Problem1_9_Double()` |
 | テストクラス | `Chapter[章番号]Tests` | `Chapter01Tests` |
 | テストメソッド | `Test_[問題番号]_[説明]` | `Test_1_4_SumOf13And17` |
-| プロジェクト | `ChapterXX` / `ChapterXX.Tests` | `Chapter01`, `Chapter01.Tests` |
-| ノートブック | `chapterXX.ipynb` | `chapter01.ipynb` |
+| プロジェクト | `ChapterXX` / `ChapterXX.Tests` / `ChapterXX.Playground` | `Chapter01`, `Chapter01.Tests`, `Chapter01.Playground` |
 
 ---
 
@@ -286,7 +302,7 @@ dotnet test tests/Chapter01.Tests  # 特定の章のみ
 1. `docs/chapterXX.md` に基礎説明と問題文を書く
 2. `src/ChapterXX/Exercises.vb` に骨格関数（`NotImplementedException`）を追加する
 3. `tests/ChapterXX.Tests/ExercisesTests.vb` にユニットテストを書く（複数の TestCase で検証）
-4. `notebooks/chapterXX.ipynb` に実験用セルを追加する
+4. `playground/ChapterXX/Program.vb` に実験用コードを追加する
 5. `tokkun-vb.sln` にプロジェクトを追加する
 
 ---
