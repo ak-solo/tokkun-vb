@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>Chapter02.Playground</RootNamespace>
+    <StartupObject>Chapter02.Playground.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/Chapter02/Chapter02.vbproj" />
+  </ItemGroup>
+</Project>
