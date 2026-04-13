@@ -2,7 +2,7 @@ Public Class Exercises
 
     ' 問題 1-1: "Hello World" を返す
     Public Shared Function Problem1_1() As String
-        Throw New NotImplementedException("問題 1-1 を実装してください")
+        return "Hello World"
     End Function
 
     ' 問題 1-2: 変数 x に 11 を代入し、"x=11" を返す
