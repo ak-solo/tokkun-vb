@@ -26,7 +26,7 @@ Public Class Cat
 
     ' 問題 8-1: MyBase.New(name, age) を呼ぶコンストラクタ
     Public Sub New(name As String, age As Integer)
-        Throw New NotImplementedException("問題 8-1 の Cat.New を実装してください")
+        MyBase.New(name, age)
     End Sub
 
     ' 問題 8-1: "スースー" を返す
@@ -48,7 +48,7 @@ Public Class Dog
 
     ' 問題 8-2: MyBase.New(name, age) を呼ぶコンストラクタ
     Public Sub New(name As String, age As Integer)
-        Throw New NotImplementedException("問題 8-2 の Dog.New を実装してください")
+        MyBase.New(name, age)
     End Sub
 
     ' 問題 8-2: "トコトコ" を返す

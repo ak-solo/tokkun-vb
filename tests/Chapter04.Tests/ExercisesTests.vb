@@ -7,7 +7,7 @@ Public Class Chapter04Tests
     Public Sub Test_4_1_Spam()
         Dim result = Exercises.Problem4_1()
         Assert.Equal(10, result.Length)
-        Assert.All(result, Function(s) Assert.Equal("SPAM", s))
+        Assert.All(result, Sub(s) Assert.Equal("SPAM", s))
     End Sub
 
     ' --- 問題 4-2 ---

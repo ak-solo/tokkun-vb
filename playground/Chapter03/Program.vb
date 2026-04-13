@@ -76,7 +76,7 @@ Module Program
 
         ' ===== 問題 3-12: 月の日数（全月まとめて確認）=====
         Try
-            For month = 1 To 12
+            For month As Integer = 1 To 12
                 Console.WriteLine(Exercises.Problem3_12(month))
             Next
             Console.WriteLine(Exercises.Problem3_12(13))

@@ -57,7 +57,7 @@ Public Class Chapter05Tests
         Dim input = {5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 99}
         Dim result = Exercises.Problem5_4(input)
         Assert.Equal(10, result.Length)
-        Assert.All(result, Function(n) Assert.Equal(5, n))
+        Assert.All(result, Sub(n) Assert.Equal(5, n))
     End Sub
 
     <Fact>
@@ -71,7 +71,7 @@ Public Class Chapter05Tests
     Public Sub Test_5_5_BinaryRepresentation()
         Dim result0 = Exercises.Problem5_5(0)
         Assert.Equal(16, result0.Length)
-        Assert.All(result0, Function(b) Assert.Equal(0, b))  ' 全ビット 0
+        Assert.All(result0, Sub(b) Assert.Equal(0, b))  ' 全ビット 0
 
         Dim result1 = Exercises.Problem5_5(1)
         Assert.Equal(0, result1(0))    ' MSB = 0
@@ -88,7 +88,7 @@ Public Class Chapter05Tests
     Public Sub Test_5_5_AllOnes()
         ' 65535 = 1111111111111111
         Dim result = Exercises.Problem5_5(65535)
-        Assert.All(result, Function(b) Assert.Equal(1, b))
+        Assert.All(result, Sub(b) Assert.Equal(1, b))
     End Sub
 
     ' --- 問題 5-6 ---
