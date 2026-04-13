@@ -7,6 +7,7 @@
   "customizations": {
     "vscode": {
       "extensions": [
+        "vscode-icons-team.vscode-icons",
         "ms-dotnettools.vscode-dotnet-runtime",
         "ms-dotnettools.vscode-dotnet-pack",
         "ms-dotnettools.csdevkit",
