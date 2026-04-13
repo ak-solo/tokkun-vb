@@ -1,0 +1,95 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Playground: Chapter01",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build: Chapter01.Playground",
+      "program": "${workspaceFolder}/playground/Chapter01/bin/Debug/net10.0/Chapter01.Playground.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/playground/Chapter01",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Playground: Chapter02",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build: Chapter02.Playground",
+      "program": "${workspaceFolder}/playground/Chapter02/bin/Debug/net10.0/Chapter02.Playground.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/playground/Chapter02",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Playground: Chapter03",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build: Chapter03.Playground",
+      "program": "${workspaceFolder}/playground/Chapter03/bin/Debug/net10.0/Chapter03.Playground.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/playground/Chapter03",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Playground: Chapter04",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build: Chapter04.Playground",
+      "program": "${workspaceFolder}/playground/Chapter04/bin/Debug/net10.0/Chapter04.Playground.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/playground/Chapter04",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Playground: Chapter05",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build: Chapter05.Playground",
+      "program": "${workspaceFolder}/playground/Chapter05/bin/Debug/net10.0/Chapter05.Playground.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/playground/Chapter05",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Playground: Chapter06",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build: Chapter06.Playground",
+      "program": "${workspaceFolder}/playground/Chapter06/bin/Debug/net10.0/Chapter06.Playground.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/playground/Chapter06",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Playground: Chapter07",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build: Chapter07.Playground",
+      "program": "${workspaceFolder}/playground/Chapter07/bin/Debug/net10.0/Chapter07.Playground.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/playground/Chapter07",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Playground: Chapter08",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build: Chapter08.Playground",
+      "program": "${workspaceFolder}/playground/Chapter08/bin/Debug/net10.0/Chapter08.Playground.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/playground/Chapter08",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Playground: Chapter09",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build: Chapter09.Playground",
+      "program": "${workspaceFolder}/playground/Chapter09/bin/Debug/net10.0/Chapter09.Playground.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/playground/Chapter09",
+      "console": "integratedTerminal"
+    }
+  ]
+}
