@@ -23,8 +23,6 @@ TestResults/
 *.suo
 *.userosscache
 *.sln.docstates
-.vscode/launch.json
-.vscode/tasks.json
 
 # .NET Interactive / Jupyter
 .ipynb_checkpoints/
