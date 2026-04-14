@@ -7,22 +7,26 @@ Public Class Exercises
 
     ' 問題 1-2: 変数 x に 11 を代入し、"x=11" を返す
     Public Shared Function Problem1_2() As String
-        Throw New NotImplementedException("問題 1-2 を実装してください")
+        Dim x As Integer = 11
+        Return ($"x={x}")
     End Function
 
     ' 問題 1-3: 変数 x=13, y=17 を代入し、"x=13,y=17" を返す
     Public Shared Function Problem1_3() As String
-        Throw New NotImplementedException("問題 1-3 を実装してください")
+        Dim x As Integer = 13
+        Dim y As Integer = 17
+        return $"x={x},y={y}"
     End Function
 
     ' 問題 1-4: 13 と 17 の和を返す
     Public Shared Function Problem1_4() As Integer
-        Throw New NotImplementedException("問題 1-4 を実装してください")
+        Dim x As Integer = 13 + 17
+        return x
     End Function
 
     ' 問題 1-5: 13 と 17 の積を返す（変数を使わないこと）
     Public Shared Function Problem1_5() As Integer
-        Throw New NotImplementedException("問題 1-5 を実装してください")
+        return 13 * 17
     End Function
 
     ' 問題 1-6: x=7 を 3 倍し、さらに半分（整数除算）にした各ステップを配列で返す
@@ -33,12 +37,22 @@ Public Class Exercises
 
     ' 問題 1-7: x=3, y=7 の値を入れ替えた結果を "x=7,y=3" の形式で返す
     Public Shared Function Problem1_7() As String
-        Throw New NotImplementedException("問題 1-7 を実装してください")
+        dim i as Integer
+        dim x as Integer = 3
+        dim y as Integer = 7
+        i = x
+        x = y
+        y = i
+        return $"x={x},y={y}"
     End Function
 
     ' 問題 1-8: 変数 x=19, y=23 の積を変数 z に代入して返す
     Public Shared Function Problem1_8() As Integer
-        Throw New NotImplementedException("問題 1-8 を実装してください")
+        dim z as Integer
+        dim x as Integer = 19
+        dim y as integer = 23
+        z = x * y 
+        return z
     End Function
 
     ' 問題 1-9: x を 2 倍・3 倍・4 倍した結果を配列で返す
@@ -55,12 +69,18 @@ Public Class Exercises
 
     ' 問題 1-11: Integer 変数 x=10, y=3 を宣言し、x / y の結果（Double）を返す
     Public Shared Function Problem1_11() As Double
-        Throw New NotImplementedException("問題 1-11 を実装してください")
+        dim x as integer = 10
+        dim y as integer = 3
+        dim i as double
+        i = x / y
+        return i
     End Function
 
     ' 問題 1-12: 10 \ 3 の結果を Integer 変数に代入して返す
     Public Shared Function Problem1_12() As Integer
-        Throw New NotImplementedException("問題 1-12 を実装してください")
+        dim i as integer
+        i = 10 \ 3
+        return i
     End Function
 
     ' 問題 1-13: x を y で割った商と余りを配列で返す
