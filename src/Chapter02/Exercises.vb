@@ -1,21 +1,19 @@
 Public Class Exercises
 
     ' 問題 2-1: 入力された文字列をそのまま返す
-    Public Shared Function Problem2_1(s As String) As String
-        Throw New NotImplementedException("問題 2-1 を実装してください")
+    Public Shared Function Problem2_1(s As String) As String  
+     Return s
     End Function
 
     ' 問題 2-2: 入力された整数をそのまま返す
     Public Shared Function Problem2_2(x As Integer) As Integer
-        Throw New NotImplementedException("問題 2-2 を実装してください")
+        return x
     End Function
-
     ' 問題 2-3: x の 1 乗・2 乗・3 乗を配列で返す
     '           result(0)=x^1, result(1)=x^2, result(2)=x^3
     Public Shared Function Problem2_3(x As Integer) As Integer()
-        Throw New NotImplementedException("問題 2-3 を実装してください")
+        Return New Integer() {x ^ 1, x ^ 2, x ^ 3}
     End Function
-
     ' 問題 2-4: x と y の和を返す
     Public Shared Function Problem2_4_Sum(x As Integer, y As Integer) As Integer
         Throw New NotImplementedException("問題 2-4（和）を実装してください")
