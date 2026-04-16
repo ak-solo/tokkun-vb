@@ -32,9 +32,10 @@ Public Class Exercises
     ' 問題 1-6: x=7 を 3 倍し、さらに半分（整数除算）にした各ステップを配列で返す
     '           result(0) = 3 倍後の値、result(1) = 半分にした値
     Public Shared Function Problem1_6() As Integer()
-        Throw New NotImplementedException("問題 1-6 を実装してください")
+        dim x as integer
+        x=7
+        return New integer(){(x*3),(x*3)\2}
     End Function
-
     ' 問題 1-7: x=3, y=7 の値を入れ替えた結果を "x=7,y=3" の形式で返す
     Public Shared Function Problem1_7() As String
         dim i as Integer
@@ -58,13 +59,13 @@ Public Class Exercises
     ' 問題 1-9: x を 2 倍・3 倍・4 倍した結果を配列で返す
     '           result(0)=x*2, result(1)=x*3, result(2)=x*4
     Public Shared Function Problem1_9(x As Integer) As Integer()
-        Throw New NotImplementedException("問題 1-9 を実装してください")
+        return New integer(){x*2,x*3,x*4}
     End Function
 
     ' 問題 1-10: x の 1 乗・2 乗・3 乗を配列で返す
     '            result(0)=x^1, result(1)=x^2, result(2)=x^3
     Public Shared Function Problem1_10(x As Integer) As Integer()
-        Throw New NotImplementedException("問題 1-10 を実装してください")
+        return New integer(){x^1,x^2,x^3}
     End Function
 
     ' 問題 1-11: Integer 変数 x=10, y=3 を宣言し、x / y の結果（Double）を返す
@@ -86,7 +87,7 @@ Public Class Exercises
     ' 問題 1-13: x を y で割った商と余りを配列で返す
     '            result(0) = 商、result(1) = 余り
     Public Shared Function Problem1_13(x As Integer, y As Integer) As Integer()
-        Throw New NotImplementedException("問題 1-13 を実装してください")
+        return New integer(){x\y,x mod y}
     End Function
 
 End Class
