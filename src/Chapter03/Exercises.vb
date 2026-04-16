@@ -2,63 +2,139 @@ Public Class Exercises
 
     ' 問題 3-1: x > y のとき "xはyより大きい。"、それ以外は "" を返す
     Public Shared Function Problem3_1(x As Integer, y As Integer) As String
-        Throw New NotImplementedException("問題 3-1 を実装してください")
+        if x > y Then
+            return("xはyより大きい。")
+        Else
+            return("")
+        End If
     End Function
 
     ' 問題 3-2: x > y → "xはyより大きい"、x < y → "xはyより小さい"、x = y → ""
     Public Shared Function Problem3_2(x As Integer, y As Integer) As String
-        Throw New NotImplementedException("問題 3-2 を実装してください")
+        If x > y Then
+            return("xはyより大きい")
+        Else If x < y Then
+            return("xはyより小さい")
+        Else 
+            return("")
+        End If
     End Function
 
     ' 問題 3-3: x と y の大きい方を返す
     Public Shared Function Problem3_3(x As Integer, y As Integer) As Integer
-        Throw New NotImplementedException("問題 3-3 を実装してください")
+        If x > y Then
+            return(x)
+        Else 
+            return(y)
+        End If
     End Function
 
     ' 問題 3-4: x > y → "xはyより大きい"、x < y → "xはyより小さい"、x = y → "xとyは等しい"
     Public Shared Function Problem3_4(x As Integer, y As Integer) As String
-        Throw New NotImplementedException("問題 3-4 を実装してください")
+        If x > y Then
+            return("xはyより大きい")
+        Else If x < y Then
+            return("xはyより小さい")
+        Else 
+            return("xとyは等しい")
+        End If
     End Function
 
     ' 問題 3-5: 偶数なら "偶数"、奇数なら "奇数" を返す
     Public Shared Function Problem3_5(x As Integer) As String
-        Throw New NotImplementedException("問題 3-5 を実装してください")
+        if x Mod 2 = 0 Then
+            return("偶数")
+        Else 
+            return("奇数")
+        End If
     End Function
 
     ' 問題 3-6: "正の偶数" / "正の奇数" / "負の偶数" / "負の奇数" を返す（0 は "正の偶数"）
     Public Shared Function Problem3_6(x As Integer) As String
-        Throw New NotImplementedException("問題 3-6 を実装してください")
+        If x >= 0 and  x mod 2 = 0 Then
+            return("正の偶数")
+        Else If x >=0 And Not(x mod 2 = 0) Then
+            return("正の奇数")
+        Else If x < 0 And x mod 2 = 0 Then
+            return("負の偶数")
+        Else 
+            return("負の奇数")
+        End If
     End Function
 
     ' 問題 3-7 ケース1: 60点以上 → "合格"、未満 → "不合格"
     Public Shared Function Problem3_7_Case1(score As Integer) As String
-        Throw New NotImplementedException("問題 3-7（ケース1）を実装してください")
+        If score >= 60 Then
+            return("合格")
+        Else
+            return("不合格")
+        End If
     End Function
 
     ' 問題 3-7 ケース2: 80点以上 → "たいへんよくできました。"
     '                   60点以上 → "よくできました。"
     '                   60点未満 → "ざんねんでした。"
     Public Shared Function Problem3_7_Case2(score As Integer) As String
-        Throw New NotImplementedException("問題 3-7（ケース2）を実装してください")
+        If score >= 80 Then
+            return("たいへんよくできました。")
+        Else If score >=60 And score < 80 Then
+            return("よくできました。")
+        Else 
+            return("ざんねんでした。")
+        End If
     End Function
 
     ' 問題 3-7 ケース3: 80点以上 → "優"、70点以上 → "良"、60点以上 → "可"、未満 → "不可"
     Public Shared Function Problem3_7_Case3(score As Integer) As String
-        Throw New NotImplementedException("問題 3-7（ケース3）を実装してください")
+        Select Case score
+        Case 80 to 100
+            return("優")
+        Case 70 to 79
+            return("良")
+        Case 60 to 69
+            return("可")
+        Case Else
+            return("不可")
+        End Select
     End Function
 
     ' 問題 3-8: 中間・期末の点数から合否を返す
     '   合格条件: 両方60点以上 / 合計130点以上 / 合計100点以上かつどちらかが90点以上
     Public Shared Function Problem3_8(midterm As Integer, final As Integer) As String
-        Throw New NotImplementedException("問題 3-8 を実装してください")
+           If (midterm >= 60 And final >=60)Or(midterm + final >= 130) Or(midterm + final >= 100 And midterm >= 90 Or final >= 90) Then
+                return ("合格")
+            Else 
+                return ("不合格")
+            End If
     End Function
 
     ' 問題 3-9: 曜日(0=日〜6=土)と時間帯(0=午前,1=午後,2=夜間)から "○" または "休診" を返す
     Public Shared Function Problem3_9(dayOfWeek As Integer, timeOfDay As Integer) As String
-        Throw New NotImplementedException("問題 3-9 を実装してください")
+	Dim open As boolean = true
+    If dayOfWeek = 0
+        open = false
+    End If
+	If dayOfWeek = 2 Or dayOfWeek = 5
+		And timeOfDay = 0
+		open = false
+	End If
+  	If dayOfWeek = 3
+		And timeOfDay = 2 Then
+        open = false
+        End If
+	    If dayOfWeek = 6
+		And timeOfDay = 1 Or timeOfDay = 2 Then
+		open = false
+	End if
+	    If open Then
+		Return "休診"
+	Else 
+		return "○"
+	
+	End If  
     End Function
-
-    ' 問題 3-10 条件1: x < y かつ x と y がともに偶数
+            
+    ' 問題 3-10 条件1: x < y かつ s と y がともに偶数
     Public Shared Function Problem3_10_Cond1(x As Integer, y As Integer) As Boolean
         Throw New NotImplementedException("問題 3-10（条件1）を実装してください")
     End Function
