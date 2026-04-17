@@ -110,53 +110,42 @@ Public Class Exercises
 
     ' 問題 3-9: 曜日(0=日〜6=土)と時間帯(0=午前,1=午後,2=夜間)から "○" または "休診" を返す
     Public Shared Function Problem3_9(dayOfWeek As Integer, timeOfDay As Integer) As String
-	Dim open As boolean = true
-    If dayOfWeek = 0
-        open = false
-    End If
-	If dayOfWeek = 2 Or dayOfWeek = 5
-		And timeOfDay = 0
-		open = false
-	End If
-  	If dayOfWeek = 3
-		And timeOfDay = 2 Then
-        open = false
-        End If
-	    If dayOfWeek = 6
-		And timeOfDay = 1 Or timeOfDay = 2 Then
-		open = false
-	End if
-	    If open Then
-		Return "休診"
-	Else 
-		return "○"
-	
-	End If  
+        Throw New NotImplementedException("問題 3-7（ケース3）を実装してください")
     End Function
             
     ' 問題 3-10 条件1: x < y かつ s と y がともに偶数
     Public Shared Function Problem3_10_Cond1(x As Integer, y As Integer) As Boolean
-        Throw New NotImplementedException("問題 3-10（条件1）を実装してください")
+        If x < y And x Mod 2 = 0 And y Mod 2 = 0
+            Return (true)
+        End If
     End Function
 
     ' 問題 3-10 条件2: x = y かつ負の数
     Public Shared Function Problem3_10_Cond2(x As Integer, y As Integer) As Boolean
-        Throw New NotImplementedException("問題 3-10（条件2）を実装してください")
+        If x = y And x < 0
+            Return (true)
+        End If
     End Function
 
     ' 問題 3-10 条件3: x < y または x が偶数
     Public Shared Function Problem3_10_Cond3(x As Integer, y As Integer) As Boolean
-        Throw New NotImplementedException("問題 3-10（条件3）を実装してください")
+        If x < y Or x Mod 2 = 0
+            Return (true)
+        End if
     End Function
 
     ' 問題 3-10 条件4: (x ≤ 10 または x ≥ 100) かつ (y ≥ 10 かつ y ≤ 100)
     Public Shared Function Problem3_10_Cond4(x As Integer, y As Integer) As Boolean
-        Throw New NotImplementedException("問題 3-10（条件4）を実装してください")
+        If (x <= 10 Or x >= 100) And (y>=10 And y <= 100)
+            Return (true)
+        End If
     End Function
 
     ' 問題 3-10 条件5: 「x も y も負の数」ではない（否定）
     Public Shared Function Problem3_10_Cond5(x As Integer, y As Integer) As Boolean
-        Throw New NotImplementedException("問題 3-10（条件5）を実装してください")
+        If Not(x < 0 And y < 0)
+            Return (true)
+        End If
     End Function
 
     ' 問題 3-11: 寿司占い（Select Case を使うこと）
