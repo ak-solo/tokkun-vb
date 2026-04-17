@@ -2,7 +2,11 @@ Public Class Exercises
 
     ' 問題 4-1: "SPAM" を 10 個並べた String 配列を返す
     Public Shared Function Problem4_1() As String()
-        Throw New NotImplementedException("問題 4-1 を実装してください")
+        dim i as integer {}
+        i = "SPAM"
+        for i = 1 to 10
+            return i
+        next
     End Function
 
     ' 問題 4-2: 九九の三の段 (3,6,9,...,27) を Integer 配列で返す
