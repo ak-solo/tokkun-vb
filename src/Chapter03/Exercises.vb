@@ -172,7 +172,14 @@ Public Class Exercises
     '   小の月(2,4,6,9,11)      → "{n}月は小の月です"
     '   1〜12 以外              → "そんな月はありません"
     Public Shared Function Problem3_12(month As Integer) As String
-        Throw New NotImplementedException("問題 3-12 を実装してください")
+        Select Case month 
+        Case  1,3,5,7,8,10,12
+            return ($"{month}月は大の月です")
+        Case  2,4,6,9,11
+            return ($"{month}月は小の月です")
+        Case Else 
+            return ("そんな月はありません")
+        End Select
     End Function
 
 End Class
