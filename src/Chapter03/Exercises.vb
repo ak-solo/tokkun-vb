@@ -119,33 +119,66 @@ Public Class Exercises
 
     ' 問題 3-10 条件1: x < y かつ x と y がともに偶数
     Public Shared Function Problem3_10_Cond1(x As Integer, y As Integer) As Boolean
-        Throw New NotImplementedException("問題 3-10（条件1）を実装してください")
+        if x < y and x mod 2 = 0 and y mod 2 = 0 then
+            return True
+        else
+            return false
+        end if
     End Function
 
     ' 問題 3-10 条件2: x = y かつ負の数
     Public Shared Function Problem3_10_Cond2(x As Integer, y As Integer) As Boolean
-        Throw New NotImplementedException("問題 3-10（条件2）を実装してください")
+        if x = y and 0>x and 0>y then
+            return True
+        else
+            return false
+        end if
     End Function
 
     ' 問題 3-10 条件3: x < y または x が偶数
     Public Shared Function Problem3_10_Cond3(x As Integer, y As Integer) As Boolean
-        Throw New NotImplementedException("問題 3-10（条件3）を実装してください")
+        if x < y or x mod 2 =0 then
+            return True
+        else
+            return false
+        end if  
     End Function
 
     ' 問題 3-10 条件4: (x ≤ 10 または x ≥ 100) かつ (y ≥ 10 かつ y ≤ 100)
     Public Shared Function Problem3_10_Cond4(x As Integer, y As Integer) As Boolean
-        Throw New NotImplementedException("問題 3-10（条件4）を実装してください")
+        if (x <= 10 or x >= 100) and (y>= 10 and y <= 100) then
+            return True
+        else
+            return false
+        end if
     End Function
 
     ' 問題 3-10 条件5: 「x も y も負の数」ではない（否定）
     Public Shared Function Problem3_10_Cond5(x As Integer, y As Integer) As Boolean
-        Throw New NotImplementedException("問題 3-10（条件5）を実装してください")
+        if x <= 0 <> x or y <= 0 <> y then
+            return True
+        else
+            return false
+        end if
     End Function
 
     ' 問題 3-11: 寿司占い（Select Case を使うこと）
     '   1=まぐろ, 2=えび, 3=こはだ, 4=いくら, 5=たまご, その他 → エラーメッセージ
     Public Shared Function Problem3_11(choice As Integer) As String
-        Throw New NotImplementedException("問題 3-11 を実装してください")
+    select case choice
+        case 1
+            return "大吉！今日は積極的に行動しよう。"
+        case 2
+            return "中吉。慎重に進めば良い結果が待っている。"
+        case 3
+            return "吉。こつこつ続けることで道が開ける。"
+        case 4
+            return "小吉。意外なところからチャンスがやってくる。"
+        case 5
+            return "末吉。今日はゆったり過ごすと吉。"
+        case else
+            return "選択肢は 1〜5 の数字で入力してください。"
+    end select
     End Function
 
     ' 問題 3-12: 月の大小判定（Select Case を使うこと）
@@ -153,7 +186,14 @@ Public Class Exercises
     '   小の月(2,4,6,9,11)      → "{n}月は小の月です"
     '   1〜12 以外              → "そんな月はありません"
     Public Shared Function Problem3_12(month As Integer) As String
-        Throw New NotImplementedException("問題 3-12 を実装してください")
+        select case month
+        case 1,3,5,7,8,10,12
+            return $"{month}月は大の月です"
+        case 2,4,6,9,11
+            return $"{month}月は小の月です"
+        case else
+            return "そんな月はありません"
+    end select
     End Function
 
 End Class
