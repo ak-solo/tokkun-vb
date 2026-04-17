@@ -151,7 +151,20 @@ Public Class Exercises
     ' 問題 3-11: 寿司占い（Select Case を使うこと）
     '   1=まぐろ, 2=えび, 3=こはだ, 4=いくら, 5=たまご, その他 → エラーメッセージ
     Public Shared Function Problem3_11(choice As Integer) As String
-        Throw New NotImplementedException("問題 3-11 を実装してください")
+        Select  choice
+        Case 1
+            Return ("大吉！今日は積極的に行動しよう。")
+        Case 2
+            Return("中吉。慎重に進めば良い結果が待っている。")
+        Case 3
+            Return ("吉。こつこつ続けることで道が開ける。")
+        Case 4
+            Return ("小吉。意外なところからチャンスがやってくる。")
+        Case 5
+            Return ("末吉。今日はゆったり過ごすと吉。")
+        Case Else
+            Return ("選択肢は 1〜5 の数字で入力してください。")
+        End Select
     End Function
 
     ' 問題 3-12: 月の大小判定（Select Case を使うこと）
