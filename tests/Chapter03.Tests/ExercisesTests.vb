@@ -103,7 +103,10 @@ Public Class Chapter03Tests
     <InlineData(60, 60, "合格")>   ' ちょうど60点
     <InlineData(50, 90, "合格")>   ' 合計140点以上
     <InlineData(100, 30, "合格")>  ' 合計130点ちょうど
-    <InlineData(10, 95, "合格")>   ' 合計105点かつ一方が90点以上
+    <InlineData(10, 95, "合格")>   ' 合計105点かつ final が90点以上（条件3: final側）
+    <InlineData(95, 10, "合格")>   ' 合計105点かつ midterm が90点以上（条件3: midterm側）
+    <InlineData(90, 10, "合格")>   ' 合計100点ちょうど かつ midterm がちょうど90点（条件3の境界値）
+    <InlineData(0, 90, "不合格")>  ' 合計90点で条件3不成立（合計が100点未満）
     <InlineData(50, 55, "不合格")> ' いずれの条件も満たさない
     <InlineData(30, 50, "不合格")>
     Public Sub Test_3_8_PassFail(midterm As Integer, final As Integer, expected As String)
