@@ -9,22 +9,37 @@ Public Class Exercises
 
     ' 問題 4-2: 九九の三の段 (3,6,9,...,27) を Integer 配列で返す
     Public Shared Function Problem4_2() As Integer()
-        Dim scores(9) 
-        For i = 0 To 28 Step 3
-        scores(i)
-        Next
+        Dim scores = {3,6,9,12,15,18,21,24,27}            
         return scores
-    End Function
+        
+        End Function
 
     ' 問題 4-3: 2^1 〜 2^8 を Integer 配列で返す
     '           result(0)=2^1, result(1)=2^2, ..., result(7)=2^8
     Public Shared Function Problem4_3() As Integer()
-        Throw New NotImplementedException("問題 4-3 を実装してください")
+        Dim result(7) As Integer
+        result(0) = 2 ^ 1
+        result(1) = 2 ^ 2
+        result(2) = 2 ^ 3       
+        result(3) = 2 ^ 4
+        result(4) = 2 ^ 5
+        result(5) = 2 ^ 6
+        result(6) = 2 ^ 7
+        result(7) = 2 ^ 8
+        
+
+        return result
+        
     End Function
 
     ' 問題 4-4: 7! を返す
     Public Shared Function Problem4_4() As Integer
-        Throw New NotImplementedException("問題 4-4 を実装してください")
+        Dim x As Integer  = 1
+        For i = 2 To 7
+        x * = i
+        Next
+        return x
+
     End Function
 
     ' 問題 4-5: 配列の平均値（整数）を返す
