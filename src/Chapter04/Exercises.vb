@@ -2,18 +2,18 @@ Public Class Exercises
 
     ' 問題 4-1: "SPAM" を 10 個並べた String 配列を返す
     Public Shared Function Problem4_1() As String()
-        Dim i As Integer = 1
-        For i = 1 To 10
-        Console.WriteLine ("SPAM")
-        Next
+        Dim numbers = {"SPAM","SPAM","SPAM","SPAM","SPAM","SPAM","SPAM","SPAM","SPAM","SPAM"}
+        return numbers
+
     End Function
 
     ' 問題 4-2: 九九の三の段 (3,6,9,...,27) を Integer 配列で返す
     Public Shared Function Problem4_2() As Integer()
-        Dim i As Integer = 0
-        For i = 0 To 29 Step 3
-            Console.WriteLine (i)
+        Dim scores(9) 
+        For i = 0 To 28 Step 3
+        scores(i)
         Next
+        return scores
     End Function
 
     ' 問題 4-3: 2^1 〜 2^8 を Integer 配列で返す
