@@ -1,0 +1,86 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build: Chapter01.Playground",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/playground/Chapter01/Chapter01.Playground.vbproj"],
+      "group": "build",
+      "presentation": { "reveal": "silent" },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "build: Chapter02.Playground",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/playground/Chapter02/Chapter02.Playground.vbproj"],
+      "group": "build",
+      "presentation": { "reveal": "silent" },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "build: Chapter03.Playground",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/playground/Chapter03/Chapter03.Playground.vbproj"],
+      "group": "build",
+      "presentation": { "reveal": "silent" },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "build: Chapter04.Playground",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/playground/Chapter04/Chapter04.Playground.vbproj"],
+      "group": "build",
+      "presentation": { "reveal": "silent" },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "build: Chapter05.Playground",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/playground/Chapter05/Chapter05.Playground.vbproj"],
+      "group": "build",
+      "presentation": { "reveal": "silent" },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "build: Chapter06.Playground",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/playground/Chapter06/Chapter06.Playground.vbproj"],
+      "group": "build",
+      "presentation": { "reveal": "silent" },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "build: Chapter07.Playground",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/playground/Chapter07/Chapter07.Playground.vbproj"],
+      "group": "build",
+      "presentation": { "reveal": "silent" },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "build: Chapter08.Playground",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/playground/Chapter08/Chapter08.Playground.vbproj"],
+      "group": "build",
+      "presentation": { "reveal": "silent" },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "build: Chapter09.Playground",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/playground/Chapter09/Chapter09.Playground.vbproj"],
+      "group": "build",
+      "presentation": { "reveal": "silent" },
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}
