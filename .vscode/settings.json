@@ -1,3 +1,6 @@
 {
+  "extensions.ignoreRecommendations": true,
+  "dotnet.defaultSolution": "tokkun-vb.sln",
+  "dotnetAcquisitionExtension.existingSdkPath": "/usr/share/dotnet",
   "dotnet-test-explorer.testProjectPath": "tests/**/*.vbproj"
 }
