@@ -127,6 +127,17 @@ Next
 - コンストラクタ `New(name As String, age As Integer)` で `MyBase.New(name, age)` を呼ぶ
 - `Sleep()` メソッドを実装し、`"スースー"` を返す
 
+次に、`Problem8_1` で `Cat` をインスタンス化し、`ShowProfile()` と `Sleep()` の結果をカンマ区切りで返しなさい。
+
+**解答例:**
+
+```vbnet
+Public Shared Function Problem8_1(name As String, age As Integer) As String
+    Dim cat As New Cat(name, age)
+    Return cat.ShowProfile() & "," & cat.Sleep()
+End Function
+```
+
 ---
 
 ### 問題 8-2
@@ -135,6 +146,10 @@ Next
 
 - コンストラクタ `New(name As String, age As Integer)` で `MyBase.New(name, age)` を呼ぶ
 - `Run()` メソッドを実装し、`"トコトコ"` を返す
+
+次に、`Problem8_2` で `Dog` をインスタンス化し、`ShowProfile()` と `Run()` の結果をカンマ区切りで返しなさい。
+
+**ヒント:** `Problem8_1` と同じパターンで `Dog` を使います。
 
 ---
 
@@ -145,6 +160,10 @@ Next
 - `Animal.Speak()` のデフォルト実装は `"......"` を返す
 - `Cat.Speak()` は `"ニャー"` を返す
 
+次に、`Problem8_3` で `Animal` 型の変数に `Cat` を代入して `Speak()` を呼び出しなさい。
+
+**ヒント:** `Dim a As Animal = New Cat("タマ", 2)` のように `Animal` 型変数に代入しても、`Speak()` は `Cat` のものが呼ばれます。
+
 ---
 
 ### 問題 8-4
@@ -152,6 +171,10 @@ Next
 `Dog` クラスに `Speak()` メソッドをオーバーライドして実装しなさい。
 
 - `Dog.Speak()` は `"ワンワン"` を返す
+
+次に、`Problem8_4` で `Animal` 型の変数に `Dog` を代入して `Speak()` を呼び出しなさい。
+
+**ヒント:** `Problem8_3` と同じパターンで `Dog` を使います。
 
 ---
 
@@ -162,5 +185,9 @@ Next
 - 要素数 4 の `Animal` 配列を作成する
 - 偶数インデックス（0、2）に `Cat`、奇数インデックス（1、3）に `Dog` を格納する
 - ループで各要素の `ShowProfile()` と `Speak()` を呼ぶ
+
+次に、`Problem8_5` で上記の配列を作成し、ループで各要素の `Speak()` を呼んでカンマ区切りの文字列で返しなさい。
+
+**ヒント:** `Problem8_5` では 4 要素の `Animal` 配列に `Cat` と `Dog` を交互に格納し、`String.Join(",", ...)` などでまとめて返します。
 
 **ポイント:** `Animal` 型の変数に `Cat`/`Dog` を代入しても、`Speak()` は実際のクラスのものが呼ばれます。これがポリモーフィズムです。
