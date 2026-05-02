@@ -13,8 +13,7 @@ Public Class Exercises
     Public Shared Function Problem4_2() As Integer()
         Dim result(8) As Integer
         For i As Integer = 0 To 8
-            Dim m As Integer = i + 1
-            result(i) = 3 * m
+            result(i) = 3 * (i + 1)
         Next
         Return result
     End Function
@@ -24,8 +23,7 @@ Public Class Exercises
     Public Shared Function Problem4_3() As Integer()
         Dim result(7) As Integer
         For i As Integer = 0 To 7
-            Dim n As Integer = i + 1
-            result(i) = 2 ^ n
+            result(i) = 2 ^ (i + 1)
         Next
         Return result
     End Function
@@ -46,20 +44,19 @@ Public Class Exercises
         For Each num In numbers
             sum = sum + num
         Next
-        return sum \ count
+        Return sum \ count
     End Function
 
     ' 問題 4-6: 勝ち(1)/負け(0) の配列から {勝ち数, 負け数} を返す
     Public Shared Function Problem4_6(results As Integer()) As Integer()
         Dim win As Integer = 0
         Dim lose As Integer = 0
-        For Each result In results
-            Select Case result
-                Case 0  '負け
-                    lose += 1
-                Case 1  '勝ち
-                    win += 1
-            End Select
+        For Each r In results
+            If r = 1 Then
+                win += 1
+            Else
+                lose += 1
+            End If
         Next
         Return New Integer() {win, lose}
     End Function
@@ -70,7 +67,7 @@ Public Class Exercises
         For Each score In scores
             sum = sum + score
         Next
-        return sum
+        Return sum
     End Function
 
     ' 問題 4-7: 巨人・阪神の合計点から勝者を返す
@@ -78,7 +75,7 @@ Public Class Exercises
     Public Shared Function Problem4_7_Winner(giants As Integer, tigers As Integer) As String
         If giants > tigers Then
             Return "巨人の勝ち"
-        ElseIf tigers > giants
+        ElseIf tigers > giants Then
             Return "阪神の勝ち"
         Else
             Return "引き分け"
@@ -87,9 +84,9 @@ Public Class Exercises
 
     ' 問題 4-8: 配列の最大値を返す
     Public Shared Function Problem4_8(numbers As Integer()) As Integer
-        Dim max As Integer = Integer.MinValue
+        Dim max As Integer = numbers(0)
         For Each num In numbers
-            if num > max Then
+            If num > max Then
                 max = num
             End If
         Next
@@ -98,8 +95,8 @@ Public Class Exercises
 
     ' 問題 4-9: 配列の {最大値, 最小値} を返す
     Public Shared Function Problem4_9(numbers As Integer()) As Integer()
-        Dim max As Integer = Integer.MinValue
-        Dim min As Integer = Integer.MaxValue
+        Dim max As Integer = numbers(0)
+        Dim min As Integer = numbers(0)
         For Each num In numbers
             If num > max Then
                 max = num
@@ -155,11 +152,10 @@ Public Class Exercises
         For Each pitch In pitches
             If pitch = 1 Then
                 strikes += 1
-            End If
-            If pitch = 2 Then
+            ElseIf pitch = 2 Then
                 balls += 1
             End If
-            if strikes = 3 OrElse balls = 4 Then
+            If strikes = 3 OrElse balls = 4 Then
                 Return $"{strikes}ストライク,{balls}ボール"
             End If
         Next
@@ -171,18 +167,15 @@ Public Class Exercises
     Public Shared Function Problem4_14(pitches As Integer()) As String
         Dim strikes As Integer = 0
         Dim balls As Integer = 0
-        Dim fauls As Integer = 0
         For Each pitch In pitches
             If pitch = 1 Then
                 strikes += 1
-            End If
-            If pitch = 2 Then
+            ElseIf pitch = 2 Then
                 balls += 1
-            End If
-            If pitch = 3 AndAlso strikes < 2 Then
+            ElseIf pitch = 3 AndAlso strikes < 2 Then
                 strikes += 1
             End If
-            if strikes = 3 OrElse balls = 4 Then
+            If strikes = 3 OrElse balls = 4 Then
                 Return $"{strikes}ストライク,{balls}ボール"
             End If
         Next
@@ -195,8 +188,8 @@ Public Class Exercises
         Dim i As Integer = 0
         Dim d As Integer = 2
         Do
-            If n mod d = 0 Then
-                n = n / d
+            If n Mod d = 0 Then
+                n = n \ d
                 ReDim Preserve result(i)
                 result(i) = d
                 i += 1
@@ -209,16 +202,16 @@ Public Class Exercises
 
     ' 問題 4-16: n が素数なら True を返す
     Public Shared Function Problem4_16(n As Integer) As Boolean
-        If n = 2 Then Return False
+        If n <= 1 Then Return False
 
         Dim d As Integer = 2
         Do
-            If n mod d = 0 Then
-                return False
+            If n Mod d = 0 Then
+                Return False
             Else
                 d += 1
             End If
-        Loop While n > d
+        Loop While d * d <= n
         Return True
     End Function
 
@@ -228,9 +221,7 @@ Public Class Exercises
         Dim result(8, 8) As Integer
         For i As Integer = 0 To 8
             For j As Integer = 0 To 8
-                Dim num1 = i + 1
-                Dim num2 = j + 1
-                result(i, j) = num1 * num2
+                result(i, j) = (i + 1) * (j + 1)
             Next
         Next
         Return result
@@ -240,7 +231,7 @@ Public Class Exercises
     Public Shared Function Problem4_18(numbers As Integer()) As Integer
         Dim sum As Integer = 0
         For Each num In numbers
-            if num = 0 Then
+            If num = 0 Then
                 Return sum
             End If
             sum += num
@@ -253,7 +244,7 @@ Public Class Exercises
         Dim count As Integer = 0
         Dim sum As Integer = 0
         For Each num In numbers
-            if num = 0 Then
+            If num = 0 Then
                 Return sum \ count
             End If
             count += 1
@@ -265,13 +256,12 @@ Public Class Exercises
     ' 問題 4-20: "$" で作った三角形の各行を String 配列で返す
     '            例: size=3 → {"$", "$$", "$$$"}
     Public Shared Function Problem4_20(size As Integer) As String()
-        Dim result() As String = New String() {}
+        Dim result(size - 1) As String
         For i As Integer = 0 To size - 1
             Dim mark As String = ""
             For j As Integer = 0 To i
                 mark = mark & "$"
             Next
-            Redim Preserve result(i)
             result(i) = mark
         Next
         Return result
@@ -282,16 +272,17 @@ Public Class Exercises
     Public Shared Function Problem4_21(size As Integer) As String()
         Dim result(size - 1) As String
         For i As Integer = 0 To size - 1
-            Dim mark As String = ""
             Dim left As Integer = i
             Dim right As Integer = size - 1 - i
-            For j As Integer = 0 To size - 1
-                If left <= right AndAlso j > right Then Exit For
-                If left >= right AndAlso j > left Then Exit For
-
-                If j = left Then
-                    mark = mark & "X"
-                ElseIf j = right Then
+            Dim limit As Integer
+            If left >= right Then
+                limit = left
+            Else
+                limit = right
+            End If
+            Dim mark As String = ""
+            For j As Integer = 0 To limit
+                If j = left OrElse j = right Then
                     mark = mark & "X"
                 Else
                     mark = mark & " "
@@ -309,8 +300,9 @@ Public Class Exercises
         result(0) = 0
         result(1) = 1
         Dim i As Integer = 1
-        Do While result(i - 1) + result(i) <= 1000
+        Do
             Dim num As Integer = result(i - 1) + result(i)
+            If num > 1000 Then Exit Do
             i += 1
             ReDim Preserve result(i)
             result(i) = num

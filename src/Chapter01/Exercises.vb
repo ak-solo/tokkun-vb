@@ -33,9 +33,8 @@ Public Class Exercises
     '           result(0) = 3 倍後の値、result(1) = 半分にした値
     Public Shared Function Problem1_6() As Integer()
         Dim x As Integer = 7
-        Dim step1 As Integer = x * 3
-        Dim step2 As Integer = step1 \ 2
-        Return New Integer() {step1, step2}
+        x = x * 3
+        Return New Integer() {x, x \ 2}
     End Function
 
     ' 問題 1-7: x=3, y=7 の値を入れ替えた結果を "x=7,y=3" の形式で返す
@@ -65,7 +64,7 @@ Public Class Exercises
     ' 問題 1-10: x の 1 乗・2 乗・3 乗を配列で返す
     '            result(0)=x^1, result(1)=x^2, result(2)=x^3
     Public Shared Function Problem1_10(x As Integer) As Integer()
-        Return New Integer() {x ^ 1, x ^ 2, x ^ 3}
+        Return New Integer() {x, x ^ 2, x ^ 3}
     End Function
 
     ' 問題 1-11: Integer 変数 x=10, y=3 を宣言し、x / y の結果（Double）を返す
@@ -84,7 +83,7 @@ Public Class Exercises
     ' 問題 1-13: x を y で割った商と余りを配列で返す
     '            result(0) = 商、result(1) = 余り
     Public Shared Function Problem1_13(x As Integer, y As Integer) As Integer()
-        Return New Integer() {x \ y, x mod y}
+        Return New Integer() {x \ y, x Mod y}
     End Function
 
 End Class

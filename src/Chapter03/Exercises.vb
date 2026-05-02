@@ -52,13 +52,13 @@ Public Class Exercises
     ' 問題 3-6: "正の偶数" / "正の奇数" / "負の偶数" / "負の奇数" を返す（0 は "正の偶数"）
     Public Shared Function Problem3_6(x As Integer) As String
         If x >= 0 Then
-            If x mod 2 = 0 Then
+            If x Mod 2 = 0 Then
                 Return "正の偶数"
             Else
                 Return "正の奇数"
             End If
         Else
-            If x mod 2 = 0 Then
+            If x Mod 2 = 0 Then
                 Return "負の偶数"
             Else
                 Return "負の奇数"
@@ -104,11 +104,9 @@ Public Class Exercises
     ' 問題 3-8: 中間・期末の点数から合否を返す
     '   合格条件: 両方60点以上 / 合計130点以上 / 合計100点以上かつどちらかが90点以上
     Public Shared Function Problem3_8(midterm As Integer, final As Integer) As String
-        If midterm >= 60 AndAlso final >= 60 Then
-            Return "合格"
-        ElseIf (midterm + final) >= 130 Then
-            Return "合格"
-        ElseIf (midterm + final) >= 100 AndAlso (midterm >= 90 OrElse final >= 90) Then
+        If (midterm >= 60 AndAlso final >= 60) OrElse _
+           (midterm + final >= 130) OrElse _
+           (midterm + final >= 100 AndAlso (midterm >= 90 OrElse final >= 90)) Then
             Return "合格"
         Else
             Return "不合格"

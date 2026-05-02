@@ -13,7 +13,7 @@ Public Class Exercises
     ' 問題 2-3: x の 1 乗・2 乗・3 乗を配列で返す
     '           result(0)=x^1, result(1)=x^2, result(2)=x^3
     Public Shared Function Problem2_3(x As Integer) As Integer()
-        Return New Integer() {x ^ 1, x ^ 2, x ^ 3}
+        Return New Integer() {x, x ^ 2, x ^ 3}
     End Function
 
     ' 問題 2-4: x と y の和を返す

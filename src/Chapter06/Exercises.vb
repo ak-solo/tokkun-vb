@@ -6,7 +6,7 @@ Public Class Exercises
     End Function
 
     Private Shared Function Square(n As Integer) As Integer
-        Return n * n
+        Return n * n    ' ^ 演算子は Double を返すため * で整数演算する
     End Function
 
     ' 問題 6-2: a と b の平均（整数除算）を返す
@@ -51,10 +51,10 @@ Public Class Exercises
 
     ' 問題 6-5: 任意の文字 ch で作った直角三角形を文字列で返す（行を Environment.NewLine で結合）
     Public Shared Function Problem6_5(size As Integer, ch As Char) As String
-        Return Triangle(size, ch)
+        Return TriangleWithChar(size, ch)
     End Function
 
-    Private Shared Function Triangle(size As Integer, ch As Char) As String
+    Private Shared Function TriangleWithChar(size As Integer, ch As Char) As String
         Dim result As String = ""
         For i As Integer = 1 To size
             For j As Integer = 1 To i
@@ -89,9 +89,9 @@ Public Class Exercises
     End Function
 
     Private Shared Function IsPrime(n As Integer) As Boolean
-        If n = 1 Then Return False
+        If n <= 1 Then Return False
         For x As Integer = 2 To Math.Sqrt(n)
-            if n mod x = 0 Then Return False
+            If n Mod x = 0 Then Return False
         Next
         Return True
     End Function
