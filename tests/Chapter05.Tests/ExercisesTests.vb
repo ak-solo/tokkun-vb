@@ -130,4 +130,106 @@ Public Class Chapter05Tests
         Assert.Equal({5, 3, 8, 1}, original)
     End Sub
 
+    ' --- 問題 5-9 ---
+    <Theory>
+    <InlineData(New Integer() {10, 20, 30}, 20)>
+    <InlineData(New Integer() {1, 2, 3, 4}, 2)>
+    <InlineData(New Integer() {100}, 100)>
+    Public Sub Test_5_9_Average(numbers As Integer(), expected As Integer)
+        Assert.Equal(expected, Exercises.Problem5_9(numbers))
+    End Sub
+
+    ' --- 問題 5-10 ---
+    <Fact>
+    Public Sub Test_5_10_WinsLosses()
+        Dim r1 = Exercises.Problem5_10({1, 0, 1, 1, 0})
+        Assert.Equal(3, r1(0))
+        Assert.Equal(2, r1(1))
+
+        Dim r2 = Exercises.Problem5_10({0, 0, 0})
+        Assert.Equal(0, r2(0))
+        Assert.Equal(3, r2(1))
+    End Sub
+
+    ' --- 問題 5-11 ---
+    <Fact>
+    Public Sub Test_5_11_TotalScore()
+        Assert.Equal(9, Exercises.Problem5_11_TotalScore({1, 2, 0, 3, 0, 1, 0, 2, 0}))
+        Assert.Equal(0, Exercises.Problem5_11_TotalScore({0, 0, 0, 0, 0, 0, 0, 0, 0}))
+    End Sub
+
+    <Theory>
+    <InlineData(5, 6, "阪神の勝ち")>
+    <InlineData(7, 3, "巨人の勝ち")>
+    <InlineData(4, 4, "引き分け")>
+    Public Sub Test_5_11_Winner(giants As Integer, tigers As Integer, expected As String)
+        Assert.Equal(expected, Exercises.Problem5_11_Winner(giants, tigers))
+    End Sub
+
+    ' --- 問題 5-12 ---
+    <Theory>
+    <InlineData(New Integer() {5, 3, 8, 1}, 8)>
+    <InlineData(New Integer() {-1, -5, -3}, -1)>
+    <InlineData(New Integer() {7}, 7)>
+    Public Sub Test_5_12_Max(numbers As Integer(), expected As Integer)
+        Assert.Equal(expected, Exercises.Problem5_12(numbers))
+    End Sub
+
+    ' --- 問題 5-13 ---
+    <Fact>
+    Public Sub Test_5_13_MaxMin()
+        Dim r1 = Exercises.Problem5_13({5, 3, 8, 1, 9})
+        Assert.Equal(9, r1(0))
+        Assert.Equal(1, r1(1))
+
+        Dim r2 = Exercises.Problem5_13({-3, -1, -5})
+        Assert.Equal(-1, r2(0))
+        Assert.Equal(-5, r2(1))
+    End Sub
+
+    ' --- 問題 5-14 ---
+    <Theory>
+    <InlineData(New Integer() {30, 40, 50, 60}, 120)>
+    <InlineData(New Integer() {101}, 101)>
+    <InlineData(New Integer() {50, 51}, 101)>
+    Public Sub Test_5_14_SumUntilOver100(numbers As Integer(), expected As Integer)
+        Assert.Equal(expected, Exercises.Problem5_14(numbers))
+    End Sub
+
+    ' --- 問題 5-15 ---
+    <Theory>
+    <InlineData(New Integer() {1, 2, 1, 1}, "3ストライク,1ボール")>
+    <InlineData(New Integer() {2, 2, 2, 2}, "0ストライク,4ボール")>
+    <InlineData(New Integer() {1, 2, 1, 2, 2, 2}, "2ストライク,4ボール")>
+    Public Sub Test_5_15_StrikeBall(pitches As Integer(), expected As String)
+        Assert.Equal(expected, Exercises.Problem5_15(pitches))
+    End Sub
+
+    ' --- 問題 5-16 ---
+    <Theory>
+    <InlineData(New Integer() {3, 3, 1}, "3ストライク,0ボール")>
+    <InlineData(New Integer() {1, 1, 3, 1}, "3ストライク,0ボール")>
+    <InlineData(New Integer() {3, 3, 3, 2, 2, 2, 2}, "2ストライク,4ボール")>
+    Public Sub Test_5_16_StrikeBallFoul(pitches As Integer(), expected As String)
+        Assert.Equal(expected, Exercises.Problem5_16(pitches))
+    End Sub
+
+    ' --- 問題 5-17 ---
+    <Theory>
+    <InlineData(New Integer() {5, 10, 3, 0}, 18)>
+    <InlineData(New Integer() {100, 0}, 100)>
+    <InlineData(New Integer() {0}, 0)>
+    Public Sub Test_5_17_SumUntilZero(numbers As Integer(), expected As Integer)
+        Assert.Equal(expected, Exercises.Problem5_17(numbers))
+    End Sub
+
+    ' --- 問題 5-18 ---
+    <Theory>
+    <InlineData(New Integer() {5, 10, 3, 0}, 6)>
+    <InlineData(New Integer() {3, 4, 0}, 3)>
+    <InlineData(New Integer() {10, 0}, 10)>
+    Public Sub Test_5_18_AverageUntilZero(numbers As Integer(), expected As Integer)
+        Assert.Equal(expected, Exercises.Problem5_18(numbers))
+    End Sub
+
 End Class

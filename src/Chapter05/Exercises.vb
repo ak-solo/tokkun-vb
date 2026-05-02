@@ -43,4 +43,62 @@ Public Class Exercises
         Throw New NotImplementedException("問題 5-8 を実装してください")
     End Function
 
+    ' 問題 5-9: 配列の平均値（整数）を返す
+    Public Shared Function Problem5_9(numbers As Integer()) As Integer
+        Throw New NotImplementedException("問題 5-9 を実装してください")
+    End Function
+
+    ' 問題 5-10: 勝ち(1)/負け(0) の配列から {勝ち数, 負け数} を返す
+    Public Shared Function Problem5_10(results As Integer()) As Integer()
+        Throw New NotImplementedException("問題 5-10 を実装してください")
+    End Function
+
+    ' 問題 5-11: 各回の得点配列の合計を返す
+    Public Shared Function Problem5_11_TotalScore(scores As Integer()) As Integer
+        Throw New NotImplementedException("問題 5-11（合計）を実装してください")
+    End Function
+
+    ' 問題 5-11: 巨人・阪神の合計点から勝者を返す
+    '            "巨人の勝ち" / "阪神の勝ち" / "引き分け"
+    Public Shared Function Problem5_11_Winner(giants As Integer, tigers As Integer) As String
+        Throw New NotImplementedException("問題 5-11（勝者）を実装してください")
+    End Function
+
+    ' 問題 5-12: 配列の最大値を返す
+    Public Shared Function Problem5_12(numbers As Integer()) As Integer
+        Throw New NotImplementedException("問題 5-12 を実装してください")
+    End Function
+
+    ' 問題 5-13: 配列の {最大値, 最小値} を返す
+    Public Shared Function Problem5_13(numbers As Integer()) As Integer()
+        Throw New NotImplementedException("問題 5-13 を実装してください")
+    End Function
+
+    ' 問題 5-14: 合計が 100 を超えた時点の合計値を返す
+    Public Shared Function Problem5_14(numbers As Integer()) As Integer
+        Throw New NotImplementedException("問題 5-14 を実装してください")
+    End Function
+
+    ' 問題 5-15: 3 ストライクまたは 4 ボールで停止し "Nストライク,Mボール" を返す
+    '            pitches: 1=ストライク、2=ボール
+    Public Shared Function Problem5_15(pitches As Integer()) As String
+        Throw New NotImplementedException("問題 5-15 を実装してください")
+    End Function
+
+    ' 問題 5-16: 5-15 にファウル(3)を追加。2 ストライクまでファウルはストライク扱い
+    '            pitches: 1=ストライク、2=ボール、3=ファウル
+    Public Shared Function Problem5_16(pitches As Integer()) As String
+        Throw New NotImplementedException("問題 5-16 を実装してください")
+    End Function
+
+    ' 問題 5-17: 最初の 0 の手前までの合計を返す（0 は含めない）
+    Public Shared Function Problem5_17(numbers As Integer()) As Integer
+        Throw New NotImplementedException("問題 5-17 を実装してください")
+    End Function
+
+    ' 問題 5-18: 最初の 0 の手前までの平均値（整数）を返す（0 は含めない）
+    Public Shared Function Problem5_18(numbers As Integer()) As Integer
+        Throw New NotImplementedException("問題 5-18 を実装してください")
+    End Function
+
 End Class
