@@ -31,12 +31,12 @@ Public Class Cat
 
     ' 問題 8-1: "スースー" を返す
     Public Function Sleep() As String
-        Throw New NotImplementedException("問題 8-1 の Sleep を実装してください")
+        Return "スースー"
     End Function
 
     ' 問題 8-3: "ニャー" を返す（Animal.Speak のオーバーライド）
     Public Overrides Function Speak() As String
-        Throw New NotImplementedException("問題 8-3 の Cat.Speak を実装してください")
+        Return "ニャー"
     End Function
 
 End Class
@@ -53,12 +53,12 @@ Public Class Dog
 
     ' 問題 8-2: "トコトコ" を返す
     Public Function Run() As String
-        Throw New NotImplementedException("問題 8-2 の Run を実装してください")
+        Return "トコトコ"
     End Function
 
     ' 問題 8-4: "ワンワン" を返す（Animal.Speak のオーバーライド）
     Public Overrides Function Speak() As String
-        Throw New NotImplementedException("問題 8-4 の Dog.Speak を実装してください")
+        Return "ワンワン"
     End Function
 
 End Class
