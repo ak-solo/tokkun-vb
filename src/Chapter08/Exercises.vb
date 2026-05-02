@@ -62,3 +62,33 @@ Public Class Dog
     End Function
 
 End Class
+
+
+Public Class Exercises
+
+    ' 問題 8-1: Cat をインスタンス化し ShowProfile と Sleep の結果をカンマ区切りで返す
+    Public Shared Function Problem8_1(name As String, age As Integer) As String
+        Throw New NotImplementedException("問題 8-1 を実装してください")
+    End Function
+
+    ' 問題 8-2: Dog をインスタンス化し ShowProfile と Run の結果をカンマ区切りで返す
+    Public Shared Function Problem8_2(name As String, age As Integer) As String
+        Throw New NotImplementedException("問題 8-2 を実装してください")
+    End Function
+
+    ' 問題 8-3: Animal 型変数に Cat を代入して Speak を呼び出す
+    Public Shared Function Problem8_3() As String
+        Throw New NotImplementedException("問題 8-3 を実装してください")
+    End Function
+
+    ' 問題 8-4: Animal 型変数に Dog を代入して Speak を呼び出す
+    Public Shared Function Problem8_4() As String
+        Throw New NotImplementedException("問題 8-4 を実装してください")
+    End Function
+
+    ' 問題 8-5: Animal 配列に Cat と Dog を交互に格納しループで Speak をカンマ区切りで返す
+    Public Shared Function Problem8_5() As String
+        Throw New NotImplementedException("問題 8-5 を実装してください")
+    End Function
+
+End Class

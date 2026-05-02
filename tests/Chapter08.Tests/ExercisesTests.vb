@@ -123,4 +123,44 @@ Public Class Chapter08Tests
         Assert.Equal("ポチ,3歳", animals(1).ShowProfile())
     End Sub
 
+
+    ' ===== Problem8_1 =====
+
+    <Theory>
+    <InlineData("タマ", 2, "タマ,2歳,スースー")>
+    <InlineData("ミケ", 5, "ミケ,5歳,スースー")>
+    Public Sub Test_8_1_Problem(name As String, age As Integer, expected As String)
+        Assert.Equal(expected, Exercises.Problem8_1(name, age))
+    End Sub
+
+    ' ===== Problem8_2 =====
+
+    <Theory>
+    <InlineData("ポチ", 3, "ポチ,3歳,トコトコ")>
+    <InlineData("コロ", 1, "コロ,1歳,トコトコ")>
+    Public Sub Test_8_2_Problem(name As String, age As Integer, expected As String)
+        Assert.Equal(expected, Exercises.Problem8_2(name, age))
+    End Sub
+
+    ' ===== Problem8_3 =====
+
+    <Fact>
+    Public Sub Test_8_3_Problem_CatSpeaksThroughAnimalRef()
+        Assert.Equal("ニャー", Exercises.Problem8_3())
+    End Sub
+
+    ' ===== Problem8_4 =====
+
+    <Fact>
+    Public Sub Test_8_4_Problem_DogSpeaksThroughAnimalRef()
+        Assert.Equal("ワンワン", Exercises.Problem8_4())
+    End Sub
+
+    ' ===== Problem8_5 =====
+
+    <Fact>
+    Public Sub Test_8_5_Problem_PolymorphicSpeak()
+        Assert.Equal("ニャー,ワンワン,ニャー,ワンワン", Exercises.Problem8_5())
+    End Sub
+
 End Class
