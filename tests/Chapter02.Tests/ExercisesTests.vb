@@ -24,15 +24,12 @@ Public Class Chapter02Tests
 
     ' --- 問題 2-3 ---
     <Theory>
-    <InlineData(2, 2, 4, 8)>
-    <InlineData(3, 3, 9, 27)>
-    <InlineData(5, 5, 25, 125)>
-    <InlineData(1, 1, 1, 1)>
-    Public Sub Test_2_3_Powers(x As Integer, exp1 As Integer, exp2 As Integer, exp3 As Integer)
-        Dim result = Exercises.Problem2_3(x)
-        Assert.Equal(exp1, result(0))
-        Assert.Equal(exp2, result(1))
-        Assert.Equal(exp3, result(2))
+    <InlineData(2, "2,4,8")>
+    <InlineData(3, "3,9,27")>
+    <InlineData(5, "5,25,125")>
+    <InlineData(1, "1,1,1")>
+    Public Sub Test_2_3_Powers(x As Integer, expected As String)
+        Assert.Equal(expected, Exercises.Problem2_3(x))
     End Sub
 
     ' --- 問題 2-4: 和 ---

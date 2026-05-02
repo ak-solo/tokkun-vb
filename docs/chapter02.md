@@ -46,19 +46,17 @@ Console.WriteLine(Sum(10, 20))  ' → 30
 
 ---
 
-### 複数の値を返す（配列）
+### 複数の値を返す（文字列補間）
 
-複数の値をまとめて返したいときは、配列を戻り値にします。
+複数の計算結果をまとめて返したいときは、カンマ区切りの文字列にまとめる方法があります。
 
 ```vbnet
-Function Powers(x As Integer) As Integer()
-    Return New Integer() {x ^ 1, x ^ 2, x ^ 3}
+Function Powers(x As Integer) As String
+    Return $"{x ^ 1},{x ^ 2},{x ^ 3}"
 End Function
 
-Dim result = Powers(2)
-Console.WriteLine(result(0))   ' → 2
-Console.WriteLine(result(1))   ' → 4
-Console.WriteLine(result(2))   ' → 8
+Console.WriteLine(Powers(2))   ' → 2,4,8
+Console.WriteLine(Powers(3))   ' → 3,9,27
 ```
 
 ---
@@ -79,11 +77,9 @@ Console.WriteLine(result(2))   ' → 8
 
 ### 問題 2-3
 
-`Integer` 型の引数 `x` を受け取り、`x` の **1 乗・2 乗・3 乗** を整数配列で返す関数を実装しなさい。
+`Integer` 型の引数 `x` を受け取り、`x` の **1 乗・2 乗・3 乗** をカンマ区切りの文字列で返す関数を実装しなさい。
 
-- `result(0)` = x の 1 乗
-- `result(1)` = x の 2 乗
-- `result(2)` = x の 3 乗
+例: `x = 2` のとき `"2,4,8"` を返す
 
 **ヒント:** 累乗は `^` 演算子を使います（例: `x ^ 2`）。
 

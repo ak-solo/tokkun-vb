@@ -10,9 +10,8 @@ Public Class Exercises
         Throw New NotImplementedException("問題 2-2 を実装してください")
     End Function
 
-    ' 問題 2-3: x の 1 乗・2 乗・3 乗を配列で返す
-    '           result(0)=x^1, result(1)=x^2, result(2)=x^3
-    Public Shared Function Problem2_3(x As Integer) As Integer()
+    ' 問題 2-3: x の 1 乗・2 乗・3 乗をカンマ区切りの文字列で返す
+    Public Shared Function Problem2_3(x As Integer) As String
         Throw New NotImplementedException("問題 2-3 を実装してください")
     End Function
 

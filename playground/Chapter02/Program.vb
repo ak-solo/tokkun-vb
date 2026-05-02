@@ -25,10 +25,7 @@ Module Program
         ' ===== 問題 2-3: 1乗・2乗・3乗 =====
         Try
             Dim x3 As Integer = 3   ' ← 変えて試そう
-            Dim r3 = Exercises.Problem2_3(x3)
-            Console.WriteLine($"{x3} の 1 乗: {r3(0)}")
-            Console.WriteLine($"{x3} の 2 乗: {r3(1)}")
-            Console.WriteLine($"{x3} の 3 乗: {r3(2)}")
+            Console.WriteLine($"{x3} の 1 乗・2 乗・3 乗: {Exercises.Problem2_3(x3)}")
         Catch ex As NotImplementedException
             Console.WriteLine("  [未実装] 問題 2-3")
         End Try
