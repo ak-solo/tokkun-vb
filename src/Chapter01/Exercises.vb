@@ -25,9 +25,8 @@ Public Class Exercises
         Throw New NotImplementedException("問題 1-5 を実装してください")
     End Function
 
-    ' 問題 1-6: x=7 を 3 倍し、さらに半分（整数除算）にした各ステップを配列で返す
-    '           result(0) = 3 倍後の値、result(1) = 半分にした値
-    Public Shared Function Problem1_6() As Integer()
+    ' 問題 1-6: x=7 を 3 倍した値と、さらに整数除算で半分にした値をカンマ区切りで返す
+    Public Shared Function Problem1_6() As String
         Throw New NotImplementedException("問題 1-6 を実装してください")
     End Function
 
@@ -41,15 +40,13 @@ Public Class Exercises
         Throw New NotImplementedException("問題 1-8 を実装してください")
     End Function
 
-    ' 問題 1-9: x を 2 倍・3 倍・4 倍した結果を配列で返す
-    '           result(0)=x*2, result(1)=x*3, result(2)=x*4
-    Public Shared Function Problem1_9(x As Integer) As Integer()
+    ' 問題 1-9: x を 2 倍・3 倍・4 倍した結果をカンマ区切りの文字列で返す
+    Public Shared Function Problem1_9(x As Integer) As String
         Throw New NotImplementedException("問題 1-9 を実装してください")
     End Function
 
-    ' 問題 1-10: x の 1 乗・2 乗・3 乗を配列で返す
-    '            result(0)=x^1, result(1)=x^2, result(2)=x^3
-    Public Shared Function Problem1_10(x As Integer) As Integer()
+    ' 問題 1-10: x の 1 乗・2 乗・3 乗をカンマ区切りの文字列で返す
+    Public Shared Function Problem1_10(x As Integer) As String
         Throw New NotImplementedException("問題 1-10 を実装してください")
     End Function
 
@@ -63,9 +60,8 @@ Public Class Exercises
         Throw New NotImplementedException("問題 1-12 を実装してください")
     End Function
 
-    ' 問題 1-13: x を y で割った商と余りを配列で返す
-    '            result(0) = 商、result(1) = 余り
-    Public Shared Function Problem1_13(x As Integer, y As Integer) As Integer()
+    ' 問題 1-13: x を y で割った商と余りをカンマ区切りの文字列で返す
+    Public Shared Function Problem1_13(x As Integer, y As Integer) As String
         Throw New NotImplementedException("問題 1-13 を実装してください")
     End Function
 

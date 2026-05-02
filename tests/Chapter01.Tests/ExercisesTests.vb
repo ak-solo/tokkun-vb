@@ -35,9 +35,7 @@ Public Class Chapter01Tests
     ' --- 問題 1-6 ---
     <Fact>
     Public Sub Test_1_6_TripleThenHalf()
-        Dim result = Exercises.Problem1_6()
-        Assert.Equal(21, result(0))  ' 7 * 3 = 21
-        Assert.Equal(10, result(1))  ' 21 \ 2 = 10
+        Assert.Equal("21,10", Exercises.Problem1_6())
     End Sub
 
     ' --- 問題 1-7 ---
@@ -54,28 +52,22 @@ Public Class Chapter01Tests
 
     ' --- 問題 1-9 ---
     <Theory>
-    <InlineData(3, 6, 9, 12)>
-    <InlineData(5, 10, 15, 20)>
-    <InlineData(1, 2, 3, 4)>
-    <InlineData(10, 20, 30, 40)>
-    Public Sub Test_1_9_MultipleOfX(x As Integer, exp2 As Integer, exp3 As Integer, exp4 As Integer)
-        Dim result = Exercises.Problem1_9(x)
-        Assert.Equal(exp2, result(0))
-        Assert.Equal(exp3, result(1))
-        Assert.Equal(exp4, result(2))
+    <InlineData(3, "6,9,12")>
+    <InlineData(5, "10,15,20")>
+    <InlineData(1, "2,3,4")>
+    <InlineData(10, "20,30,40")>
+    Public Sub Test_1_9_MultipleOfX(x As Integer, expected As String)
+        Assert.Equal(expected, Exercises.Problem1_9(x))
     End Sub
 
     ' --- 問題 1-10 ---
     <Theory>
-    <InlineData(2, 2, 4, 8)>
-    <InlineData(3, 3, 9, 27)>
-    <InlineData(5, 5, 25, 125)>
-    <InlineData(1, 1, 1, 1)>
-    Public Sub Test_1_10_PowersOfX(x As Integer, exp1 As Integer, exp2 As Integer, exp3 As Integer)
-        Dim result = Exercises.Problem1_10(x)
-        Assert.Equal(exp1, result(0))
-        Assert.Equal(exp2, result(1))
-        Assert.Equal(exp3, result(2))
+    <InlineData(2, "2,4,8")>
+    <InlineData(3, "3,9,27")>
+    <InlineData(5, "5,25,125")>
+    <InlineData(1, "1,1,1")>
+    Public Sub Test_1_10_PowersOfX(x As Integer, expected As String)
+        Assert.Equal(expected, Exercises.Problem1_10(x))
     End Sub
 
     ' --- 問題 1-11 ---
@@ -94,14 +86,12 @@ Public Class Chapter01Tests
 
     ' --- 問題 1-13 ---
     <Theory>
-    <InlineData(10, 3, 3, 1)>
-    <InlineData(17, 5, 3, 2)>
-    <InlineData(20, 4, 5, 0)>
-    <InlineData(7, 2, 3, 1)>
-    Public Sub Test_1_13_QuotientAndRemainder(x As Integer, y As Integer, expectedQ As Integer, expectedR As Integer)
-        Dim result = Exercises.Problem1_13(x, y)
-        Assert.Equal(expectedQ, result(0))
-        Assert.Equal(expectedR, result(1))
+    <InlineData(10, 3, "3,1")>
+    <InlineData(17, 5, "3,2")>
+    <InlineData(20, 4, "5,0")>
+    <InlineData(7, 2, "3,1")>
+    Public Sub Test_1_13_QuotientAndRemainder(x As Integer, y As Integer, expected As String)
+        Assert.Equal(expected, Exercises.Problem1_13(x, y))
     End Sub
 
 End Class
