@@ -8,87 +8,61 @@ Module Program
     Sub Main()
         ' ===== 問題 4-1〜4-4: 基本ループ =====
         Try
-            ' 4-1: SPAM を 10 回
-            For Each s In Exercises.Problem4_1()
-                Console.Write(s & " ")
-            Next
-            Console.WriteLine()
-
-            ' 4-2: 三の段
-            Console.WriteLine(String.Join(", ", Exercises.Problem4_2()))
-
-            ' 4-3: 2 の累乗
-            Console.WriteLine(String.Join(", ", Exercises.Problem4_3()))
-
-            ' 4-4: 7!
+            Console.WriteLine(Exercises.Problem4_1())
+            Console.WriteLine(Exercises.Problem4_2())
+            Console.WriteLine(Exercises.Problem4_3())
             Console.WriteLine($"7! = {Exercises.Problem4_4()}")
         Catch ex As NotImplementedException
             Console.WriteLine("  [未実装] 問題 4-1 〜 4-4")
         End Try
 
-        ' ===== 問題 4-15: 素因数分解（n の値を変えて試してみよう）=====
+        ' ===== 問題 4-7: 素因数分解（n の値を変えて試してみよう）=====
         Try
-            Dim n15 As Integer = 20100   ' ← 変えて試そう（2 以上）
-            Console.WriteLine($"{n15} = {String.Join(" × ", Exercises.Problem4_15(n15))}")
+            Dim n7 As Integer = 20100   ' ← 変えて試そう（2 以上）
+            Console.WriteLine($"{n7} の素因数: {Exercises.Problem4_7(n7)}")
         Catch ex As NotImplementedException
-            Console.WriteLine("  [未実装] 問題 4-15")
+            Console.WriteLine("  [未実装] 問題 4-7")
         End Try
 
-        ' ===== 問題 4-16: 素数判定 =====
+        ' ===== 問題 4-8: 素数判定 =====
         Try
-            Dim n16 As Integer = 97   ' ← 変えて試そう
-            Console.WriteLine($"{n16} は素数か: {Exercises.Problem4_16(n16)}")
+            Dim n8 As Integer = 97   ' ← 変えて試そう
+            Console.WriteLine($"{n8} は素数か: {Exercises.Problem4_8(n8)}")
 
-            ' 100 以下の素数を全部探す
             Console.Write("100 以下の素数: ")
             For i = 2 To 100
-                If Exercises.Problem4_16(i) Then Console.Write($"{i} ")
+                If Exercises.Problem4_8(i) Then Console.Write($"{i} ")
             Next
             Console.WriteLine()
         Catch ex As NotImplementedException
-            Console.WriteLine("  [未実装] 問題 4-16")
+            Console.WriteLine("  [未実装] 問題 4-8")
         End Try
 
-        ' ===== 問題 4-17: 九九表 =====
+        ' ===== 問題 4-9: 三角形（size の値を変えて試してみよう）=====
         Try
-            Dim kuku = Exercises.Problem4_17()
-            For i = 0 To 8
-                For j = 0 To 8
-                    Console.Write($"{kuku(i, j),3}")
-                Next
-                Console.WriteLine()
-            Next
-        Catch ex As NotImplementedException
-            Console.WriteLine("  [未実装] 問題 4-17")
-        End Try
-
-        ' ===== 問題 4-20: 三角形（size の値を変えて試してみよう）=====
-        Try
-            Dim size20 As Integer = 5   ' ← 変えて試そう
-            For Each line In Exercises.Problem4_20(size20)
+            Dim size9 As Integer = 5   ' ← 変えて試そう
+            For Each line In Exercises.Problem4_9(size9).Split(","c)
                 Console.WriteLine(line)
             Next
         Catch ex As NotImplementedException
-            Console.WriteLine("  [未実装] 問題 4-20")
+            Console.WriteLine("  [未実装] 問題 4-9")
         End Try
 
-        ' ===== 問題 4-21: ダイヤ（size の値を変えて試してみよう）=====
+        ' ===== 問題 4-10: × 印（size の値を変えて試してみよう）=====
         Try
-            Dim size21 As Integer = 5   ' ← 変えて試そう（2 以上）
-            For Each line In Exercises.Problem4_21(size21)
+            Dim size10 As Integer = 5   ' ← 変えて試そう（2 以上）
+            For Each line In Exercises.Problem4_10(size10).Split(","c)
                 Console.WriteLine(line)
             Next
         Catch ex As NotImplementedException
-            Console.WriteLine("  [未実装] 問題 4-21")
+            Console.WriteLine("  [未実装] 問題 4-10")
         End Try
 
-        ' ===== 問題 4-22: フィボナッチ数列 =====
+        ' ===== 問題 4-11: フィボナッチ数列 =====
         Try
-            Dim fib = Exercises.Problem4_22()
-            Console.WriteLine($"項数: {fib.Length}")
-            Console.WriteLine(String.Join(", ", fib))
+            Console.WriteLine(Exercises.Problem4_11())
         Catch ex As NotImplementedException
-            Console.WriteLine("  [未実装] 問題 4-22")
+            Console.WriteLine("  [未実装] 問題 4-11")
         End Try
     End Sub
 End Module
