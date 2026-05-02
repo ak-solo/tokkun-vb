@@ -41,9 +41,7 @@ Module Program
         ' ===== 問題 4-9: 三角形（size の値を変えて試してみよう）=====
         Try
             Dim size9 As Integer = 5   ' ← 変えて試そう
-            For Each line In Exercises.Problem4_9(size9).Split(","c)
-                Console.WriteLine(line)
-            Next
+            Console.WriteLine(Exercises.Problem4_9(size9))
         Catch ex As NotImplementedException
             Console.WriteLine("  [未実装] 問題 4-9")
         End Try
@@ -51,9 +49,7 @@ Module Program
         ' ===== 問題 4-10: × 印（size の値を変えて試してみよう）=====
         Try
             Dim size10 As Integer = 5   ' ← 変えて試そう（2 以上）
-            For Each line In Exercises.Problem4_10(size10).Split(","c)
-                Console.WriteLine(line)
-            Next
+            Console.WriteLine(Exercises.Problem4_10(size10))
         Catch ex As NotImplementedException
             Console.WriteLine("  [未実装] 問題 4-10")
         End Try

@@ -42,14 +42,12 @@ Public Class Exercises
         Throw New NotImplementedException("問題 4-8 を実装してください")
     End Function
 
-    ' 問題 4-9: "$" で作った三角形の各行をカンマ区切りの文字列で返す
-    '            例: size=3 → "$,$$,$$$"
+    ' 問題 4-9: "$" で作った三角形を改行区切りの文字列で返す
     Public Shared Function Problem4_9(size As Integer) As String
         Throw New NotImplementedException("問題 4-9 を実装してください")
     End Function
 
-    ' 問題 4-10: "X" で作った × 印の各行をカンマ区切りの文字列で返す（末尾空白なし）
-    '             例: size=3 → "X X, X,X X"
+    ' 問題 4-10: "X" で作った × 印を改行区切りの文字列で返す
     Public Shared Function Problem4_10(size As Integer) As String
         Throw New NotImplementedException("問題 4-10 を実装してください")
     End Function

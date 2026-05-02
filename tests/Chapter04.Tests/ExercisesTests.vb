@@ -69,16 +69,16 @@ Public Class Chapter04Tests
     <Fact>
     Public Sub Test_4_9_Triangle()
         Assert.Equal("$", Exercises.Problem4_9(1))
-        Assert.Equal("$,$$,$$$", Exercises.Problem4_9(3))
-        Assert.Equal("$,$$,$$$,$$$$", Exercises.Problem4_9(4))
+        Assert.Equal(String.Join(Environment.NewLine, "$", "$$", "$$$"), Exercises.Problem4_9(3))
+        Assert.Equal(String.Join(Environment.NewLine, "$", "$$", "$$$", "$$$$"), Exercises.Problem4_9(4))
     End Sub
 
     ' --- 問題 4-10 ---
     <Fact>
     Public Sub Test_4_10_XPattern()
-        Assert.Equal("X X, X,X X", Exercises.Problem4_10(3))
-        Assert.Equal("X  X, XX, XX,X  X", Exercises.Problem4_10(4))
-        Assert.Equal("X   X, X X,  X, X X,X   X", Exercises.Problem4_10(5))
+        Assert.Equal(String.Join(Environment.NewLine, "X X", " X ", "X X"), Exercises.Problem4_10(3))
+        Assert.Equal(String.Join(Environment.NewLine, "X  X", " XX ", " XX ", "X  X"), Exercises.Problem4_10(4))
+        Assert.Equal(String.Join(Environment.NewLine, "X   X", " X X ", "  X  ", " X X ", "X   X"), Exercises.Problem4_10(5))
     End Sub
 
     ' --- 問題 4-11 ---
