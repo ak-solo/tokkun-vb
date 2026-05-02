@@ -11,39 +11,39 @@ Public Class Dog
 
     ' 問題 7-4: 犬種を引数に取るコンストラクタ
     Public Sub New(breed As String)
-        Throw New NotImplementedException("問題 7-4 の New(breed) を実装してください")
+        mBreed = breed
     End Sub
 
     ' 問題 7-1: 名前プロパティ
     Public Property Name() As String
         Get
-            Throw New NotImplementedException("問題 7-1 の Name.Get を実装してください")
+            Return mName
         End Get
         Set(value As String)
-            Throw New NotImplementedException("問題 7-1 の Name.Set を実装してください")
+            mName = value
         End Set
     End Property
 
     ' 問題 7-2: 年齢プロパティ
     Public Property Age() As Integer
         Get
-            Throw New NotImplementedException("問題 7-2 の Age.Get を実装してください")
+            Return mAge
         End Get
         Set(value As Integer)
-            Throw New NotImplementedException("問題 7-2 の Age.Set を実装してください")
+            mAge = value
         End Set
     End Property
 
     ' 問題 7-4: 犬種プロパティ（読み取り専用）
     Public ReadOnly Property Breed() As String
         Get
-            Throw New NotImplementedException("問題 7-4 の Breed.Get を実装してください")
+            Return mBreed
         End Get
     End Property
 
     ' 問題 7-4: "犬種: 名前 (年齢歳)" の形式で返す
     Public Function ShowProfile() As String
-        Throw New NotImplementedException("問題 7-4 の ShowProfile を実装してください")
+        Return $"{mBreed}: {mName} ({mAge}歳)"
     End Function
 
 End Class
@@ -64,27 +64,37 @@ Public Class CoinCase
 
     ' 問題 7-5: 指定した種類の硬貨を枚数分追加する（無効な種類は無視）
     Public Sub AddCoins(denomination As Integer, count As Integer)
-        Throw New NotImplementedException("問題 7-5 の AddCoins を実装してください")
+        If mCounts.ContainsKey(denomination) Then
+            mCounts(denomination) += count
+        End If
     End Sub
 
     ' 問題 7-5: 指定した種類の硬貨の枚数を返す
     Public Overloads Function GetCount(denomination As Integer) As Integer
-        Throw New NotImplementedException("問題 7-5 の GetCount(denomination) を実装してください")
+        Return mCounts(denomination)
     End Function
 
     ' 問題 7-5: 全硬貨の合計金額を返す
     Public Overloads Function GetAmount() As Integer
-        Throw New NotImplementedException("問題 7-5 の GetAmount() を実装してください")
+        Dim amount As Integer
+        For Each pair In mCounts
+            amount += pair.Key * pair.Value
+        Next
+        Return amount
     End Function
 
     ' 問題 7-6: 全硬貨の合計枚数を返す
     Public Overloads Function GetCount() As Integer
-        Throw New NotImplementedException("問題 7-6 の GetCount() を実装してください")
+        Dim total As Integer
+        For Each pair In mCounts
+            total += pair.Value
+        Next
+        Return total
     End Function
 
     ' 問題 7-6: 指定した種類の硬貨の合計金額を返す
     Public Overloads Function GetAmount(denomination As Integer) As Integer
-        Throw New NotImplementedException("問題 7-6 の GetAmount(denomination) を実装してください")
+        Return mCounts(denomination) * denomination
     End Function
 
 End Class
