@@ -58,12 +58,6 @@ Public Class Exercises
         Throw New NotImplementedException("問題 5-11（合計）を実装してください")
     End Function
 
-    ' 問題 5-11: 巨人・阪神の合計点から勝者を返す
-    '            "巨人の勝ち" / "阪神の勝ち" / "引き分け"
-    Public Shared Function Problem5_11_Winner(giants As Integer, tigers As Integer) As String
-        Throw New NotImplementedException("問題 5-11（勝者）を実装してください")
-    End Function
-
     ' 問題 5-12: 配列の最大値を返す
     Public Shared Function Problem5_12(numbers As Integer()) As Integer
         Throw New NotImplementedException("問題 5-12 を実装してください")

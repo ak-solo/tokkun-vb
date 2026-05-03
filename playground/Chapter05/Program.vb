@@ -90,7 +90,7 @@ Module Program
             Dim tigers11 As Integer() = {0, 0, 2, 0, 1, 0, 0, 0, 3}   ' ← 変えて試そう
             Dim g = Exercises.Problem5_11_TotalScore(giants11)
             Dim t = Exercises.Problem5_11_TotalScore(tigers11)
-            Console.WriteLine($"巨人 {g} - {t} 阪神 → {Exercises.Problem5_11_Winner(g, t)}")
+            Console.WriteLine($"巨人 {g} - {t} 阪神")
         Catch ex As NotImplementedException
             Console.WriteLine("  [未実装] 問題 5-11")
         End Try

@@ -158,14 +158,6 @@ Public Class Chapter05Tests
         Assert.Equal(0, Exercises.Problem5_11_TotalScore({0, 0, 0, 0, 0, 0, 0, 0, 0}))
     End Sub
 
-    <Theory>
-    <InlineData(5, 6, "阪神の勝ち")>
-    <InlineData(7, 3, "巨人の勝ち")>
-    <InlineData(4, 4, "引き分け")>
-    Public Sub Test_5_11_Winner(giants As Integer, tigers As Integer, expected As String)
-        Assert.Equal(expected, Exercises.Problem5_11_Winner(giants, tigers))
-    End Sub
-
     ' --- 問題 5-12 ---
     <Theory>
     <InlineData(New Integer() {5, 3, 8, 1}, 8)>
