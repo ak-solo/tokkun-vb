@@ -215,11 +215,6 @@ Dim text = String.Join(Environment.NewLine, lines)
 **`Problem5_11_TotalScore(scores As Integer()) As Integer`**
 - 配列要素の合計を返す
 
-**`Problem5_11_Winner(giants As Integer, tigers As Integer) As String`**
-- 巨人が多ければ `"巨人の勝ち"`
-- 阪神が多ければ `"阪神の勝ち"`
-- 同点なら `"引き分け"`
-
 ---
 
 ### 問題 5-12

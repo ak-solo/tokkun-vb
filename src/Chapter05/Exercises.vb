@@ -128,18 +128,6 @@ Public Class Exercises
         Return sum
     End Function
 
-    ' 問題 5-11: 巨人・阪神の合計点から勝者を返す
-    '            "巨人の勝ち" / "阪神の勝ち" / "引き分け"
-    Public Shared Function Problem5_11_Winner(giants As Integer, tigers As Integer) As String
-        If giants > tigers Then
-            Return "巨人の勝ち"
-        ElseIf tigers > giants Then
-            Return "阪神の勝ち"
-        Else
-            Return "引き分け"
-        End If
-    End Function
-
     ' 問題 5-12: 配列の最大値を返す
     Public Shared Function Problem5_12(numbers As Integer()) As Integer
         Dim max As Integer = numbers(0)
