@@ -145,12 +145,12 @@ Public Class Exercises
         Dim b As Integer = 1
         result = a & "," & b
         Do
-            Dim num As Integer = a + b
+            Dim nxt As Integer = a + b
             a = b
-            b = num
-            If num > 1000 Then Exit Do
+            b = nxt
+            If nxt > 1000 Then Exit Do
             result = result & ","
-            result = result & num
+            result = result & nxt
         Loop
         Return result
     End Function
