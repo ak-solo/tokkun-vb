@@ -68,27 +68,41 @@ Public Class Exercises
 
     ' 問題 8-1: Cat をインスタンス化し ShowProfile と Sleep の結果をカンマ区切りで返す
     Public Shared Function Problem8_1(name As String, age As Integer) As String
-        Throw New NotImplementedException("問題 8-1 を実装してください")
+        Dim cat As New Cat(name, age)
+        Return $"{cat.ShowProfile()},{cat.Sleep()}"
     End Function
 
     ' 問題 8-2: Dog をインスタンス化し ShowProfile と Run の結果をカンマ区切りで返す
     Public Shared Function Problem8_2(name As String, age As Integer) As String
-        Throw New NotImplementedException("問題 8-2 を実装してください")
+        Dim dog As New Dog(name, age)
+        Return $"{dog.ShowProfile()},{dog.Run()}"
     End Function
 
     ' 問題 8-3: Animal 型変数に Cat を代入して Speak を呼び出す
     Public Shared Function Problem8_3() As String
-        Throw New NotImplementedException("問題 8-3 を実装してください")
+        Dim animal As Animal = New Cat("タマ", 2)
+        Return animal.Speak()
     End Function
 
     ' 問題 8-4: Animal 型変数に Dog を代入して Speak を呼び出す
     Public Shared Function Problem8_4() As String
-        Throw New NotImplementedException("問題 8-4 を実装してください")
+        Dim animal As Animal = New Dog("ポチ", 3)
+        Return animal.Speak()
     End Function
 
     ' 問題 8-5: Animal 配列に Cat と Dog を交互に格納しループで Speak をカンマ区切りで返す
     Public Shared Function Problem8_5() As String
-        Throw New NotImplementedException("問題 8-5 を実装してください")
+        Dim animals() As Animal = {
+            New Cat("タマ", 2),
+            New Dog("ポチ", 3),
+            New Cat("ミケ", 1),
+            New Dog("ハチ", 1)
+        }
+        Dim speaks As New List(Of String)
+        For Each animal In animals
+            speaks.Add(animal.Speak)
+        Next
+        Return String.Join(",", speaks.ToArray())
     End Function
 
 End Class
