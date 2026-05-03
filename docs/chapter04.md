@@ -101,6 +101,26 @@ Next
 
 ---
 
+### 改行を含む文字列
+
+複数行の文字列を返すときは `Environment.NewLine` で改行を挟みます。
+
+```vbnet
+Dim result As String = ""
+result &= "1行目" & Environment.NewLine
+result &= "2行目" & Environment.NewLine
+result &= "3行目"
+Console.WriteLine(result)
+' 出力:
+' 1行目
+' 2行目
+' 3行目
+```
+
+`Environment.NewLine` の代わりに VB.NET 組み込み定数 `vbCrLf` も同じ意味で使えます。
+
+---
+
 ## 練習問題
 
 ### 問題 4-1
@@ -195,6 +215,8 @@ $$
 $$$
 $$$$
 ```
+
+**ヒント:** 行と行の間は `Environment.NewLine` でつなぎます。最後の行には改行を付けないでください。
 
 ---
 
