@@ -14,7 +14,7 @@ Public Class Exercises
         Return Average(a, b)
     End Function
 
-    Private Shared Function Average(a As Integer, b As Integer) AS Integer
+    Private Shared Function Average(a As Integer, b As Integer) As Integer
         Return (a + b) \ 2
     End Function
 

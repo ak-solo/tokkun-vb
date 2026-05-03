@@ -28,7 +28,7 @@ Public Class Exercises
     Public Shared Function Problem4_3() As String
         Dim result As String = ""
         For i As Integer = 1 To 8
-            result = result & 2 ^ i
+            result = result & CInt(2 ^ i)
             If i < 8 Then
                 result = result & ","
             End If
@@ -73,7 +73,6 @@ Public Class Exercises
     '            例: n=20100 → "2,2,3,5,5,67"
     Public Shared Function Problem4_7(n As Integer) As String
         Dim result As String = ""
-        Dim i As Integer = 0
         Dim d As Integer = 2
         Do
             If n Mod d = 0 Then

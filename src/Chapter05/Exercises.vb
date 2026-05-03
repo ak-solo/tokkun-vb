@@ -222,6 +222,7 @@ Public Class Exercises
         Dim sum As Integer = 0
         For Each num In numbers
             If num = 0 Then
+                If count = 0 Then Return 0
                 Return sum \ count
             End If
             count += 1
