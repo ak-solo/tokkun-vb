@@ -98,6 +98,28 @@ Array.Sort(arr)   ' arr = {1, 3, 5, 8}
 
 ---
 
+### 配列・リストの文字列化（String.Join）
+
+配列や `List(Of T)` の要素を区切り文字でつなげて 1 つの文字列にするには `String.Join` を使います。
+
+```vbnet
+Dim words = {"apple", "banana", "cherry"}
+Dim result = String.Join(", ", words)   ' "apple, banana, cherry"
+```
+
+`List(Of String)` もそのまま渡せます。
+
+```vbnet
+Dim lines As New List(Of String)
+lines.Add("1行目")
+lines.Add("2行目")
+lines.Add("3行目")
+Dim text = String.Join(Environment.NewLine, lines)
+' "1行目" & vbNewLine & "2行目" & vbNewLine & "3行目"
+```
+
+---
+
 ## 練習問題
 
 ### 問題 5-1
