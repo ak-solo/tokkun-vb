@@ -143,7 +143,9 @@ End Function
 
 例: `size=3` → `"$" & vbNewLine & "$$" & vbNewLine & "$$$"`
 
-**解答例:** `Problem6_5`（任意の文字で三角形を作る関数）を先に実装しておくと、`Problem6_4` は `Problem6_5` を呼び出す 1 行で書けます。
+**ヒント:** `List(Of String)` に各行を追加し、`String.Join(Environment.NewLine, lines)` でまとめると簡潔に書けます。
+
+**解答例:** `Triangle` という名前で関数を定義し、`Problem6_4` から呼び出します。`Problem6_5` も同じ関数を再利用できます。
 
 ---
 
@@ -153,7 +155,7 @@ End Function
 
 問題 6-4 の `$` を `ch` に置き換えたものです。
 
-**ヒント:** `New String(ch, n)` で `ch` を `n` 個並べた文字列が作れます。
+**ヒント:** `New String(ch, n)` で `ch` を `n` 個並べた文字列が作れます。`String.Join(Environment.NewLine, lines)` で行リストを改行でつなげられます。
 
 **解答例:** `Triangle` という名前で関数を定義し、`Problem6_5` から呼び出します。`Problem6_4` もこの関数を再利用できます。
 
