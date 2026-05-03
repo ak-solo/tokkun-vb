@@ -71,7 +71,10 @@ Public Class CoinCase
 
     ' 問題 7-5: 指定した種類の硬貨の枚数を返す
     Public Overloads Function GetCount(denomination As Integer) As Integer
-        Return mCounts(denomination)
+        If mCounts.ContainsKey(denomination) Then
+            Return mCounts(denomination)
+        End If
+        Return 0
     End Function
 
     ' 問題 7-5: 全硬貨の合計金額を返す
@@ -94,7 +97,10 @@ Public Class CoinCase
 
     ' 問題 7-6: 指定した種類の硬貨の合計金額を返す
     Public Overloads Function GetAmount(denomination As Integer) As Integer
-        Return mCounts(denomination) * denomination
+        If mCounts.ContainsKey(denomination) Then
+            Return mCounts(denomination) * denomination
+        End If
+        Return 0
     End Function
 
 End Class
@@ -150,7 +156,7 @@ Public Class Exercises
     Public Shared Function Problem7_6(denomination As Integer, count As Integer) As String
         Dim coinCase = New CoinCase()
         coinCase.AddCoins(denomination, count)
-        Return $"{coinCase.GetCount()},{coinCase.GetAmount()}"
+        Return $"{coinCase.GetCount()},{coinCase.GetAmount(denomination)}"
     End Function
 
 End Class

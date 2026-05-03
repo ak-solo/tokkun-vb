@@ -100,9 +100,9 @@ Public Class Exercises
         }
         Dim speaks As New List(Of String)
         For Each animal In animals
-            speaks.Add(animal.Speak)
+            speaks.Add(animal.Speak())
         Next
-        Return String.Join(",", speaks.ToArray())
+        Return String.Join(",", speaks)
     End Function
 
 End Class

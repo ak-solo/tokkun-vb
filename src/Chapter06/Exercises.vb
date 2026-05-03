@@ -24,7 +24,7 @@ Public Class Exercises
     End Function
 
     Private Shared Function Max(a As Integer, b As Integer) As Integer
-        If a > b Then
+        If a >= b Then
             Return a
         Else
             Return b
@@ -33,46 +33,28 @@ Public Class Exercises
 
     ' 問題 6-4: $ で作った直角三角形を文字列で返す（行を Environment.NewLine で結合）
     Public Shared Function Problem6_4(size As Integer) As String
-        Return Triangle(size)
-    End Function
-
-    Private Shared Function Triangle(size AS Integer) AS String
-        Dim result As String = ""
-        For i As Integer = 1 To size
-            For j As Integer = 1 To i
-                result = result & "$"
-            Next
-            If i < size Then
-                result = result & Environment.NewLine
-            End If
-        Next
-        Return result
+        Return Triangle(size, "$"c)
     End Function
 
     ' 問題 6-5: 任意の文字 ch で作った直角三角形を文字列で返す（行を Environment.NewLine で結合）
     Public Shared Function Problem6_5(size As Integer, ch As Char) As String
-        Return TriangleWithChar(size, ch)
+        Return Triangle(size, ch)
     End Function
 
-    Private Shared Function TriangleWithChar(size As Integer, ch As Char) As String
-        Dim result As String = ""
+    Private Shared Function Triangle(size As Integer, ch As Char) As String
+        Dim lines As New List(Of String)
         For i As Integer = 1 To size
-            For j As Integer = 1 To i
-                result = result & ch
-            Next
-            If i < size Then
-                result = result & Environment.NewLine
-            End If
+            lines.Add(New String(ch, i))
         Next
-        Return result
+        Return String.Join(Environment.NewLine, lines)
     End Function
 
     ' 問題 6-6: 九九の n の段を文字列で返す（"n×1=積" 形式、行を Environment.NewLine で結合）
     Public Shared Function Problem6_6(n As Integer) As String
-        Return Kuku(n)
+        Return KukuRow(n)
     End Function
 
-    Private Shared Function Kuku(n As Integer) AS String
+    Private Shared Function KukuRow(n As Integer) As String
         Dim result As String = ""
         For m As Integer = 1 To 9
             result = result & $"{n}×{m}={n * m}"
