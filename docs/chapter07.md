@@ -134,6 +134,18 @@ End Function
 - `Private` フィールド `mName` を `""` で初期化する
 - `Name` プロパティで `mName` を読み書きできるようにする
 
+また、`Problem7_1(name As String) As String` を実装しなさい。`Dog` をインスタンス化し、`Name` に `name` をセットして `Name` を返します。
+
+**解答例:**
+
+```vbnet
+Public Shared Function Problem7_1(name As String) As String
+    Dim dog As New Dog()
+    dog.Name = name
+    Return dog.Name
+End Function
+```
+
 ---
 
 ### 問題 7-2
@@ -143,17 +155,22 @@ End Function
 - `Private` フィールド `mAge` を `0` で初期化する
 - `Age` プロパティで `mAge` を読み書きできるようにする
 
+また、`Problem7_2(name As String, age As Integer) As String` を実装しなさい。`Dog` をインスタンス化し、`Name` と `Age` をセットして `"{Name},{Age}"` 形式で返します。
+
+例: `name="ポチ"`, `age=3` → `"ポチ,3"`
+
 ---
 
 ### 問題 7-3
 
 `Dog` インスタンスを 2 つ作成し、それぞれ独立したデータを持てることを確認しなさい。
 
-- 1 つ目に `Name = "ポチ"`、`Age = 3` を設定する
-- 2 つ目に `Name = "コロ"`、`Age = 5` を設定する
-- 一方を変更しても他方に影響しないことを確認する
+- 1 つ目に `Name = "ポチ"`、2 つ目に `Name = "コロ"` を設定する
+- 1 つ目の `Name` を `"タロ"` に変更しても、2 つ目には影響しないことを確認する
 
 **ポイント:** クラスから生成したインスタンスはそれぞれ独立したデータを持ちます。
+
+また、`Problem7_3() As String` を実装しなさい。上記の手順を実行し、変更後の `"{dog1.Name},{dog2.Name}"` を返します。インスタンスが独立していれば `"タロ,コロ"` が返ります。
 
 ---
 
@@ -166,7 +183,9 @@ End Function
 - 犬種を読み取り専用で返す `Breed` プロパティ（`ReadOnly`）を実装する
 - `ShowProfile()` を実装し、`"犬種: 名前 (年齢歳)"` 形式の文字列を返す
 
-例: `New Dog("柴犬")`、`Name = "ポチ"`、`Age = 3` → `ShowProfile()` が `"柴犬: ポチ (3歳)"` を返す
+また、`Problem7_4(breed As String, name As String, age As Integer) As String` を実装しなさい。`New Dog(breed)` でインスタンスを生成し、`Name` と `Age` をセットして `ShowProfile()` の結果を返します。
+
+例: `breed="柴犬"`, `name="ポチ"`, `age=3` → `"柴犬: ポチ (3歳)"`
 
 ---
 
@@ -184,6 +203,10 @@ End Function
 
 **ヒント:** `Dictionary(Of Integer, Integer)` で硬貨の種類と枚数を管理すると便利です。コンストラクタで 6 種類の硬貨を 0 枚で初期化しておきましょう。
 
+また、`Problem7_5(denomination As Integer, count As Integer) As Integer` を実装しなさい。`CoinCase` をインスタンス化して指定の硬貨を追加し、合計金額を返します。
+
+例: `denomination=100`, `count=5` → `500`
+
 ---
 
 ### 問題 7-6
@@ -198,3 +221,7 @@ End Function
 問題 7-5 の `GetCount(denomination)` と `GetAmount()` と同名ですが、引数が異なるオーバーロードとして実装します。
 
 **ヒント:** オーバーロードするときは `Overloads` キーワードを両方のメソッドに付けます。
+
+また、`Problem7_6(denomination As Integer, count As Integer) As String` を実装しなさい。`CoinCase` をインスタンス化して指定の硬貨を追加し、`"{合計枚数},{指定種の合計金額}"` を返します。
+
+例: `denomination=100`, `count=4` → `"4,400"`

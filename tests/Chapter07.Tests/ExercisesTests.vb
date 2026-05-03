@@ -190,4 +190,58 @@ Public Class Chapter07Tests
         Assert.Equal(0, cc.GetAmount(500))
     End Sub
 
+    ' ===== Problem7_1 =====
+
+    <Theory>
+    <InlineData("ポチ")>
+    <InlineData("コロ")>
+    <InlineData("")>
+    Public Sub Test_7_1_Problem(name As String)
+        Assert.Equal(name, Exercises.Problem7_1(name))
+    End Sub
+
+    ' ===== Problem7_2 =====
+
+    <Theory>
+    <InlineData("ポチ", 3, "ポチ,3")>
+    <InlineData("コロ", 5, "コロ,5")>
+    Public Sub Test_7_2_Problem(name As String, age As Integer, expected As String)
+        Assert.Equal(expected, Exercises.Problem7_2(name, age))
+    End Sub
+
+    ' ===== Problem7_3 =====
+
+    <Fact>
+    Public Sub Test_7_3_Problem_IndependentInstances()
+        Assert.Equal("タロ,コロ", Exercises.Problem7_3())
+    End Sub
+
+    ' ===== Problem7_4 =====
+
+    <Theory>
+    <InlineData("柴犬", "ポチ", 3, "柴犬: ポチ (3歳)")>
+    <InlineData("トイプードル", "モコ", 1, "トイプードル: モコ (1歳)")>
+    Public Sub Test_7_4_Problem(breed As String, name As String, age As Integer, expected As String)
+        Assert.Equal(expected, Exercises.Problem7_4(breed, name, age))
+    End Sub
+
+    ' ===== Problem7_5 =====
+
+    <Theory>
+    <InlineData(500, 2, 1000)>
+    <InlineData(100, 5, 500)>
+    <InlineData(10, 3, 30)>
+    Public Sub Test_7_5_Problem(denomination As Integer, count As Integer, expected As Integer)
+        Assert.Equal(expected, Exercises.Problem7_5(denomination, count))
+    End Sub
+
+    ' ===== Problem7_6 =====
+
+    <Theory>
+    <InlineData(100, 4, "4,400")>
+    <InlineData(500, 3, "3,1500")>
+    Public Sub Test_7_6_Problem(denomination As Integer, count As Integer, expected As String)
+        Assert.Equal(expected, Exercises.Problem7_6(denomination, count))
+    End Sub
+
 End Class
