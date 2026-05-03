@@ -104,32 +104,53 @@ Public Class Exercises
 
     ' 問題 7-1: Dog をインスタンス化し、Name に name をセットして返す
     Public Shared Function Problem7_1(name As String) As String
-        Throw New NotImplementedException("問題 7-1 を実装してください")
+        Dim dog As New Dog()
+        dog.Name = name
+        Return dog.Name
     End Function
 
     ' 問題 7-2: Dog に name と age をセットし、"{Name},{Age}" を返す
     Public Shared Function Problem7_2(name As String, age As Integer) As String
-        Throw New NotImplementedException("問題 7-2 を実装してください")
+        Dim dog As New Dog()
+        dog.Name = name
+        dog.Age = age
+        Return $"{dog.Name},{dog.Age}"
     End Function
 
     ' 問題 7-3: dog1.Name="ポチ"→"タロ"、dog2.Name="コロ" のまま → "タロ,コロ" を返す
     Public Shared Function Problem7_3() As String
-        Throw New NotImplementedException("問題 7-3 を実装してください")
+        Dim dog1 As New Dog()
+        dog1.Name = "ポチ"
+
+        Dim dog2 As New Dog()
+        dog2.Name = "コロ"
+
+        '"ポチ"→"タロ"
+        dog1.Name = "タロ"
+
+        Return $"{dog1.Name},{dog2.Name}"
     End Function
 
     ' 問題 7-4: New Dog(breed) を生成し name/age をセットして ShowProfile() を返す
     Public Shared Function Problem7_4(breed As String, name As String, age As Integer) As String
-        Throw New NotImplementedException("問題 7-4 を実装してください")
+        Dim dog As New Dog(breed)
+        dog.Name = name
+        dog.Age = age
+        Return dog.ShowProfile()
     End Function
 
     ' 問題 7-5: CoinCase に denomination を count 枚追加し、合計金額を返す
     Public Shared Function Problem7_5(denomination As Integer, count As Integer) As Integer
-        Throw New NotImplementedException("問題 7-5 を実装してください")
+        Dim coinCase = New CoinCase()
+        coinCase.AddCoins(denomination, count)
+        Return coinCase.GetAmount()
     End Function
 
     ' 問題 7-6: CoinCase に denomination を count 枚追加し、"{合計枚数},{指定種の合計金額}" を返す
     Public Shared Function Problem7_6(denomination As Integer, count As Integer) As String
-        Throw New NotImplementedException("問題 7-6 を実装してください")
+        Dim coinCase = New CoinCase()
+        coinCase.AddCoins(denomination, count)
+        Return $"{coinCase.GetCount()},{coinCase.GetAmount()}"
     End Function
 
 End Class
