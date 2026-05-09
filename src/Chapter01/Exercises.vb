@@ -40,29 +40,14 @@ Public Class Exercises
         Throw New NotImplementedException("問題 1-8 を実装してください")
     End Function
 
-    ' 問題 1-9: x を 2 倍・3 倍・4 倍した結果をカンマ区切りの文字列で返す
-    Public Shared Function Problem1_9(x As Integer) As String
+    ' 問題 1-9: Integer 変数 x=10, y=3 を宣言し、x / y の結果（Double）を返す
+    Public Shared Function Problem1_9() As Double
         Throw New NotImplementedException("問題 1-9 を実装してください")
     End Function
 
-    ' 問題 1-10: x の 1 乗・2 乗・3 乗をカンマ区切りの文字列で返す
-    Public Shared Function Problem1_10(x As Integer) As String
+    ' 問題 1-10: 10 \ 3 の結果を Integer 変数に代入して返す
+    Public Shared Function Problem1_10() As Integer
         Throw New NotImplementedException("問題 1-10 を実装してください")
-    End Function
-
-    ' 問題 1-11: Integer 変数 x=10, y=3 を宣言し、x / y の結果（Double）を返す
-    Public Shared Function Problem1_11() As Double
-        Throw New NotImplementedException("問題 1-11 を実装してください")
-    End Function
-
-    ' 問題 1-12: 10 \ 3 の結果を Integer 変数に代入して返す
-    Public Shared Function Problem1_12() As Integer
-        Throw New NotImplementedException("問題 1-12 を実装してください")
-    End Function
-
-    ' 問題 1-13: x を y で割った商と余りをカンマ区切りの文字列で返す
-    Public Shared Function Problem1_13(x As Integer, y As Integer) As String
-        Throw New NotImplementedException("問題 1-13 を実装してください")
     End Function
 
 End Class

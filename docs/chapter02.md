@@ -139,6 +139,14 @@ Console.WriteLine(Powers(3))   ' → 3,9,27
 
 ### 問題 2-3
 
+`Integer` 型の引数 `x` を受け取り、`x` を **2 倍・3 倍・4 倍** した結果をカンマ区切りの文字列で返す関数を実装しなさい。
+
+例: `x = 3` のとき `"6,9,12"` を返す
+
+---
+
+### 問題 2-4
+
 `Integer` 型の引数 `x` を受け取り、`x` の **1 乗・2 乗・3 乗** をカンマ区切りの文字列で返す関数を実装しなさい。
 
 例: `x = 2` のとき `"2,4,8"` を返す
@@ -147,24 +155,24 @@ Console.WriteLine(Powers(3))   ' → 3,9,27
 
 ---
 
-### 問題 2-4
+### 問題 2-5
 
 `Integer` 型の引数 `x`、`y` を受け取り、以下の計算結果をそれぞれ返す関数を実装しなさい。
 
 | 関数名 | 内容 | 戻り値の型 |
 |---|---|---|
-| `Problem2_4_Sum` | x と y の和 | `Integer` |
-| `Problem2_4_Difference` | x と y の差（x − y） | `Integer` |
-| `Problem2_4_Product` | x と y の積 | `Integer` |
-| `Problem2_4_Division` | x ÷ y の結果（小数あり） | `Double` |
-| `Problem2_4_Quotient` | x ÷ y の商（整数） | `Integer` |
-| `Problem2_4_Remainder` | x ÷ y の余り | `Integer` |
+| `Problem2_5_Sum` | x と y の和 | `Integer` |
+| `Problem2_5_Difference` | x と y の差（x − y） | `Integer` |
+| `Problem2_5_Product` | x と y の積 | `Integer` |
+| `Problem2_5_Division` | x ÷ y の結果（小数あり） | `Double` |
+| `Problem2_5_Quotient` | x ÷ y の商（整数） | `Integer` |
+| `Problem2_5_Remainder` | x ÷ y の余り | `Integer` |
 
 **ヒント:** 小数ありの除算は `/`、整数の商は `\`、余りは `Mod` を使います。
 
 ---
 
-### 問題 2-5
+### 問題 2-6
 
 `Integer` 型の引数 `a`、`b` を受け取り、2 つの整数の平均値（整数）を返す関数を実装しなさい。
 
@@ -174,7 +182,7 @@ Console.WriteLine(Powers(3))   ' → 3,9,27
 
 ---
 
-### 問題 2-6
+### 問題 2-7
 
 `Integer` 型の引数 `age`（年齢）を受け取り、生まれてからのおおよその日数を返す関数を実装しなさい。
 
