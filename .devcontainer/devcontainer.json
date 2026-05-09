@@ -8,6 +8,7 @@
     "vscode": {
       "extensions": [
         "vscode-icons-team.vscode-icons",
+        "ms-dotnettools.vscode-dotnet-pack",
         "ms-dotnettools.vscode-dotnet-runtime",
         "ms-dotnettools.csharp",
         "ms-dotnettools.csdevkit",
