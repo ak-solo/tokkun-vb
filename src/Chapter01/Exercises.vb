@@ -54,32 +54,17 @@ Public Class Exercises
         Return z
     End Function
 
-    ' 問題 1-9: x を 2 倍・3 倍・4 倍した結果をカンマ区切りの文字列で返す
-    Public Shared Function Problem1_9(x As Integer) As String
-        Return $"{x * 2},{x * 3},{x * 4}"
-    End Function
-
-    ' 問題 1-10: x の 1 乗・2 乗・3 乗をカンマ区切りの文字列で返す
-    Public Shared Function Problem1_10(x As Integer) As String
-        Return $"{x},{x ^ 2},{x ^ 3}"
-    End Function
-
-    ' 問題 1-11: Integer 変数 x=10, y=3 を宣言し、x / y の結果（Double）を返す
-    Public Shared Function Problem1_11() As Double
+    ' 問題 1-9: Integer 変数 x=10, y=3 を宣言し、x / y の結果（Double）を返す
+    Public Shared Function Problem1_9() As Double
         Dim x As Integer = 10
         Dim y As Integer = 3
         Return x / y
     End Function
 
-    ' 問題 1-12: 10 \ 3 の結果を Integer 変数に代入して返す
-    Public Shared Function Problem1_12() As Integer
+    ' 問題 1-10: 10 \ 3 の結果を Integer 変数に代入して返す
+    Public Shared Function Problem1_10() As Integer
         Dim x As Integer = 10 \ 3
         Return x
-    End Function
-
-    ' 問題 1-13: x を y で割った商と余りをカンマ区切りの文字列で返す
-    Public Shared Function Problem1_13(x As Integer, y As Integer) As String
-        Return $"{x \ y},{x Mod y}"
     End Function
 
 End Class

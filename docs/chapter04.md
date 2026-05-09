@@ -2,18 +2,58 @@
 
 ## 基礎知識
 
+### 繰り返しとは
+
+同じ処理を何度も書くのは大変ですし、回数が変わるたびにコードを書き直さなければなりません。**繰り返し（ループ）** を使うと、同じ処理を指定した回数や条件に応じて自動的に繰り返せます。
+
+```
+' 繰り返しなし（100 回書くのは無理）
+Console.WriteLine(1)
+Console.WriteLine(2)
+Console.WriteLine(3)
+' ...
+
+' 繰り返しあり（何回でも対応できる）
+For i = 1 To 100
+    Console.WriteLine(i)
+Next
+```
+
+VB.NET には主に 3 種類のループがあります。
+
+| ループ | 使いどころ |
+|---|---|
+| `For/Next` | 繰り返す回数が決まっているとき |
+| `While` | 条件が満たされる間くり返すとき |
+| `Do/Loop` | 最低 1 回は実行して、その後条件を判定するとき |
+
+---
+
 ### For/Next ループ
 
-回数が決まっているときは `For` ループを使います。
+回数が決まっているときは `For` ループを使います。`i` はループのたびに 1 ずつ増える**ループ変数**（カウンタ）です。
 
 ```vbnet
 For i = 1 To 5
     Console.WriteLine(i)   ' 1, 2, 3, 4, 5
 Next
+```
 
-' Step で増減幅を変更できる
+実行の流れ：
+
+```
+i = 1 → ブロック実行 → i = 2 → ブロック実行 → ... → i = 5 → ブロック実行 → 終了
+```
+
+`Step` を使うと増減幅を変えられます。負の値にすると逆順にもできます。
+
+```vbnet
 For i = 0 To 8 Step 3
     Console.WriteLine(i)   ' 0, 3, 6
+Next
+
+For i = 5 To 1 Step -1
+    Console.WriteLine(i)   ' 5, 4, 3, 2, 1
 Next
 ```
 
@@ -21,7 +61,7 @@ Next
 
 ### While ループ
 
-条件が真の間くり返すときは `While` を使います。
+繰り返す回数が事前にわからないときは `While` を使います。条件が `True` の間、ブロックを繰り返します。
 
 ```vbnet
 Dim n As Integer = 1
@@ -31,11 +71,13 @@ While n <= 5
 End While
 ```
 
+> **注意:** ループ変数を自分で更新しないと、条件がずっと `True` のまま「**無限ループ**」になります。`n += 1` を忘れずに書きましょう。
+
 ---
 
 ### Do/Loop
 
-`Do` ループは最低 1 回は実行されます（ループ末尾で条件を評価）。
+`Do` ループはブロックを実行してから条件を判定するため、**最低 1 回は必ず実行**されます。
 
 ```vbnet
 Dim n As Integer = 0
@@ -45,7 +87,23 @@ Do
 Loop While n < 5     ' 条件が真の間くり返す
 ```
 
-ループ先頭で条件を評価したい場合：
+`While` との違いは、条件が最初から `False` だった場合です。
+
+```vbnet
+Dim n As Integer = 10
+
+' While: 条件が最初から False → 1 回も実行されない
+While n < 5
+    Console.WriteLine(n)   ' 実行されない
+End While
+
+' Do/Loop: 先に実行してから判定 → 必ず 1 回実行される
+Do
+    Console.WriteLine(n)   ' 10 が 1 回だけ表示される
+Loop While n < 5
+```
+
+ループ先頭で条件を評価したい場合は `Do While` と書くこともできます（`While` と同じ動作）。
 
 ```vbnet
 Do While n < 5
@@ -55,49 +113,87 @@ Loop
 
 ---
 
-### Exit For / Continue For
+### Exit / Continue
 
-`Exit For` でループを途中で抜け、`Continue For` で次の反復にスキップできます。
+`Exit For`（または `Exit While`）でループを途中で抜け、`Continue For` で今回の繰り返しをスキップして次へ進みます。
 
 ```vbnet
 For i = 1 To 10
-    If i = 6 Then Exit For       ' 6 に達したら終了
+    If i = 6 Then Exit For            ' 6 に達したらループ終了
     If i Mod 2 = 0 Then Continue For  ' 偶数はスキップ
-    Console.WriteLine(i)         ' 1, 3, 5
+    Console.WriteLine(i)              ' 1, 3, 5
 Next
 ```
+
+実行の流れ（`i = 4` のとき）：
+
+```
+i = 4 → 偶数 → Continue For → i = 5 へジャンプ
+i = 5 → 奇数 → WriteLine(5)
+i = 6 → Exit For → ループ終了
+```
+
+---
+
+### 文字列の結合とループ
+
+ループ内で結果を文字列に積み上げていくパターンはよく使います。`&=` は文字列を末尾に追加する演算子です。
+
+```vbnet
+Dim result As String = ""   ' 空文字列で初期化
+
+For i = 1 To 5
+    result &= i.ToString()   ' 末尾に追加
+    If i < 5 Then result &= ","
+Next
+
+Console.WriteLine(result)   ' → "1,2,3,4,5"
+```
+
+`&` は文字列の結合演算子で、`result &= "x"` は `result = result & "x"` の短縮形です。
 
 ---
 
 ### 累計・最大・最小
 
+ループ前に**集計用の変数**を初期化しておき、ループ内で更新していくパターンです。
+
 ```vbnet
 Dim numbers = {5, 3, 8, 1, 9}
-Dim sum As Integer = 0
-Dim max As Integer = numbers(0)
-Dim min As Integer = numbers(0)
+Dim sum As Integer = 0            ' 合計（0 から始める）
+Dim max As Integer = numbers(0)   ' 最大（先頭値で初期化）
+Dim min As Integer = numbers(0)   ' 最小（先頭値で初期化）
 
 For Each n In numbers
     sum += n
     If n > max Then max = n
     If n < min Then min = n
 Next
+' sum=26, max=9, min=1
 ```
+
+最大・最小の初期値には先頭要素を使います。`0` で初期化すると全要素が負のときに誤った結果になるためです。
 
 ---
 
 ### ネストしたループ（二重ループ）
 
-ループの中にループを入れると、二次元的な処理ができます。
+ループの中にループを入れることができます。外側が 1 周するたびに内側が最初から最後まで実行されます。
 
 ```vbnet
 For i = 1 To 3
     For j = 1 To 3
         Console.Write($"{i * j} ")
     Next
-    Console.WriteLine()
+    Console.WriteLine()   ' 行末で改行
 Next
+' 出力:
+' 1 2 3
+' 2 4 6
+' 3 6 9
 ```
+
+合計の実行回数は「外側のループ回数 × 内側のループ回数」になります（この例では 3 × 3 = 9 回）。
 
 ---
 
@@ -117,7 +213,7 @@ Console.WriteLine(result)
 ' 3行目
 ```
 
-`Environment.NewLine` の代わりに VB.NET 組み込み定数 `vbCrLf` も同じ意味で使えます。
+`Environment.NewLine` の代わりに VB.NET 組み込み定数 `vbCrLf` も同じ意味で使えます。最後の行には改行を付けないのが一般的なパターンです。
 
 ---
 
