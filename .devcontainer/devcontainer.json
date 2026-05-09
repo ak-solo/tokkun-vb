@@ -9,6 +9,7 @@
       "extensions": [
         "vscode-icons-team.vscode-icons",
         "ms-dotnettools.vscode-dotnet-runtime",
+        "ms-dotnettools.csharp",
         "formulahendry.dotnet-test-explorer"
       ],
       "settings": {
