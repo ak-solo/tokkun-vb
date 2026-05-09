@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:10.0-bookworm-slim
+FROM mcr.microsoft.com/dotnet/sdk:10.0
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git curl ca-certificates \
