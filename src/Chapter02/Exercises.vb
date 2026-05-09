@@ -10,50 +10,54 @@ Public Class Exercises
         Throw New NotImplementedException("問題 2-2 を実装してください")
     End Function
 
-    ' 問題 2-3: x の 1 乗・2 乗・3 乗を配列で返す
-    '           result(0)=x^1, result(1)=x^2, result(2)=x^3
-    Public Shared Function Problem2_3(x As Integer) As Integer()
+    ' 問題 2-3: x を 2 倍・3 倍・4 倍した結果をカンマ区切りの文字列で返す
+    Public Shared Function Problem2_3(x As Integer) As String
         Throw New NotImplementedException("問題 2-3 を実装してください")
     End Function
 
-    ' 問題 2-4: x と y の和を返す
-    Public Shared Function Problem2_4_Sum(x As Integer, y As Integer) As Integer
-        Throw New NotImplementedException("問題 2-4（和）を実装してください")
+    ' 問題 2-4: x の 1 乗・2 乗・3 乗をカンマ区切りの文字列で返す
+    Public Shared Function Problem2_4(x As Integer) As String
+        Throw New NotImplementedException("問題 2-4 を実装してください")
     End Function
 
-    ' 問題 2-4: x と y の差（x - y）を返す
-    Public Shared Function Problem2_4_Difference(x As Integer, y As Integer) As Integer
-        Throw New NotImplementedException("問題 2-4（差）を実装してください")
+    ' 問題 2-5: x と y の和を返す
+    Public Shared Function Problem2_5_Sum(x As Integer, y As Integer) As Integer
+        Throw New NotImplementedException("問題 2-5（和）を実装してください")
     End Function
 
-    ' 問題 2-4: x と y の積を返す
-    Public Shared Function Problem2_4_Product(x As Integer, y As Integer) As Integer
-        Throw New NotImplementedException("問題 2-4（積）を実装してください")
+    ' 問題 2-5: x と y の差（x - y）を返す
+    Public Shared Function Problem2_5_Difference(x As Integer, y As Integer) As Integer
+        Throw New NotImplementedException("問題 2-5（差）を実装してください")
     End Function
 
-    ' 問題 2-4: x ÷ y の結果を Double で返す（小数あり）
-    Public Shared Function Problem2_4_Division(x As Integer, y As Integer) As Double
-        Throw New NotImplementedException("問題 2-4（除算）を実装してください")
+    ' 問題 2-5: x と y の積を返す
+    Public Shared Function Problem2_5_Product(x As Integer, y As Integer) As Integer
+        Throw New NotImplementedException("問題 2-5（積）を実装してください")
     End Function
 
-    ' 問題 2-4: x ÷ y の商（整数）を返す
-    Public Shared Function Problem2_4_Quotient(x As Integer, y As Integer) As Integer
-        Throw New NotImplementedException("問題 2-4（商）を実装してください")
+    ' 問題 2-5: x ÷ y の結果を Double で返す（小数あり）
+    Public Shared Function Problem2_5_Division(x As Integer, y As Integer) As Double
+        Throw New NotImplementedException("問題 2-5（除算）を実装してください")
     End Function
 
-    ' 問題 2-4: x ÷ y の余りを返す
-    Public Shared Function Problem2_4_Remainder(x As Integer, y As Integer) As Integer
-        Throw New NotImplementedException("問題 2-4（余り）を実装してください")
+    ' 問題 2-5: x ÷ y の商（整数）を返す
+    Public Shared Function Problem2_5_Quotient(x As Integer, y As Integer) As Integer
+        Throw New NotImplementedException("問題 2-5（商）を実装してください")
     End Function
 
-    ' 問題 2-5: a と b の平均値（小数切り捨て）を返す
-    Public Shared Function Problem2_5(a As Integer, b As Integer) As Integer
-        Throw New NotImplementedException("問題 2-5 を実装してください")
+    ' 問題 2-5: x ÷ y の余りを返す
+    Public Shared Function Problem2_5_Remainder(x As Integer, y As Integer) As Integer
+        Throw New NotImplementedException("問題 2-5（余り）を実装してください")
     End Function
 
-    ' 問題 2-6: 年齢から生まれてからの日数（年齢 × 365）を返す
-    Public Shared Function Problem2_6(age As Integer) As Integer
+    ' 問題 2-6: a と b の平均値（小数切り捨て）を返す
+    Public Shared Function Problem2_6(a As Integer, b As Integer) As Integer
         Throw New NotImplementedException("問題 2-6 を実装してください")
+    End Function
+
+    ' 問題 2-7: 年齢から生まれてからの日数（年齢 × 365）を返す
+    Public Shared Function Problem2_7(age As Integer) As Integer
+        Throw New NotImplementedException("問題 2-7 を実装してください")
     End Function
 
 End Class
