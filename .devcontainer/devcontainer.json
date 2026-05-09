@@ -3,6 +3,9 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
+  "remoteEnv": {
+    "DOTNET_ROOT": "/usr/share/dotnet"
+  },
   "postCreateCommand": "dotnet restore",
   "customizations": {
     "vscode": {
