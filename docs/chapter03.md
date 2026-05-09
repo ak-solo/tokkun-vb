@@ -2,9 +2,57 @@
 
 ## 基礎知識
 
+### 分岐とは
+
+プログラムは通常、上から順番に実行されます。しかし「点数が 60 点以上なら合格、そうでなければ不合格」のように、**条件によって実行する処理を変えたい**場面があります。これを**分岐**といいます。
+
+```
+　　　条件を判定
+　　　　　↓
+　　┌─────────┐
+　　│ 条件が真？│
+　　└─────────┘
+　　  ↙         ↘
+　True のとき  False のとき
+　  処理 A      処理 B
+```
+
+分岐を使うことで、状況に応じた柔軟なプログラムが書けるようになります。
+
+---
+
+### Boolean 型と条件式
+
+**Boolean 型**は `True`（真）か `False`（偽）の 2 値だけを持つ型です。`If` 文の条件部分には Boolean の値が入ります。
+
+```vbnet
+Dim isPass As Boolean = True
+Dim isFail As Boolean = False
+```
+
+**条件式**（比較演算子を使った式）を評価すると Boolean 値になります。
+
+```vbnet
+Dim x As Integer = 10
+Console.WriteLine(x > 5)    ' → True
+Console.WriteLine(x > 20)   ' → False
+Console.WriteLine(x = 10)   ' → True
+```
+
+Boolean 型の変数に条件式の結果を入れておき、後で使うこともできます。
+
+```vbnet
+Dim isPositive As Boolean = (x > 0)
+If isPositive Then
+    Console.WriteLine("正の数です")
+End If
+```
+
+---
+
 ### If 文
 
-条件によって処理を分岐するには `If` 文を使います。
+条件によって処理を分岐するには `If` 文を使います。`Then` の後に書いた処理は条件が `True` のときだけ実行されます。
 
 ```vbnet
 If x > 0 Then
@@ -12,7 +60,7 @@ If x > 0 Then
 End If
 ```
 
-`Else` を加えると、条件が偽のときの処理も書けます。
+`Else` を加えると、条件が `False` のときの処理も書けます。
 
 ```vbnet
 If x >= 60 Then
@@ -22,7 +70,7 @@ Else
 End If
 ```
 
-`ElseIf` で 3 つ以上の分岐も表現できます。
+`ElseIf` で 3 つ以上の分岐も表現できます。条件は上から順に評価され、最初に `True` になったブロックだけが実行されます。
 
 ```vbnet
 If score >= 80 Then
@@ -36,18 +84,24 @@ Else
 End If
 ```
 
+> **ポイント:** `ElseIf score >= 70` が評価されるのは、すでに `score >= 80` が `False` だとわかっている場合だけです。そのため「70 以上 80 未満」という条件をわざわざ書かなくても正しく動きます。
+
 ---
 
 ### 比較演算子
 
-| 演算子 | 意味 | 例 |
-|---|---|---|
-| `>` | より大きい | `x > 0` |
-| `<` | より小さい | `x < 0` |
-| `>=` | 以上 | `x >= 60` |
-| `<=` | 以下 | `x <= 100` |
-| `=` | 等しい | `x = y` |
-| `<>` | 等しくない | `x <> y` |
+条件式で使う演算子です。結果は必ず `Boolean`（`True` か `False`）になります。
+
+| 演算子 | 意味 | 例 | 結果（x=10 のとき） |
+|---|---|---|---|
+| `>` | より大きい | `x > 5` | `True` |
+| `<` | より小さい | `x < 5` | `False` |
+| `>=` | 以上 | `x >= 10` | `True` |
+| `<=` | 以下 | `x <= 9` | `False` |
+| `=` | 等しい | `x = 10` | `True` |
+| `<>` | 等しくない | `x <> 10` | `False` |
+
+> **注意:** 変数への代入も `=` を使いますが、`If` や式の中では比較として扱われます。VB.NET は文脈で自動的に判断します。
 
 ---
 
@@ -55,19 +109,42 @@ End If
 
 複数の条件を組み合わせるには論理演算子を使います。
 
-| 演算子 | 意味 | 例 |
+| 演算子 | 意味 | 真になる条件 |
 |---|---|---|
-| `And` | かつ（両方 True なら True） | `x > 0 And y > 0` |
-| `Or` | または（どちらか True なら True） | `x > 0 Or y > 0` |
-| `Not` | ではない（True/False を反転） | `Not (x = y)` |
-| `AndAlso` | `And` と同じだが左辺が False なら右辺を評価しない | `x <> 0 AndAlso y / x > 1` |
-| `OrElse` | `Or` と同じだが左辺が True なら右辺を評価しない | |
+| `And` | かつ | 左辺も右辺も `True` |
+| `Or` | または | 左辺か右辺のどちらかが `True` |
+| `Not` | ではない | 元の値が `False` |
+
+```vbnet
+Dim x As Integer = 5
+Console.WriteLine(x > 0 And x < 10)   ' → True（0より大きく10より小さい）
+Console.WriteLine(x < 0 Or x > 3)     ' → True（どちらかが成立）
+Console.WriteLine(Not (x = 5))        ' → False（x=5 を反転）
+```
+
+#### 短絡評価（AndAlso / OrElse）
+
+`AndAlso` と `OrElse` は、左辺だけで結果が確定した場合に右辺を評価しません（**短絡評価**）。
+
+```vbnet
+' x が 0 のとき、y / x はゼロ除算エラーになる
+If x <> 0 AndAlso y / x > 1 Then   ' x=0 なら右辺を評価しない → エラー回避
+    Console.WriteLine("OK")
+End If
+```
+
+| 演算子 | 意味 | 短絡評価 |
+|---|---|---|
+| `AndAlso` | `And` と同じ | 左辺が `False` なら右辺を評価しない |
+| `OrElse` | `Or` と同じ | 左辺が `True` なら右辺を評価しない |
+
+エラーを防ぐ目的で使う場面が多いです。通常は `AndAlso` / `OrElse` を使う習慣をつけておくとよいでしょう。
 
 ---
 
 ### Select Case 文
 
-変数の値に応じて多くの分岐があるときは `Select Case` が読みやすくなります。
+`If / ElseIf` の代わりに、1 つの変数の値に応じて分岐するときは `Select Case` が読みやすくなります。
 
 ```vbnet
 Select Case month
@@ -79,6 +156,12 @@ Select Case month
         Console.WriteLine("そんな月はありません")
 End Select
 ```
+
+`Case 値1, 値2` のようにカンマで複数の値をまとめて書けます。どの `Case` にも当てはまらない場合は `Case Else` が実行されます。
+
+`If` 文との使い分けの目安：
+- 同じ変数を `= 値` で比べるだけなら → `Select Case`
+- 範囲比較（`>=`、`<` など）や複数の変数を使う条件 → `If`
 
 ---
 

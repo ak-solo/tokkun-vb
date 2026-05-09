@@ -2,84 +2,168 @@
 
 ## 基礎知識
 
+### メソッドとは
+
+2 章では `Function`（値を返す関数）を学びました。この章では、**メソッド**という概念をより深く掘り下げます。
+
+**メソッド**とは、処理のまとまりに名前をつけて再利用できるようにしたものです（`Function` も `Sub` も、どちらもメソッドの一種です）。
+
+なぜメソッドに分けるのかというと、大きく 2 つの理由があります。
+
+**① 同じ処理を何度も書かなくて済む（再利用）**
+
+```vbnet
+' メソッドなし → 同じ計算を何度も書く
+Dim a1 = 3 * 3
+Dim a2 = 5 * 5
+Dim a3 = 7 * 7
+
+' メソッドあり → 一か所で定義して何度でも呼び出す
+Function Square(n As Integer) As Integer
+    Return n * n
+End Function
+
+Dim a1 = Square(3)
+Dim a2 = Square(5)
+Dim a3 = Square(7)
+```
+
+**② 処理を名前で表現することでコードが読みやすくなる（可読性）**
+
+```vbnet
+' 何をしているかわかりにくい
+If n Mod 2 = 0 AndAlso n > 0 Then ...
+
+' 何をしているか名前から明らかにわかる
+If IsEven(n) AndAlso IsPositive(n) Then ...
+```
+
+---
+
 ### Sub と Function
 
 VB.NET のメソッドには **戻り値なし** の `Sub` と **戻り値あり** の `Function` があります。
 
 ```vbnet
-' Sub: 値を返さない
+' Sub: 処理を実行するだけで値を返さない
 Sub PrintHello()
     Console.WriteLine("Hello")
 End Sub
 
-' Function: 値を返す
+' Function: 処理して値を返す
 Function Double(n As Integer) As Integer
     Return n * 2
 End Function
+```
+
+呼び出し方の違いも覚えておきましょう。
+
+```vbnet
+PrintHello()              ' Sub は単独で呼び出す
+Dim x = Double(5)         ' Function は戻り値を受け取る
+Console.WriteLine(Double(3))  ' 式の中に直接書くこともできる
 ```
 
 ---
 
 ### 引数（パラメーター）
 
-メソッドに渡す値を **引数** といいます。型を明示して宣言します。
+メソッドに渡す値を**引数**といいます。型を明示して宣言します。
 
 ```vbnet
 Function Add(a As Integer, b As Integer) As Integer
     Return a + b
 End Function
 
-' 呼び出し
 Dim result = Add(3, 5)   ' result = 8
 ```
+
+呼び出し側の変数名とメソッド側のパラメーター名は**別物**です。同じ名前でも異なる名前でも構いません。
+
+```vbnet
+Dim x = 3
+Dim y = 5
+Dim result = Add(x, y)   ' x → a、y → b にコピーされる
+```
+
+---
+
+### スコープ（変数の有効範囲）
+
+メソッドの中で宣言した変数は、そのメソッドの中でしか使えません。これを**スコープ**（有効範囲）といいます。
+
+```vbnet
+Function CalcTax(price As Integer) As Integer
+    Dim taxRate As Double = 0.1   ' この変数は CalcTax の中だけで有効
+    Return CInt(price * taxRate)
+End Function
+
+' taxRate はここでは使えない（別のメソッドからはアクセスできない）
+```
+
+メソッドの引数も同様に、そのメソッドの中だけで使えます。これにより、メソッドどうしが互いの変数に干渉しません。
+
+---
+
+### 戻り値と Return
+
+`Return` で値を返します。`Return` を実行した時点でメソッドが**即座に終了**します。複数の `Return` を書くこともできます。
+
+```vbnet
+Function Max(a As Integer, b As Integer) As Integer
+    If a >= b Then
+        Return a   ' ここで Return するとこの行以降は実行されない
+    End If
+    Return b       ' a < b のときだけここに到達する
+End Function
+```
+
+`Return` が複数あっても、実行されるのは必ず 1 つだけです。条件分岐と組み合わせて、場合によって異なる値を返すパターンはよく使います。
 
 ---
 
 ### ByVal と ByRef
 
-VB.NET の引数渡しには **ByVal**（値渡し）と **ByRef**（参照渡し）があります。
+VB.NET の引数渡しには **ByVal**（値渡し）と **ByRef**（参照渡し）の 2 種類があります。
+
+**ByVal（値渡し）** — 変数の「コピー」を渡す。メソッド内で変更しても呼び出し元は変わらない。省略するとデフォルトで ByVal になります。
 
 ```vbnet
-' ByVal: 呼び出し元の変数は変わらない（省略時のデフォルト）
 Sub DoubleByVal(ByVal n As Integer)
-    n = n * 2
+    n = n * 2   ' コピーを変更しているだけ
 End Sub
 
-' ByRef: 呼び出し元の変数を書き換える
-Sub DoubleByRef(ByRef n As Integer)
-    n = n * 2
-End Sub
-```
-
-```vbnet
 Dim x = 5
-DoubleByVal(x)   ' x は 5 のまま
-DoubleByRef(x)   ' x は 10 になる
+DoubleByVal(x)
+Console.WriteLine(x)   ' → 5（変わらない）
 ```
 
-ByRef は **2 つの変数を交換（スワップ）** するときに特に役立ちます。
-
----
-
-### 戻り値
-
-`Return` で値を返します。`Function` の型は `As 型名` で宣言します。
+**ByRef（参照渡し）** — 変数そのものへの「参照」を渡す。メソッド内での変更が呼び出し元に反映される。
 
 ```vbnet
-Function Max(a As Integer, b As Integer) As Integer
-    If a >= b Then
-        Return a
-    Else
-        Return b
-    End If
-End Function
+Sub DoubleByRef(ByRef n As Integer)
+    n = n * 2   ' 呼び出し元の変数を直接変更する
+End Sub
+
+Dim x = 5
+DoubleByRef(x)
+Console.WriteLine(x)   ' → 10（変わった）
 ```
+
+イメージ：
+
+```
+ByVal: [x=5] → コピー → [n=5] → n=10 → [x=5] （元は変わらず）
+ByRef: [x=5] ←─── n は x への別名 ───→ n=10 → [x=10]
+```
+
+`ByRef` は **2 つの変数を交換（スワップ）** するときに特に役立ちます。`Function` では 1 つの値しか返せませんが、`ByRef` を使えば複数の変数を同時に書き換えられます。
 
 ---
 
 ### Boolean を返す関数
 
-条件を判定して `True` / `False` を返す関数は、後から組み合わせて使えます。
+条件を判定して `True` / `False` を返す関数は、`If` 文の条件部分に直接使えます。複雑な条件に名前をつけることでコードが読みやすくなります。
 
 ```vbnet
 Function IsEven(n As Integer) As Boolean
@@ -89,7 +173,14 @@ End Function
 If IsEven(42) Then
     Console.WriteLine("偶数")
 End If
+
+' 組み合わせも簡単
+If IsEven(x) AndAlso IsEven(y) Then
+    Console.WriteLine("両方偶数")
+End If
 ```
+
+慣習として、`Boolean` を返す関数名は `Is〜`（〜か？）や `Has〜`（〜を持つか？）のように疑問文に対応した形にすると意図が伝わりやすいです。
 
 ---
 

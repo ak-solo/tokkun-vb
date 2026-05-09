@@ -2,9 +2,62 @@
 
 ## 基礎知識
 
+### 配列とは
+
+たとえば 40 人分のテストの点数を管理しようとすると、変数を 40 個宣言しなければなりません。
+
+```vbnet
+Dim score1 As Integer = 80
+Dim score2 As Integer = 60
+' ... score3, score4 ...
+Dim score40 As Integer = 75   ' 現実的ではない
+```
+
+**配列**を使うと、同じ型の値を 1 つの変数にまとめて管理できます。
+
+```vbnet
+Dim scores(39) As Integer   ' 40 人分をまとめて管理
+scores(0) = 80
+scores(1) = 60
+' ...
+```
+
+配列はループと組み合わせることで真価を発揮します。
+
+```vbnet
+' 全員の点数を一気に処理できる
+For i = 0 To scores.Length - 1
+    Console.WriteLine(scores(i))
+Next
+```
+
+---
+
+### インデックス（添字）
+
+配列の各要素には **インデックス**（添字）という番号がついています。インデックスは **0 から始まります**（1 からではありません）。
+
+```
+インデックス:   0    1    2    3    4
+           ┌────┬────┬────┬────┬────┐
+ scores =  │ 80 │ 60 │ 90 │ 70 │ 55 │
+           └────┴────┴────┴────┴────┘
+```
+
+```vbnet
+Dim scores = {80, 60, 90, 70, 55}
+Console.WriteLine(scores(0))   ' → 80（先頭）
+Console.WriteLine(scores(4))   ' → 55（末尾）
+Console.WriteLine(scores(2))   ' → 90
+```
+
+> **よくあるミス:** インデックスが配列の範囲を超えると実行時エラー（`IndexOutOfRangeException`）になります。要素数 5 の配列で `scores(5)` にアクセスしようとするとエラーです。
+
+---
+
 ### 配列の宣言
 
-`Dim 変数名(最大インデックス) As 型名` で宣言します。要素数は最大インデックス + 1 です。
+`Dim 変数名(最大インデックス) As 型名` で宣言します。引数は**最大インデックス**なので、要素数は最大インデックス + 1 です。
 
 ```vbnet
 Dim numbers(4) As Integer   ' 要素数 5（インデックス 0〜4）
@@ -12,37 +65,47 @@ numbers(0) = 10
 numbers(4) = 50
 ```
 
-宣言と同時に初期値を設定することもできます。
+宣言と同時に初期値を設定することもできます。この書き方では要素数は自動的に決まります。
 
 ```vbnet
-Dim primes = {2, 3, 5, 7, 11}   ' 要素数 5
+Dim primes = {2, 3, 5, 7, 11}   ' 要素数 5（インデックス 0〜4）
+```
+
+配列の要素数は `.Length` プロパティで取得できます。
+
+```vbnet
+Console.WriteLine(primes.Length)   ' → 5
 ```
 
 ---
 
 ### 配列の走査
 
-`For` ループでインデックスを使う方法と、`For Each` で要素を順に取り出す方法があります。
+配列の全要素を順番に処理することを**走査**といいます。インデックスを使う方法と `For Each` を使う方法があります。
 
 ```vbnet
 Dim scores = {80, 60, 90, 70}
 
-' インデックスで走査
+' インデックスで走査（インデックスが必要なとき）
 For i = 0 To scores.Length - 1
-    Console.WriteLine(scores(i))
+    Console.WriteLine($"{i}番目: {scores(i)}")
 Next
 
-' For Each で走査（インデックス不要なとき）
+' For Each で走査（値だけ取り出すとき・シンプルに書ける）
 For Each s In scores
     Console.WriteLine(s)
 Next
 ```
 
+使い分けの目安：
+- インデックスを使って別の要素を参照する・インデックス自体が必要 → `For` ループ
+- 要素の値だけ取り出せればよい → `For Each`
+
 ---
 
 ### 逆順アクセス
 
-インデックスを末尾から遡ることで逆順に処理できます。
+`Step -1` を使ってインデックスを末尾から遡ることで、逆順に処理できます。
 
 ```vbnet
 Dim arr = {1, 2, 3, 4, 5}
@@ -51,16 +114,29 @@ For i = arr.Length - 1 To 0 Step -1
 Next
 ```
 
+`arr.Length - 1` が末尾のインデックスです。要素数が変わっても自動的に対応できます。
+
 ---
 
 ### 2次元配列
 
-`Dim 変数名(行数-1, 列数-1) As 型名` で宣言します。
+1次元配列が「1列に並んだ箱」なら、**2次元配列**は「行と列をもつ表（グリッド）」です。
+
+```
+           列0  列1  列2
+     行0 ┌────┬────┬────┐
+         │  1 │  2 │  3 │
+     行1 ├────┼────┼────┤
+         │  4 │  5 │  6 │
+     行2 └────┴────┴────┘
+```
+
+`Dim 変数名(最大行インデックス, 最大列インデックス) As 型名` で宣言します。
 
 ```vbnet
-Dim matrix(2, 2) As Integer   ' 3×3
+Dim matrix(2, 2) As Integer   ' 3行3列
 matrix(0, 0) = 1
-matrix(1, 2) = 6
+matrix(1, 2) = 6   ' 1行目・2列目
 
 ' 二重ループで走査
 For i = 0 To 2
@@ -71,43 +147,61 @@ For i = 0 To 2
 Next
 ```
 
+外側のループが「行」、内側のループが「列」を担当するのが一般的なパターンです。
+
 ---
 
 ### 動的な配列収集（List(Of T)）
 
-要素数が事前にわからないときは `List(Of T)` を使い、最後に配列に変換します。
+通常の配列は宣言時に要素数を決めなければなりません。条件でフィルタリングするなど、**最終的な要素数が事前にわからない場合**は `List(Of T)` が便利です。
 
 ```vbnet
-Dim evens As New List(Of Integer)
+Dim evens As New List(Of Integer)   ' 空のリストを作成
 For Each n In {1, 2, 3, 4, 5, 6}
-    If n Mod 2 = 0 Then evens.Add(n)
+    If n Mod 2 = 0 Then evens.Add(n)   ' 条件を満たすものだけ追加
 Next
-Dim result = evens.ToArray()   ' {2, 4, 6}
+Dim result = evens.ToArray()   ' 配列に変換 → {2, 4, 6}
 ```
+
+`T` には型名（`Integer`、`String` など）を入れます。主なメソッドは以下の通りです。
+
+| 操作 | コード例 |
+|---|---|
+| 末尾に追加 | `list.Add(value)` |
+| 要素数を取得 | `list.Count` |
+| 配列に変換 | `list.ToArray()` |
 
 ---
 
 ### 配列のソート
 
-`Array.Sort` を使うと昇順に並び替えられます。元の配列を変更するため、コピーが必要な場合は `Clone()` を使います。
+`Array.Sort` を使うと昇順に並び替えられます。**元の配列自体が変更される**ことに注意してください。
 
 ```vbnet
 Dim arr = {5, 3, 8, 1}
-Array.Sort(arr)   ' arr = {1, 3, 5, 8}
+Array.Sort(arr)   ' arr の中身が {1, 3, 5, 8} に変わる
+```
+
+元の配列を変えずに並び替えた別の配列を作りたい場合は、先にコピーします。
+
+```vbnet
+Dim original = {5, 3, 8, 1}
+Dim sorted = DirectCast(original.Clone(), Integer())
+Array.Sort(sorted)   ' sorted = {1, 3, 5, 8}、original はそのまま
 ```
 
 ---
 
 ### 配列・リストの文字列化（String.Join）
 
-配列や `List(Of T)` の要素を区切り文字でつなげて 1 つの文字列にするには `String.Join` を使います。
+ループで `&=` を使って文字列を組み立てる代わりに、`String.Join` を使うとシンプルに書けます。
 
 ```vbnet
 Dim words = {"apple", "banana", "cherry"}
 Dim result = String.Join(", ", words)   ' "apple, banana, cherry"
 ```
 
-`List(Of String)` もそのまま渡せます。
+`List(Of String)` もそのまま渡せます。改行区切りの文字列を作るときにも便利です。
 
 ```vbnet
 Dim lines As New List(Of String)
