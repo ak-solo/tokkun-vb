@@ -57,13 +57,14 @@ tokkun-vb/
 | ファイル | 章タイトル | 主なトピック |
 |---|---|---|
 | chapter01 | 表示・変数・演算 | Console.WriteLine、変数、四則演算、累乗 |
-| chapter02 | 入力 | Console.ReadLine、型変換、Integer.Parse |
+| chapter02 | 引数と戻り値 | Function/Sub、引数、戻り値、文字列補間 |
 | chapter03 | 分岐 | If/ElseIf/Else、Select Case、論理演算子 |
 | chapter04 | 繰り返し | For/While/Do、ネスト、フィボナッチ、素因数分解 |
 | chapter05 | 配列 | 1次元・2次元配列、For Each、ソート |
 | chapter06 | メソッド | Sub/Function、引数、戻り値、ByRef |
 | chapter07 | クラスⅠ | フィールド、プロパティ、コンストラクタ |
 | chapter08 | クラスⅡ | 継承、オーバーライド、ポリモーフィズム |
+| chapter09 | LINQ | Where、Select、OrderBy、GroupBy、クエリ構文 |
 
 ---
 
