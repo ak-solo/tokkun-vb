@@ -55,14 +55,11 @@ Public Class Exercises
     End Function
 
     Private Shared Function KukuRow(n As Integer) As String
-        Dim result As String = ""
+        Dim lines As New List(Of String)
         For m As Integer = 1 To 9
-            result = result & $"{n}×{m}={n * m}"
-            If m < 9 Then
-                result = result & Environment.NewLine
-            End If
+            lines.Add($"{n}×{m}={n * m}")
         Next
-        Return result
+        Return String.Join(Environment.NewLine, lines)
     End Function
 
     ' 問題 6-7: n が素数なら True、そうでなければ False を返す
@@ -95,12 +92,10 @@ Public Class Exercises
     End Sub
 
     Private Shared Sub Sort(numbers As Integer())
-        For i As Integer = 0 To numbers.Length - 1
-            Dim min As Integer = Integer.MaxValue
+        For i As Integer = 0 To numbers.Length - 2
             Dim minIndex As Integer = i
-            For j As Integer = i To numbers.Length - 1
-                If numbers(j) < min Then
-                    min = numbers(j)
+            For j As Integer = i + 1 To numbers.Length - 1
+                If numbers(j) < numbers(minIndex) Then
                     minIndex = j
                 End If
             Next

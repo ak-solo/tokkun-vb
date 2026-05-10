@@ -79,7 +79,7 @@ Public Class CoinCase
 
     ' 問題 7-5: 全硬貨の合計金額を返す
     Public Overloads Function GetAmount() As Integer
-        Dim amount As Integer
+        Dim amount As Integer = 0
         For Each pair In mCounts
             amount += pair.Key * pair.Value
         Next
@@ -88,7 +88,7 @@ Public Class CoinCase
 
     ' 問題 7-6: 全硬貨の合計枚数を返す
     Public Overloads Function GetCount() As Integer
-        Dim total As Integer
+        Dim total As Integer = 0
         For Each pair In mCounts
             total += pair.Value
         Next

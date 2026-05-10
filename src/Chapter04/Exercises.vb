@@ -4,10 +4,8 @@ Public Class Exercises
     Public Shared Function Problem4_1() As String
         Dim result As String = ""
         For i As Integer = 1 To 10
-            result = result & "SPAM"
-            If i < 10 Then
-                result = result & ","
-            End If
+            result &= "SPAM"
+            If i < 10 Then result &= ","
         Next
         Return result
     End Function
@@ -16,10 +14,8 @@ Public Class Exercises
     Public Shared Function Problem4_2() As String
         Dim result As String = ""
         For i As Integer = 1 To 9
-            result = result & 3 * i
-            If i < 9 Then
-                result = result & ","
-            End If
+            result &= 3 * i
+            If i < 9 Then result &= ","
         Next
         Return result
     End Function
@@ -28,10 +24,8 @@ Public Class Exercises
     Public Shared Function Problem4_3() As String
         Dim result As String = ""
         For i As Integer = 1 To 8
-            result = result & CInt(2 ^ i)
-            If i < 8 Then
-                result = result & ","
-            End If
+            result &= CInt(2 ^ i)
+            If i < 8 Then result &= ","
         Next
         Return result
     End Function
@@ -49,7 +43,7 @@ Public Class Exercises
     Public Shared Function Problem4_5(n As Integer) As String
         Dim result As String = ""
         For i As Integer = 1 To n
-            result = result & "*"
+            result &= "*"
         Next
         Return result
     End Function
@@ -60,11 +54,9 @@ Public Class Exercises
         Dim result As String = ""
         Dim num As Integer = 0
         For i As Integer = 1 To n
-            result = result & num
+            result &= num
             num += 1
-            If num > 9 Then
-                num = 0
-            End If
+            If num > 9 Then num = 0
         Next
         Return result
     End Function
@@ -77,10 +69,8 @@ Public Class Exercises
         Do
             If n Mod d = 0 Then
                 n = n \ d
-                result = result & d
-                If n > 1 Then
-                    result = result & ","
-                End If
+                result &= d
+                If n > 1 Then result &= ","
             Else
                 d += 1
             End If
@@ -108,11 +98,9 @@ Public Class Exercises
         Dim result As String = ""
         For i As Integer = 1 To size
             For j As Integer = 1 To i
-                result = result & "$"
+                result &= "$"
             Next
-            If i < size Then
-                result = result & Environment.NewLine
-            End If
+            If i < size Then result &= Environment.NewLine
         Next
         Return result
     End Function
@@ -125,14 +113,12 @@ Public Class Exercises
             Dim right As Integer = size + 1 - i
             For j As Integer = 1 To size
                 If j = left OrElse j = right Then
-                    result = result & "X"
+                    result &= "X"
                 Else
-                    result = result & " "
+                    result &= " "
                 End If
             Next
-            If i < size Then
-                result = result & Environment.NewLine
-            End If
+            If i < size Then result &= Environment.NewLine
         Next
         Return result
     End Function
@@ -149,8 +135,7 @@ Public Class Exercises
             a = b
             b = nxt
             If nxt > 1000 Then Exit Do
-            result = result & ","
-            result = result & nxt
+            result &= "," & nxt
         Loop
         Return result
     End Function
