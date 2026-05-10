@@ -42,7 +42,7 @@ Public Class Exercises
 
     ' 問題 3-5: 偶数なら "偶数"、奇数なら "奇数" を返す
     Public Shared Function Problem3_5(x As Integer) As String
-        If x mod 2 = 0 Then
+        If x Mod 2 = 0 Then
             Return "偶数"
         Else
             Return "奇数"
@@ -145,7 +145,7 @@ Public Class Exercises
 
     ' 問題 3-10 条件1: x < y かつ x と y がともに偶数
     Public Shared Function Problem3_10_Cond1(x As Integer, y As Integer) As Boolean
-        Return x < y AndAlso x mod 2 = 0 AndAlso y mod 2 = 0
+        Return x < y AndAlso x Mod 2 = 0 AndAlso y Mod 2 = 0
     End Function
 
     ' 問題 3-10 条件2: x = y かつ負の数
@@ -155,7 +155,7 @@ Public Class Exercises
 
     ' 問題 3-10 条件3: x < y または x が偶数
     Public Shared Function Problem3_10_Cond3(x As Integer, y As Integer) As Boolean
-        Return x < y OrElse x mod 2 = 0
+        Return x < y OrElse x Mod 2 = 0
     End Function
 
     ' 問題 3-10 条件4: (x ≤ 10 または x ≥ 100) かつ (y ≥ 10 かつ y ≤ 100)
