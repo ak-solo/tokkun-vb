@@ -304,7 +304,7 @@ Dim text = String.Join(Environment.NewLine, lines)
 
 ### 問題 5-11
 
-各回の得点を格納した配列（9 要素）を受け取り、合計点を返す関数と、どちらが勝ったかを返す関数を実装しなさい。
+各回の得点を格納した配列（9 要素）を受け取り、合計点を返す関数を実装しなさい。
 
 **`Problem5_11_TotalScore(scores As Integer()) As Integer`**
 - 配列要素の合計を返す
