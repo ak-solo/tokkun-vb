@@ -82,14 +82,9 @@ Public Class Exercises
     Public Shared Function Problem4_8(n As Integer) As Boolean
         If n <= 1 Then Return False
 
-        Dim d As Integer = 2
-        Do
-            If n Mod d = 0 Then
-                Return False
-            Else
-                d += 1
-            End If
-        Loop While d * d <= n
+        For d As Integer = 2 To CInt(Math.Sqrt(n))
+            If n Mod d = 0 Then Return False
+        Next
         Return True
     End Function
 
