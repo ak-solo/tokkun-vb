@@ -70,6 +70,14 @@ Else
 End If
 ```
 
+実行する処理が 1 つだけなら、`Then` の後に続けて 1 行で書くこともできます（`End If` は不要）。
+
+```vbnet
+If x > 0 Then Console.WriteLine("正の数です")
+```
+
+ループの制御（`Exit For` や `Continue For`）と組み合わせるときによく使われる書き方です。
+
 `ElseIf` で 3 つ以上の分岐も表現できます。条件は上から順に評価され、最初に `True` になったブロックだけが実行されます。
 
 ```vbnet

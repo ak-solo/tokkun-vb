@@ -151,6 +151,48 @@ Next
 
 ---
 
+### ジャグ配列（配列の配列）
+
+2次元配列が「行と列が固定されたグリッド」なら、**ジャグ配列**は「各行の長さが異なってもよい配列の配列」です。型は `型名()()` と書きます。
+
+```
+triangle(0) → { 1 }          ← 1 列
+triangle(1) → { 1, 2 }       ← 2 列
+triangle(2) → { 1, 2, 3 }    ← 3 列（長さが違ってもよい）
+```
+
+外側の配列を先に宣言し、各要素に内側の配列を代入して使います。
+
+```vbnet
+Dim triangle(2) As Integer()        ' 外側：3 行分のスロット
+triangle(0) = New Integer() {1}
+triangle(1) = New Integer() {1, 2}
+triangle(2) = New Integer() {1, 2, 3}
+
+Console.WriteLine(triangle(1)(1))   ' → 2（1 行目の 1 番目）
+Console.WriteLine(triangle(2)(0))   ' → 1（2 行目の 0 番目）
+```
+
+`List(Of Integer)` で要素を収集してから `.ToArray()` で変換すると、長さが事前に決まらなくても扱いやすいです。
+
+```vbnet
+Dim small As New List(Of Integer)
+Dim large As New List(Of Integer)
+For Each n In {3, 7, 1, 9, 4}
+    If n < 5 Then
+        small.Add(n)
+    Else
+        large.Add(n)
+    End If
+Next
+
+Dim result(1) As Integer()
+result(0) = small.ToArray()   ' {3, 1, 4}
+result(1) = large.ToArray()   ' {7, 9}
+```
+
+---
+
 ### 動的な配列収集（List(Of T)）
 
 通常の配列は宣言時に要素数を決めなければなりません。条件でフィルタリングするなど、**最終的な要素数が事前にわからない場合**は `List(Of T)` が便利です。
@@ -235,7 +277,7 @@ Dim text = String.Join(Environment.NewLine, lines)
 - `result(0)` = 偶数のみの配列（入力順を保つ）
 - `result(1)` = 奇数のみの配列（入力順を保つ）
 
-戻り値の型: `Integer()()` （ジャグ配列）
+戻り値の型: `Integer()()` （ジャグ配列。基礎知識の「ジャグ配列」を参照）
 
 ---
 
