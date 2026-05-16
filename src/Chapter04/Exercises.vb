@@ -66,7 +66,7 @@ Public Class Exercises
     Public Shared Function Problem4_7(n As Integer) As String
         Dim result As String = ""
         Dim d As Integer = 2
-        Do
+        Do While n > 1
             If n Mod d = 0 Then
                 n = n \ d
                 result &= d
@@ -74,7 +74,7 @@ Public Class Exercises
             Else
                 d += 1
             End If
-        Loop While n > 1
+        Loop
         Return result
     End Function
 
