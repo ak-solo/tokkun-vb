@@ -258,19 +258,17 @@ End Function
 
 **ヒント:** `List(Of String)` に各行を追加し、`String.Join(Environment.NewLine, lines)` でまとめると簡潔に書けます。
 
-**解答例:** `Triangle` という名前で関数を定義し、`Problem6_4` から呼び出します。`Problem6_5` も同じ関数を再利用できます。
+**解答例:** `Triangle` という名前で関数を定義し、`Problem6_4` から呼び出します。
 
 ---
 
 ### 問題 6-5
 
-サイズ `size` と文字 `ch`（`Char` 型）を受け取り、**任意の文字で三角形** を返す関数を実装しなさい。
-
-問題 6-4 の `$` を `ch` に置き換えたものです。
+問題 6-4 で実装した `Triangle` を**改造**して、`$` の代わりに任意の文字 `ch`（`Char` 型）を受け取れるようにしなさい。あわせて、`Problem6_4` も改造後の `Triangle(size, "$"c)` を呼び出すように書き直しなさい。
 
 **ヒント:** `New String(ch, n)` で `ch` を `n` 個並べた文字列が作れます。`String.Join(Environment.NewLine, lines)` で行リストを改行でつなげられます。
 
-**解答例:** `Triangle` という名前で関数を定義し、`Problem6_5` から呼び出します。`Problem6_4` もこの関数を再利用できます。
+**解答例:** `Triangle(size As Integer, ch As Char)` にシグネチャを変更し、`Problem6_4` と `Problem6_5` の両方からこの関数を呼び出します。
 
 ---
 
