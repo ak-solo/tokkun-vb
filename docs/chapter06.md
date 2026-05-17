@@ -184,6 +184,28 @@ End If
 
 ---
 
+### Char 型
+
+`Char` は **1 文字**を表す型です。`String`（文字列）と異なり、必ず 1 文字だけを格納します。
+
+```vbnet
+Dim c As Char = "A"c   ' 文字リテラルは末尾に c を付ける
+Dim s As String = "A"  ' こちらは文字列（1文字の String）
+```
+
+`Char` を引数として受け取ると、呼び出し側が任意の文字を指定できます。
+
+```vbnet
+Function Repeat(ch As Char, n As Integer) As String
+    Return New String(ch, n)   ' ch を n 個並べた文字列を作る
+End Function
+
+Console.WriteLine(Repeat("*"c, 5))   ' → *****
+Console.WriteLine(Repeat("-"c, 3))   ' → ---
+```
+
+---
+
 ## 練習問題
 
 ### 問題 6-1
