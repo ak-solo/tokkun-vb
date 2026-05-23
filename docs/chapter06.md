@@ -184,6 +184,28 @@ End If
 
 ---
 
+### Char 型
+
+`Char` は **1 文字**を表す型です。`String`（文字列）と異なり、必ず 1 文字だけを格納します。
+
+```vbnet
+Dim c As Char = "A"c   ' 文字リテラルは末尾に c を付ける
+Dim s As String = "A"  ' こちらは文字列（1文字の String）
+```
+
+`Char` を引数として受け取ると、呼び出し側が任意の文字を指定できます。
+
+```vbnet
+Function Repeat(ch As Char, n As Integer) As String
+    Return New String(ch, n)   ' ch を n 個並べた文字列を作る
+End Function
+
+Console.WriteLine(Repeat("*"c, 5))   ' → *****
+Console.WriteLine(Repeat("-"c, 3))   ' → ---
+```
+
+---
+
 ## 練習問題
 
 ### 問題 6-1
@@ -236,19 +258,17 @@ End Function
 
 **ヒント:** `List(Of String)` に各行を追加し、`String.Join(Environment.NewLine, lines)` でまとめると簡潔に書けます。
 
-**解答例:** `Triangle` という名前で関数を定義し、`Problem6_4` から呼び出します。`Problem6_5` も同じ関数を再利用できます。
+**解答例:** `Triangle` という名前で関数を定義し、`Problem6_4` から呼び出します。
 
 ---
 
 ### 問題 6-5
 
-サイズ `size` と文字 `ch`（`Char` 型）を受け取り、**任意の文字で三角形** を返す関数を実装しなさい。
-
-問題 6-4 の `$` を `ch` に置き換えたものです。
+問題 6-4 で実装した `Triangle` を**改造**して、`$` の代わりに任意の文字 `ch`（`Char` 型）を受け取れるようにしなさい。あわせて、`Problem6_4` も改造後の `Triangle(size, "$"c)` を呼び出すように書き直しなさい。
 
 **ヒント:** `New String(ch, n)` で `ch` を `n` 個並べた文字列が作れます。`String.Join(Environment.NewLine, lines)` で行リストを改行でつなげられます。
 
-**解答例:** `Triangle` という名前で関数を定義し、`Problem6_5` から呼び出します。`Problem6_4` もこの関数を再利用できます。
+**解答例:** `Triangle(size As Integer, ch As Char)` にシグネチャを変更し、`Problem6_4` と `Problem6_5` の両方からこの関数を呼び出します。
 
 ---
 
