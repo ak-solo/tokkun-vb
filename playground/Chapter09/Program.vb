@@ -1,4 +1,4 @@
-' Chapter 09 プレイグラウンド — LINQ
+' Chapter 09 プレイグラウンド — 文字列・日付操作
 ' 実行: dotnet run --project playground/Chapter09
 '
 ' src/Chapter09/Exercises.vb に実装を書いてから実行しよう
@@ -6,9 +6,7 @@
 
 Module Program
     Sub Main()
-        Dim nums As Integer() = {5, 1, 8, 3, 9, 2}   ' ← この配列を変えて試してみよう
-        Dim threshold As Integer = 4                   ' ← この値を変えて試してみよう
-        Dim result = Exercises.Problem9_1(nums, threshold)
-        Console.WriteLine(String.Join(", ", result))
+        Dim input As String = "  hello world  "   ' ← この値を変えて試してみよう
+        Console.WriteLine(Exercises.Problem9_1(input))
     End Sub
 End Module

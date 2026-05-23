@@ -2,187 +2,186 @@ Imports Xunit
 
 Public Class Chapter09Tests
 
-    ' ===== 問題 9-1: Where + OrderBy =====
+    ' ===== 問題 9-1: Trim + ToUpper =====
 
     <Theory>
-    <InlineData(New Integer() {5, 1, 8, 3, 9, 2}, 4, New Integer() {5, 8, 9})>
-    <InlineData(New Integer() {10, 2, 5, 7, 1}, 5, New Integer() {5, 7, 10})>
-    <InlineData(New Integer() {1, 2, 3}, 10, New Integer() {})>
-    <InlineData(New Integer() {5, 5, 5}, 3, New Integer() {5, 5, 5})>
-    Public Sub Test_9_1_FilterAndSort(numbers As Integer(), threshold As Integer, expected As Integer())
-        Assert.Equal(expected, Exercises.Problem9_1(numbers, threshold))
+    <InlineData("  hello world  ", "HELLO WORLD")>
+    <InlineData("  VB.NET  ", "VB.NET")>
+    <InlineData("already", "ALREADY")>
+    <InlineData("  ", "")>
+    Public Sub Test_9_1_TrimAndUpperCase(input As String, expected As String)
+        Assert.Equal(expected, Exercises.Problem9_1(input))
     End Sub
 
     <Fact>
-    Public Sub Test_9_1_ThresholdIsInclusive()
-        ' threshold と同じ値は含まれる（以上）
-        Assert.Equal({4, 4}, Exercises.Problem9_1({4, 4}, 4))
+    Public Sub Test_9_1_MixedCase()
+        Assert.Equal("HELLO WORLD", Exercises.Problem9_1("  Hello World  "))
     End Sub
 
-    ' ===== 問題 9-2: Select =====
+    ' ===== 問題 9-2: IndexOf + Substring =====
 
     <Theory>
-    <InlineData(New Integer() {3, 1, 4}, New String() {"3番", "1番", "4番"})>
-    <InlineData(New Integer() {10}, New String() {"10番"})>
-    <InlineData(New Integer() {1, 2, 3}, New String() {"1番", "2番", "3番"})>
-    Public Sub Test_9_2_ToLabel(numbers As Integer(), expected As String())
-        Assert.Equal(expected, Exercises.Problem9_2(numbers))
+    <InlineData("user@example.com", "@"c, "user")>
+    <InlineData("first.last@mail.co.jp", "@"c, "first.last")>
+    <InlineData("hello", "@"c, "hello")>
+    Public Sub Test_9_2_SubstringBeforeDelimiter(text As String, delimiter As Char, expected As String)
+        Assert.Equal(expected, Exercises.Problem9_2(text, delimiter))
     End Sub
 
     <Fact>
-    Public Sub Test_9_2_PreservesOrder()
-        ' 入力の順序が保たれていること
-        Dim result = Exercises.Problem9_2({9, 1, 5})
-        Assert.Equal("9番", result(0))
-        Assert.Equal("1番", result(1))
-        Assert.Equal("5番", result(2))
+    Public Sub Test_9_2_SlashDelimiter()
+        Assert.Equal("https:", Exercises.Problem9_2("https://example.com", "/"c))
     End Sub
 
-    ' ===== 問題 9-3: OrderBy + ThenBy =====
+    ' ===== 問題 9-3: Split + Trim =====
 
     <Fact>
-    Public Sub Test_9_3_SortByLengthThenAlphabetical()
-        Dim result = Exercises.Problem9_3({"banana", "fig", "apple", "kiwi"})
-        Assert.Equal({"fig", "kiwi", "apple", "banana"}, result)
+    Public Sub Test_9_3_SplitAndTrim()
+        Assert.Equal({"apple", "banana", "cherry"}, Exercises.Problem9_3("apple, banana, cherry"))
     End Sub
 
     <Fact>
-    Public Sub Test_9_3_SameLengthSortedAlphabetically()
-        ' 同じ文字数はアルファベット順
-        Assert.Equal({"ant", "bat", "cat"}, Exercises.Problem9_3({"cat", "ant", "bat"}))
+    Public Sub Test_9_3_NoExtraSpaces()
+        Assert.Equal({"a", "b", "c"}, Exercises.Problem9_3("a,b,c"))
     End Sub
 
     <Fact>
     Public Sub Test_9_3_SingleElement()
-        Assert.Equal({"hello"}, Exercises.Problem9_3({"hello"}))
+        Assert.Equal({"only"}, Exercises.Problem9_3("only"))
     End Sub
 
-    ' ===== 問題 9-4: Average =====
+    <Fact>
+    Public Sub Test_9_3_WithLeadingAndTrailingSpaces()
+        Dim result As String() = Exercises.Problem9_3("  alpha , beta  ,  gamma  ")
+        Assert.Equal("alpha", result(0))
+        Assert.Equal("beta", result(1))
+        Assert.Equal("gamma", result(2))
+    End Sub
+
+    ' ===== 問題 9-4: Replace =====
 
     <Theory>
-    <InlineData(New Integer() {80, 60, 95, 70, 55}, 72.0)>
-    <InlineData(New Integer() {100, 0}, 50.0)>
-    <InlineData(New Integer() {75}, 75.0)>
-    <InlineData(New Integer() {1, 2, 3, 4}, 2.5)>
-    Public Sub Test_9_4_Average(scores As Integer(), expected As Double)
-        Assert.Equal(expected, Exercises.Problem9_4(scores))
-    End Sub
-
-    ' ===== 問題 9-5: Where + Select + OrderBy チェーン =====
-
-    <Fact>
-    Public Sub Test_9_5_EvenSquaredSorted()
-        Assert.Equal({4, 16, 36, 64}, Exercises.Problem9_5({5, 2, 8, 3, 4, 6}))
+    <InlineData("Hello World World", "World", "VB.NET", "Hello VB.NET VB.NET")>
+    <InlineData("aabbcc", "b", "X", "aaXXcc")>
+    <InlineData("no match here", "xyz", "ABC", "no match here")>
+    Public Sub Test_9_4_ReplaceAll(text As String, oldWord As String, newWord As String, expected As String)
+        Assert.Equal(expected, Exercises.Problem9_4(text, oldWord, newWord))
     End Sub
 
     <Fact>
-    Public Sub Test_9_5_NoEvens()
-        Assert.Empty(Exercises.Problem9_5({1, 3, 5}))
+    Public Sub Test_9_4_EmptyReplacement()
+        Assert.Equal("Hello ", Exercises.Problem9_4("Hello World", "World", ""))
     End Sub
 
-    <Fact>
-    Public Sub Test_9_5_SingleEven()
-        Assert.Equal({16}, Exercises.Problem9_5({4}))
-    End Sub
-
-    <Fact>
-    Public Sub Test_9_5_ResultIsAscending()
-        ' 結果が昇順に並んでいることを確認
-        Dim result = Exercises.Problem9_5({6, 2, 4})
-        Assert.Equal({4, 16, 36}, result)
-    End Sub
-
-    ' ===== 問題 9-6: OrderByDescending + Take =====
+    ' ===== 問題 9-5: StartsWith / EndsWith / Contains =====
 
     <Theory>
-    <InlineData(New Integer() {70, 85, 60, 95, 75}, 3, New Integer() {95, 85, 75})>
-    <InlineData(New Integer() {10, 20, 30}, 2, New Integer() {30, 20})>
-    <InlineData(New Integer() {1, 2, 3, 4, 5}, 1, New Integer() {5})>
-    Public Sub Test_9_6_TopN(scores As Integer(), n As Integer, expected As Integer())
-        Assert.Equal(expected, Exercises.Problem9_6(scores, n))
-    End Sub
-
-    <Fact>
-    Public Sub Test_9_6_AllElements()
-        ' n が要素数と同じ場合は全要素を降順で返す
-        Assert.Equal({5, 5, 5}, Exercises.Problem9_6({5, 5, 5}, 3))
-    End Sub
-
-    ' ===== 問題 9-7: Any / All / Count =====
-
-    <Theory>
-    <InlineData(New Integer() {3, -1, 5}, True)>
-    <InlineData(New Integer() {3, 1, 5}, False)>
-    <InlineData(New Integer() {-1, -2, -3}, True)>
-    <InlineData(New Integer() {0, 1, 2}, False)>
-    Public Sub Test_9_7_HasNegative(numbers As Integer(), expected As Boolean)
-        Assert.Equal(expected, Exercises.Problem9_7_HasNegative(numbers))
+    <InlineData("Hello, World", "Hello", True)>
+    <InlineData("Hello, World", "World", False)>
+    <InlineData("Hello, World", "", True)>
+    Public Sub Test_9_5_StartsWith(text As String, prefix As String, expected As Boolean)
+        Assert.Equal(expected, Exercises.Problem9_5_StartsWith(text, prefix))
     End Sub
 
     <Theory>
-    <InlineData(New Integer() {3, 1, 5}, True)>
-    <InlineData(New Integer() {3, 0, 5}, False)>
-    <InlineData(New Integer() {3, -1, 5}, False)>
-    <InlineData(New Integer() {1}, True)>
-    Public Sub Test_9_7_AllPositive(numbers As Integer(), expected As Boolean)
-        Assert.Equal(expected, Exercises.Problem9_7_AllPositive(numbers))
+    <InlineData("Hello, World", "World", True)>
+    <InlineData("Hello, World", "Hello", False)>
+    <InlineData("Hello, World", "", True)>
+    Public Sub Test_9_5_EndsWith(text As String, suffix As String, expected As Boolean)
+        Assert.Equal(expected, Exercises.Problem9_5_EndsWith(text, suffix))
     End Sub
 
     <Theory>
-    <InlineData(New Integer() {3, 7, 2, 8, 5}, 4, 3)>
-    <InlineData(New Integer() {1, 2, 3}, 10, 0)>
-    <InlineData(New Integer() {5, 5, 5}, 4, 3)>
-    <InlineData(New Integer() {5, 5, 5}, 5, 0)>
-    Public Sub Test_9_7_CountOver(numbers As Integer(), threshold As Integer, expected As Integer)
-        Assert.Equal(expected, Exercises.Problem9_7_CountOver(numbers, threshold))
+    <InlineData("Hello, World", "World", True)>
+    <InlineData("Hello, World", "VB.NET", False)>
+    <InlineData("Hello, World", "Hello", True)>
+    Public Sub Test_9_5_Contains(text As String, keyword As String, expected As Boolean)
+        Assert.Equal(expected, Exercises.Problem9_5_Contains(text, keyword))
     End Sub
 
-    ' ===== 問題 9-8: クエリ構文 =====
+    ' ===== 問題 9-6: 曜日（日本語） =====
 
     <Fact>
-    Public Sub Test_9_8_FilterByLengthDescending()
-        Dim words = {"cat", "elephant", "ox", "dog", "hippopotamus"}
-        Assert.Equal({"hippopotamus", "elephant"}, Exercises.Problem9_8(words, 4))
-    End Sub
-
-    <Fact>
-    Public Sub Test_9_8_MultipleSameLengthDescending()
-        ' "hello"(5) と "hey"(3) が minLength=3 以上 → 長い順
-        Dim result = Exercises.Problem9_8({"hi", "hello", "hey"}, 3)
-        Assert.Equal({"hello", "hey"}, result)
+    Public Sub Test_9_6_Monday()
+        Assert.Equal("月曜日", Exercises.Problem9_6(New DateTime(2024, 1, 1)))
     End Sub
 
     <Fact>
-    Public Sub Test_9_8_NoneMatch()
-        Assert.Empty(Exercises.Problem9_8({"a", "bb", "ccc"}, 5))
-    End Sub
-
-    ' ===== 問題 9-9: GroupBy =====
-
-    <Fact>
-    Public Sub Test_9_9_GroupByFirstChar()
-        Dim words = {"apple", "ant", "banana", "bear", "cat"}
-        Dim result = Exercises.Problem9_9(words)
-        Assert.Equal(3, result.Count)
-        Assert.Equal(2, result("a"c))
-        Assert.Equal(2, result("b"c))
-        Assert.Equal(1, result("c"c))
+    Public Sub Test_9_6_Sunday()
+        Assert.Equal("日曜日", Exercises.Problem9_6(New DateTime(2024, 1, 7)))
     End Sub
 
     <Fact>
-    Public Sub Test_9_9_AllSameFirstChar()
-        Dim result = Exercises.Problem9_9({"alpha", "arrow", "ant"})
-        Assert.Equal(1, result.Count)
-        Assert.Equal(3, result("a"c))
+    Public Sub Test_9_6_AllDaysOfWeek()
+        Assert.Equal("月曜日", Exercises.Problem9_6(New DateTime(2024, 1, 1)))
+        Assert.Equal("火曜日", Exercises.Problem9_6(New DateTime(2024, 1, 2)))
+        Assert.Equal("水曜日", Exercises.Problem9_6(New DateTime(2024, 1, 3)))
+        Assert.Equal("木曜日", Exercises.Problem9_6(New DateTime(2024, 1, 4)))
+        Assert.Equal("金曜日", Exercises.Problem9_6(New DateTime(2024, 1, 5)))
+        Assert.Equal("土曜日", Exercises.Problem9_6(New DateTime(2024, 1, 6)))
+        Assert.Equal("日曜日", Exercises.Problem9_6(New DateTime(2024, 1, 7)))
+    End Sub
+
+    ' ===== 問題 9-7: 日付の差分 =====
+
+    <Fact>
+    Public Sub Test_9_7_DaysInSameMonth()
+        Assert.Equal(9, Exercises.Problem9_7(New DateTime(2024, 1, 1), New DateTime(2024, 1, 10)))
     End Sub
 
     <Fact>
-    Public Sub Test_9_9_AllDifferentFirstChar()
-        Dim result = Exercises.Problem9_9({"zoo", "yak", "xray"})
-        Assert.Equal(3, result.Count)
-        Assert.Equal(1, result("z"c))
-        Assert.Equal(1, result("y"c))
-        Assert.Equal(1, result("x"c))
+    Public Sub Test_9_7_AcrossMonths()
+        Assert.Equal(60, Exercises.Problem9_7(New DateTime(2024, 1, 1), New DateTime(2024, 3, 1)))
+    End Sub
+
+    <Fact>
+    Public Sub Test_9_7_SameDay()
+        Assert.Equal(0, Exercises.Problem9_7(New DateTime(2024, 5, 1), New DateTime(2024, 5, 1)))
+    End Sub
+
+    <Fact>
+    Public Sub Test_9_7_AcrossYears()
+        ' 2024 年はうるう年（366 日）
+        Assert.Equal(366, Exercises.Problem9_7(New DateTime(2024, 1, 1), New DateTime(2025, 1, 1)))
+    End Sub
+
+    ' ===== 問題 9-8: 日付フォーマット =====
+
+    <Fact>
+    Public Sub Test_9_8_FormatDate()
+        Assert.Equal("2024年3月5日", Exercises.Problem9_8(New DateTime(2024, 3, 5)))
+    End Sub
+
+    <Fact>
+    Public Sub Test_9_8_EndOfYear()
+        Assert.Equal("2024年12月31日", Exercises.Problem9_8(New DateTime(2024, 12, 31)))
+    End Sub
+
+    <Fact>
+    Public Sub Test_9_8_SingleDigitMonthAndDay()
+        Assert.Equal("2024年1月1日", Exercises.Problem9_8(New DateTime(2024, 1, 1)))
+    End Sub
+
+    ' ===== 問題 9-9: n 日後のフォーマット =====
+
+    <Fact>
+    Public Sub Test_9_9_AddDays()
+        Assert.Equal("2024/01/31", Exercises.Problem9_9(New DateTime(2024, 1, 1), 30))
+    End Sub
+
+    <Fact>
+    Public Sub Test_9_9_CrossMonth()
+        Assert.Equal("2024/02/01", Exercises.Problem9_9(New DateTime(2024, 1, 31), 1))
+    End Sub
+
+    <Fact>
+    Public Sub Test_9_9_ZeroDays()
+        Assert.Equal("2024/01/01", Exercises.Problem9_9(New DateTime(2024, 1, 1), 0))
+    End Sub
+
+    <Fact>
+    Public Sub Test_9_9_CrossYear()
+        Assert.Equal("2025/01/01", Exercises.Problem9_9(New DateTime(2024, 12, 31), 1))
     End Sub
 
 End Class
