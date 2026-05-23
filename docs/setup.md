@@ -1,7 +1,7 @@
 # 環境構築手順
 
 この教材は **VSCode の Dev Containers** を使って学習環境を構築します。
-Docker コンテナの中に .NET SDK と Polyglot Notebooks が自動でセットアップされるため、手元の PC に .NET をインストールする必要はありません。
+Docker コンテナの中に .NET SDK が自動でセットアップされるため、手元の PC に .NET をインストールする必要はありません。
 
 ---
 
@@ -9,47 +9,13 @@ Docker コンテナの中に .NET SDK と Polyglot Notebooks が自動でセッ�
 
 | ツール | 説明 |
 |--------|------|
-| Git | リポジトリのクローンに使用 |
-| Docker Desktop | コンテナを動かすためのソフトウェア |
-| Visual Studio Code | コードエディタ |
 | Dev Containers 拡張機能 | VSCode からコンテナを操作するための拡張機能 |
 
 ---
 
 ## 手順
 
-### 1. Git をインストールする
-
-1. https://git-scm.com/download/win を開く
-2. インストーラーをダウンロードして実行する
-3. 設定はすべてデフォルトのまま「Next」を押し続けてインストールする
-4. コマンドプロンプトまたは PowerShell を開き、次のコマンドで確認する
-
-```
-git --version
-```
-
----
-
-### 2. Docker Desktop をインストールする
-
-1. https://docs.docker.com/desktop/install/windows-install/ を開く
-2. 「Docker Desktop for Windows」をダウンロードしてインストールする
-3. インストール後、PC を再起動する
-4. タスクバーに Docker のクジラアイコンが表示されれば起動成功
-
-> **注意:** WSL 2 が必要です。インストーラーの指示に従って有効化してください。
-
----
-
-### 3. Visual Studio Code をインストールする
-
-1. https://code.visualstudio.com/ を開く
-2. 自分の OS に合ったインストーラーをダウンロードして実行する
-
----
-
-### 4. Dev Containers 拡張機能をインストールする
+### 1. Dev Containers 拡張機能をインストールする
 
 1. VSCode を起動する
 2. 左サイドバーの拡張機能アイコン（四角が4つ並んだアイコン）をクリックする
@@ -60,30 +26,13 @@ git --version
 
 ---
 
-### 5. リポジトリをクローンする
+### 2. VSCode でフォルダを開く
 
-ターミナル（Windows はコマンドプロンプトまたは PowerShell）で次のコマンドを実行する。
-
-```
-git clone https://github.com/ak-solo/tokkun-vb.git
-cd tokkun-vb
-```
+VSCode のメニューから「ファイル → フォルダーを開く」で `tokkun-vb` フォルダを選択する。
 
 ---
 
-### 6. VSCode でフォルダを開く
-
-コマンドプロンプトまたは PowerShell で次のコマンドを実行する。
-
-```
-code .
-```
-
-または VSCode のメニューから「ファイル → フォルダーを開く」で `tokkun-vb` フォルダを選択する。
-
----
-
-### 7. Dev Container で開き直す
+### 3. Dev Container で開き直す
 
 フォルダを開くと、右下に次のようなポップアップが表示される。
 
@@ -98,7 +47,7 @@ code .
 
 ---
 
-### 8. コンテナのビルドを待つ
+### 4. コンテナのビルドを待つ
 
 初回は Docker イメージのダウンロードとビルドが行われます。  
 環境によって **5〜15 分**程度かかります。
@@ -107,7 +56,7 @@ code .
 
 ---
 
-### 9. 動作確認
+### 5. 動作確認
 
 コンテナが起動したら、VSCode のターミナル（`` Ctrl+@ `` または「ターミナル → 新しいターミナル」）で次のコマンドを実行する。
 
@@ -130,7 +79,7 @@ dotnet test
 ## これで準備完了
 
 環境構築は以上です。  
-学習の進め方は [README.md](../README.md) を参照してください。
+このページ下部の「問題の解き方」を確認したら、[Chapter01](chapter01.md) から始めよう。
 
 ---
 
@@ -151,3 +100,32 @@ dotnet test
 
 - ターミナルが Dev Container 内で動いているか確認する（VSCode 左下に「Dev Container: tokkun-vb」と表示されていれば OK）
 - コンテナを再ビルドする: コマンドパレットで `Dev Containers: Rebuild Container` を実行する
+
+---
+
+## 問題の解き方
+
+各問題は次の3ステップで進めよう。
+
+### ステップ 1: 実装する
+
+`src/ChapterXX/Exercises.vb` を開き、該当の Function/Sub に処理を書く。
+
+### ステップ 2: 動作を確認する
+
+実装したら、プレイグラウンドで実際に動かして結果を確かめる。
+
+`playground/ChapterXX/Program.vb` に呼び出しコードを書いて実行する。
+
+```bash
+dotnet run --project playground/Chapter01
+```
+
+### ステップ 3: テストを実行する
+
+VSCode の左サイドバーにあるビーカーアイコン（テストエクスプローラー）をクリックする。
+
+- 章単位で実行: 章名の横にある ▶ をクリック
+- 全章まとめて実行: 一番上の ▶ をクリック
+
+グリーン（✓）になれば完了。赤（✗）のテストがあれば実装を見直して修正しよう。
