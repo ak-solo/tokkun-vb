@@ -1,156 +1,191 @@
-# 9章 LINQ
+# 9章 文字列・日付操作
 
 ## 基礎知識
 
-### LINQ とは
+### 文字列メソッド
 
-**LINQ（Language Integrated Query）** は、コレクションや配列に対して SQL に似た操作（抽出・変換・並び替え・集計）を簡潔に書けるしくみです。
-
-VB.NET では **メソッド構文**と**クエリ構文**の 2 通りで書けます。
-
----
-
-### List(Of T)
-
-LINQ と組み合わせてよく使うコレクション型です。要素数が可変で、追加・削除が簡単にできます。
-
-```vbnet
-Dim names As New List(Of String) From {"Alice", "Bob", "Carol"}
-names.Add("Dave")
-Console.WriteLine(names.Count)   ' 4
-```
-
-配列も `List` も、LINQ メソッドはどちらでも使えます（`IEnumerable(Of T)` を実装しているため）。
+VB.NET の `String` 型には、文字列を操作するための便利なメソッドが多く用意されています。
+文字列は**イミュータブル（不変）**なので、メソッドを呼び出しても元の文字列は変わらず、常に新しい文字列が返ります。
 
 ---
 
-### Where（絞り込み）
+#### Length（文字数）
 
-条件に合う要素だけを取り出します。
+`Length` プロパティは文字列の文字数を返します。スペースや記号も 1 文字として数えます。
 
 ```vbnet
-Dim numbers = {1, 2, 3, 4, 5, 6}
+Dim s As String = "Hello"
+Console.WriteLine(s.Length)  ' 5
 
-' メソッド構文
-Dim evens = numbers.Where(Function(n) n Mod 2 = 0).ToArray()
-' → {2, 4, 6}
-
-' クエリ構文
-Dim evens2 = (From n In numbers Where n Mod 2 = 0).ToArray()
+Dim empty As String = ""
+Console.WriteLine(empty.Length)  ' 0
 ```
 
 ---
 
-### Select（変換・射影）
+#### Trim / ToUpper / ToLower
 
-各要素を別の値に変換します。
+`Trim()` は文字列の**先頭と末尾にある空白文字**（スペース・タブ・改行）を取り除いた新しい文字列を返します。
+`TrimStart()` は先頭のみ、`TrimEnd()` は末尾のみ取り除きます。
+
+`ToUpper()` はすべての文字を**大文字**に、`ToLower()` は**小文字**に変換した新しい文字列を返します。
 
 ```vbnet
-Dim numbers = {1, 2, 3}
+Dim s As String = "  Hello World  "
 
-' メソッド構文
-Dim doubled = numbers.Select(Function(n) n * 2).ToArray()
-' → {2, 4, 6}
+Console.WriteLine(s.Trim())          ' "Hello World"（前後の空白を削除）
+Console.WriteLine(s.TrimStart())     ' "Hello World  "（先頭の空白のみ削除）
+Console.WriteLine(s.TrimEnd())       ' "  Hello World"（末尾の空白のみ削除）
 
-' クエリ構文
-Dim doubled2 = (From n In numbers Select n * 2).ToArray()
+Console.WriteLine("hello".ToUpper()) ' "HELLO"
+Console.WriteLine("HELLO".ToLower()) ' "hello"
 ```
 
 ---
 
-### OrderBy / OrderByDescending（並び替え）
+#### Contains / StartsWith / EndsWith
+
+いずれも `Boolean` を返す検索メソッドです。大文字・小文字を**区別**します。
+
+- `Contains(value)` ― `value` が文字列内に含まれているか
+- `StartsWith(value)` ― 文字列が `value` で始まっているか
+- `EndsWith(value)` ― 文字列が `value` で終わっているか
 
 ```vbnet
-Dim words = {"banana", "apple", "cherry"}
+Dim s As String = "Hello, VB.NET World"
 
-Dim asc  = words.OrderBy(Function(w) w).ToArray()           ' アルファベット昇順
-Dim desc = words.OrderByDescending(Function(w) w).ToArray() ' 降順
-
-' 文字数の短い順
-Dim byLen = words.OrderBy(Function(w) w.Length).ToArray()
+Console.WriteLine(s.Contains("VB.NET"))      ' True
+Console.WriteLine(s.StartsWith("Hello"))     ' True
+Console.WriteLine(s.EndsWith("World"))       ' True
+Console.WriteLine(s.StartsWith("world"))     ' False（大文字・小文字を区別する）
 ```
 
 ---
 
-### 集計（Count / Sum / Average / Min / Max）
+#### IndexOf / Substring
+
+`IndexOf(value)` は、`value` が**最初に現れる位置**（0 始まりのインデックス）を `Integer` で返します。
+見つからなかった場合は `-1` を返します。
+
+`Substring(startIndex)` は `startIndex` 文字目以降をすべて切り出します。
+`Substring(startIndex, length)` は `startIndex` 文字目から `length` 文字分を切り出します。
 
 ```vbnet
-Dim scores = {80, 60, 95, 70, 55}
+Dim s As String = "user@example.com"
 
-Console.WriteLine(scores.Count())              ' 5
-Console.WriteLine(scores.Sum())                ' 360
-Console.WriteLine(scores.Average())            ' 72.0
-Console.WriteLine(scores.Min())                ' 55
-Console.WriteLine(scores.Max())                ' 95
+Dim idx As Integer = s.IndexOf("@"c)         ' 4
+Dim user As String   = s.Substring(0, idx)   ' "user"（0文字目から idx 文字分）
+Dim domain As String = s.Substring(idx + 1)  ' "example.com"（idx+1 文字目以降すべて）
+
+' 見つからない場合
+Dim notFound As Integer = s.IndexOf("!"c)  ' -1
 ```
 
 ---
 
-### メソッドチェーン
+#### Replace
 
-LINQ メソッドはつなげて書けます。
+`Replace(oldValue, newValue)` は、文字列内で `oldValue` に**一致するすべての箇所**を `newValue` に置き換えた新しい文字列を返します。
+一致する箇所がなければ元の文字列をそのまま返します。
 
 ```vbnet
-Dim numbers = {5, 3, 8, 1, 6, 2, 9, 4}
+Dim s As String = "Hello World"
 
-' 偶数だけ抽出 → 降順に並べ → 先頭 3 件
-Dim result = numbers _
-    .Where(Function(n) n Mod 2 = 0) _
-    .OrderByDescending(Function(n) n) _
-    .Take(3) _
-    .ToArray()
-' → {8, 6, 4}
+Console.WriteLine(s.Replace("World", "VB.NET")) ' "Hello VB.NET"
+Console.WriteLine(s.Replace("l", "L"))          ' "HeLLo WorLd"（一致するすべてを置換）
+Console.WriteLine(s.Replace("x", "Y"))          ' "Hello World"（一致なし → そのまま）
 ```
 
 ---
 
-### Any / All
+#### Split / String.Join
 
-- `Any(条件)` ― 条件を満たす要素が **1 つでも** あれば `True`
-- `All(条件)` ― **すべての** 要素が条件を満たせば `True`
+`Split(separator)` は、区切り文字で文字列を分割した `String` 配列を返します。
+区切り文字自体は結果に含まれません。
+
+`String.Join(separator, values)` は配列やコレクションの要素を `separator` で連結した文字列を返します。
 
 ```vbnet
-Dim scores = {80, 60, 95, 70}
+Dim csv As String = "apple, banana, cherry"
 
-Console.WriteLine(scores.Any(Function(s) s >= 90))   ' True（95 がある）
-Console.WriteLine(scores.All(Function(s) s >= 60))   ' True（全員 60 以上）
-Console.WriteLine(scores.All(Function(s) s >= 70))   ' False（60 がある）
+Dim parts As String() = csv.Split(","c)  ' {"apple", " banana", " cherry"}（',' で分割）
+
+' String.Join で再結合
+Dim joined As String = String.Join(" / ", {"a", "b", "c"})  ' "a / b / c"
 ```
 
 ---
 
-### GroupBy（グループ化）
+#### String.IsNullOrEmpty / IsNullOrWhiteSpace
 
-同じキーを持つ要素をまとめます。
+文字列が「空かどうか」を調べる静的メソッドです。
+
+- `String.IsNullOrEmpty(s)` ― `s` が `Nothing` または空文字列 `""` のとき `True`
+- `String.IsNullOrWhiteSpace(s)` ― `Nothing`・空文字列・空白文字のみのとき `True`
 
 ```vbnet
-Dim words = {"apple", "ant", "banana", "bear", "cat"}
-
-' 先頭文字でグループ化し、グループ名と件数を表示
-For Each g In words.GroupBy(Function(w) w(0))
-    Console.WriteLine($"{g.Key}: {g.Count()}件")
-Next
-' a: 2件
-' b: 2件
-' c: 1件
+Console.WriteLine(String.IsNullOrEmpty(""))        ' True
+Console.WriteLine(String.IsNullOrEmpty("  "))      ' False（空白文字がある）
+Console.WriteLine(String.IsNullOrWhiteSpace("  ")) ' True（空白のみ）
+Console.WriteLine(String.IsNullOrWhiteSpace("hi")) ' False
 ```
 
 ---
 
-### クエリ構文
+### DateTime（日付・時刻）
 
-SQL に似た書き方です。`From`・`Where`・`Select`・`Order By` を使います。
+`DateTime` 型は日付と時刻を表します。
+
+---
+
+#### DateTime の作成とプロパティ
 
 ```vbnet
-Dim scores = {80, 60, 95, 70, 55}
+Dim dt As New DateTime(2024, 3, 15)  ' 2024年3月15日
 
-' 70 以上のスコアを降順に並べて取得
-Dim result = (From s In scores
-              Where s >= 70
-              Order By s Descending
-              Select s).ToArray()
-' → {95, 80, 70}
+Console.WriteLine(dt.Year)       ' 2024
+Console.WriteLine(dt.Month)      ' 3
+Console.WriteLine(dt.Day)        ' 15
+Console.WriteLine(dt.DayOfWeek)  ' Friday
 ```
+
+---
+
+#### 日付の演算
+
+```vbnet
+Dim dt As New DateTime(2024, 1, 1)
+
+Dim nextWeek  As DateTime = dt.AddDays(7)    ' 2024/1/8
+Dim nextMonth As DateTime = dt.AddMonths(1)  ' 2024/2/1
+Dim nextYear  As DateTime = dt.AddYears(1)   ' 2025/1/1
+```
+
+---
+
+#### 日付の差分
+
+```vbnet
+Dim fromDate As New DateTime(2024, 1, 1)
+Dim toDate   As New DateTime(2024, 1, 10)
+
+Dim diff As TimeSpan = toDate - fromDate
+Console.WriteLine(diff.Days)  ' 9
+```
+
+---
+
+#### 日付のフォーマット
+
+```vbnet
+Dim dt As New DateTime(2024, 3, 5)
+
+Console.WriteLine(dt.ToString("yyyy/MM/dd"))    ' "2024/03/05"
+Console.WriteLine(dt.ToString("yyyy年M月d日"))  ' "2024年3月5日"
+Console.WriteLine(dt.ToString("MM/dd"))         ' "03/05"
+```
+
+`M` は月を 1 桁/2 桁で、`MM` は常に 2 桁で出力します（`d`/`dd` も同様）。
 
 ---
 
@@ -158,96 +193,97 @@ Dim result = (From s In scores
 
 ### 問題 9-1
 
-`Integer` 型配列 `numbers` と整数 `threshold` を受け取り、`threshold` **以上** の要素だけを **昇順** に並べた配列を返す関数を実装しなさい。
+文字列 `input` を受け取り、前後の空白を取り除いてから **すべて大文字** に変換した文字列を返す関数を実装しなさい。
 
-例: `numbers={5, 1, 8, 3, 9, 2}`, `threshold=4` → `{5, 8, 9}`
+例: `"  hello world  "` → `"HELLO WORLD"`
 
-**ヒント:** `Where` → `OrderBy` の順にチェーンします。
+**ヒント:** `Trim()` → `ToUpper()` の順に適用します。
 
 ---
 
 ### 問題 9-2
 
-`Integer` 型配列 `numbers` を受け取り、各要素を `"{n}番"` という形式の文字列に変換した `String` 配列を返す関数を実装しなさい。
+文字列 `text` と区切り文字 `delimiter`（`Char` 型）を受け取り、**最初に区切り文字が現れる位置より前** の部分文字列を返す関数を実装しなさい。区切り文字が存在しない場合は `text` をそのまま返すこと。
 
-例: `numbers={3, 1, 4}` → `{"3番", "1番", "4番"}`
+例: `"user@example.com", "@"c` → `"user"`
+例: `"hello", "@"c` → `"hello"`
 
-**ヒント:** `Select` と文字列補間 `$"..."` を組み合わせます。
+**ヒント:** `IndexOf` で位置を取得し、`-1` の場合は元の文字列を、それ以外は `Substring` で切り出します。
 
 ---
 
 ### 問題 9-3
 
-`String` 型配列 `words` を受け取り、文字数の **短い順**（文字数が同じ場合はアルファベット順）に並べた配列を返す関数を実装しなさい。
+カンマ区切りの文字列 `csv` を受け取り、各要素の前後の空白を除去した `String` 配列を返す関数を実装しなさい。
 
-例: `words={"banana", "fig", "apple", "kiwi"}` → `{"fig", "kiwi", "apple", "banana"}`
+例: `"apple, banana, cherry"` → `{"apple", "banana", "cherry"}`
 
-**ヒント:** `OrderBy` は複数のキーを `ThenBy` でつなげられます。
+**ヒント:** `Split(","c)` で分割した後、各要素に `Trim()` を適用します。
 
 ---
 
 ### 問題 9-4
 
-`Integer` 型配列 `scores` を受け取り、その **平均値**（`Double`）を返す関数を実装しなさい。
+文字列 `text` 内に含まれる `oldWord` をすべて `newWord` に置き換えた文字列を返す関数を実装しなさい。
 
-例: `scores={80, 60, 95, 70, 55}` → `72.0`
+例: `"Hello World World", "World", "VB.NET"` → `"Hello VB.NET VB.NET"`
+
+**ヒント:** `Replace` は一致するすべての箇所を置換します。
 
 ---
 
 ### 問題 9-5
 
-`Integer` 型配列 `numbers` を受け取り、以下の処理をこの順で行った配列を返す関数を実装しなさい。
+文字列の検索に関する次の 3 つの関数を実装しなさい。
 
-1. 偶数のみ抽出する
-2. 各要素を 2 乗する
-3. 昇順に並べる
+- `Problem9_5_StartsWith` ― `text` が `prefix` で始まっていれば `True` を返す
+- `Problem9_5_EndsWith` ― `text` が `suffix` で終わっていれば `True` を返す
+- `Problem9_5_Contains` ― `text` に `keyword` が含まれていれば `True` を返す
 
-例: `numbers={5, 2, 8, 3, 4, 6}` → `{4, 16, 36, 64}`
-
-**ヒント:** `Where` → `Select` → `OrderBy` の順にチェーンします。
+例（StartsWith）: `"Hello, World", "Hello"` → `True`
+例（EndsWith）: `"Hello, World", "World"` → `True`
+例（Contains）: `"Hello, World", "VB.NET"` → `False`
 
 ---
 
 ### 問題 9-6
 
-`Integer` 型配列 `scores` と整数 `n` を受け取り、**上位 n 件** のスコアを降順に並べた配列を返す関数を実装しなさい。
+`DateTime` 型の日付 `date` を受け取り、その曜日を **日本語**（`"月曜日"`〜`"日曜日"`）で返す関数を実装しなさい。
 
-例: `scores={70, 85, 60, 95, 75}`, `n=3` → `{95, 85, 75}`
+例: `New DateTime(2024, 1, 1)` （月曜日）→ `"月曜日"`
+例: `New DateTime(2024, 1, 7)` （日曜日）→ `"日曜日"`
 
-**ヒント:** `OrderByDescending` → `Take` の順にチェーンします。
+**ヒント:** `date.DayOfWeek` は `DayOfWeek` 列挙型（`Monday`, `Tuesday`, ...）を返します。`Select Case` で変換しましょう。
 
 ---
 
 ### 問題 9-7
 
-`Integer` 型配列 `numbers` を受け取り、以下の 3 つを判定する関数をそれぞれ実装しなさい。
+2 つの `DateTime` 型の日付 `from` と `toDate` を受け取り、その差の **日数**（`Integer`）を返す関数を実装しなさい。`toDate` は常に `from` 以降の日付が渡されると仮定してよい。
 
-- `Problem9_7_HasNegative` ― 負の数が 1 つでも含まれていれば `True` を返す
-- `Problem9_7_AllPositive` ― すべての要素が正の数（0 より大きい）であれば `True` を返す
-- `Problem9_7_CountOver` ― 引数 `threshold` を超える要素の個数を返す
+例: `from=2024/1/1, toDate=2024/1/10` → `9`
+例: `from=2024/1/1, toDate=2024/3/1` → `60`
 
-例（HasNegative）: `numbers={3, -1, 5}` → `True`
-例（AllPositive）: `numbers={3, 1, 5}` → `True`
-例（CountOver）: `numbers={3, 7, 2, 8, 5}`, `threshold=4` → `3`
+**ヒント:** `(toDate - from).Days` で `TimeSpan` の日数部分を取得できます。
 
 ---
 
 ### 問題 9-8
 
-**クエリ構文**を使って実装しなさい。
+`DateTime` 型の日付 `date` を受け取り、`"yyyy年M月d日"` の形式に整形した文字列を返す関数を実装しなさい。
 
-`String` 型配列 `words` と整数 `minLength` を受け取り、文字数が `minLength` 以上の単語を **文字数の降順** に並べた配列を返す関数を実装しなさい。
+例: `New DateTime(2024, 3, 5)` → `"2024年3月5日"`
+例: `New DateTime(2024, 12, 31)` → `"2024年12月31日"`
 
-例: `words={"cat", "elephant", "ox", "dog", "hippopotamus"}`, `minLength=4` → `{"hippopotamus", "elephant"}`
-
-**ヒント:** `From w In words Where ... Order By ... Descending Select w` の形で書きます。
+**ヒント:** `date.ToString("yyyy年M月d日")` を使います。
 
 ---
 
 ### 問題 9-9
 
-`String` 型配列 `words` を受け取り、**先頭文字ごとの出現件数** を `Dictionary(Of Char, Integer)` で返す関数を実装しなさい。
+`DateTime` 型の日付 `date` と整数 `days` を受け取り、`days` 日後の日付を `"yyyy/MM/dd"` の形式に整形した文字列を返す関数を実装しなさい。
 
-例: `words={"apple", "ant", "banana", "bear", "cat"}` → `{'a': 2, 'b': 2, 'c': 1}`
+例: `New DateTime(2024, 1, 1), 30` → `"2024/01/31"`
+例: `New DateTime(2024, 1, 31), 1` → `"2024/02/01"`
 
-**ヒント:** `GroupBy(Function(w) w(0))` でグループ化し、`.ToDictionary(Function(g) g.Key, Function(g) g.Count())` で辞書に変換します。
+**ヒント:** `AddDays(days)` で日付を進め、`ToString("yyyy/MM/dd")` で整形します。
