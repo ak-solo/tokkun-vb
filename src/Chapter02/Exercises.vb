@@ -60,4 +60,9 @@ Public Class Exercises
         Return age * 365
     End Function
 
+    ' 問題 2-8: x を y で割った商と余りをカンマ区切りの文字列で返す
+    Public Shared Function Problem2_8(x As Integer, y As Integer) As String
+        Throw New NotImplementedException("問題 2-8 を実装してください")
+    End Function
+
 End Class
