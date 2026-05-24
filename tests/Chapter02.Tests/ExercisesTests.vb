@@ -122,4 +122,14 @@ Public Class Chapter02Tests
         Assert.Equal(expected, Exercises.Problem2_7(age))
     End Sub
 
+    ' --- 問題 2-8 ---
+    <Theory>
+    <InlineData(10, 3, "3,1")>
+    <InlineData(17, 5, "3,2")>
+    <InlineData(20, 4, "5,0")>
+    <InlineData(7, 2, "3,1")>
+    Public Sub Test_2_8_QuotientAndRemainder(x As Integer, y As Integer, expected As String)
+        Assert.Equal(expected, Exercises.Problem2_8(x, y))
+    End Sub
+
 End Class
