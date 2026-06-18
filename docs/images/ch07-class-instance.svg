@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="510" height="185" viewBox="0 0 510 185">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- Section labels -->
+  <text x="70" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#888">クラス（設計図）</text>
+  <text x="340" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#888">インスタンス（実体）</text>
+
+  <!-- Class box: Dog -->
+  <rect x="10" y="22" width="120" height="100" rx="4" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.5"/>
+  <rect x="10" y="22" width="120" height="28" rx="4" fill="#9673a6"/>
+  <rect x="10" y="38" width="120" height="12" fill="#9673a6"/>
+  <text x="70" y="37" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fff">Dog</text>
+  <text x="22" y="68" font-family="Arial, sans-serif" font-size="12" fill="#555">name</text>
+  <text x="22" y="88" font-family="Arial, sans-serif" font-size="12" fill="#555">age</text>
+  <text x="22" y="108" font-family="Arial, sans-serif" font-size="12" fill="#555">breed</text>
+
+  <!-- Arrow: New -->
+  <line x1="130" y1="72" x2="192" y2="72" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="161" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#555">New</text>
+
+  <!-- Instance 1: pochi -->
+  <rect x="195" y="22" width="140" height="120" rx="4" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5"/>
+  <rect x="195" y="22" width="140" height="28" rx="4" fill="#6c8ebf"/>
+  <rect x="195" y="38" width="140" height="12" fill="#6c8ebf"/>
+  <text x="265" y="37" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fff">pochi</text>
+  <text x="207" y="68" font-family="Arial, sans-serif" font-size="12" fill="#333">name = ポチ</text>
+  <text x="207" y="88" font-family="Arial, sans-serif" font-size="12" fill="#333">age = 3</text>
+  <text x="207" y="108" font-family="Arial, sans-serif" font-size="12" fill="#333">breed = 柴犬</text>
+
+  <!-- Instance 2: koro -->
+  <rect x="355" y="22" width="140" height="120" rx="4" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5"/>
+  <rect x="355" y="22" width="140" height="28" rx="4" fill="#6c8ebf"/>
+  <rect x="355" y="38" width="140" height="12" fill="#6c8ebf"/>
+  <text x="425" y="37" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fff">koro</text>
+  <text x="367" y="68" font-family="Arial, sans-serif" font-size="12" fill="#333">name = コロ</text>
+  <text x="367" y="88" font-family="Arial, sans-serif" font-size="12" fill="#333">age = 5</text>
+  <text x="367" y="108" font-family="Arial, sans-serif" font-size="12" fill="#333">breed = プードル</text>
+
+  <!-- Note -->
+  <text x="255" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#888">同じクラスから複数のインスタンスを作れる</text>
+</svg>

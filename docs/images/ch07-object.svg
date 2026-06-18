@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="130" viewBox="0 0 360 130">
+  <!-- Object box -->
+  <rect x="10" y="10" width="340" height="110" rx="6" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.5"/>
+
+  <!-- Title bar -->
+  <rect x="10" y="10" width="340" height="36" rx="6" fill="#9673a6"/>
+  <rect x="10" y="34" width="340" height="12" fill="#9673a6"/>
+  <text x="180" y="30" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#fff">Dog オブジェクト</text>
+
+  <!-- Divider -->
+  <line x1="10" y1="46" x2="350" y2="46" stroke="#9673a6" stroke-width="1"/>
+
+  <!-- データ section -->
+  <text x="24" y="65" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#555">データ:</text>
+  <text x="80" y="65" font-family="Arial, sans-serif" font-size="12" fill="#333">name, age, breed</text>
+
+  <!-- 操作 section -->
+  <text x="24" y="88" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#555">操作:</text>
+  <text x="70" y="88" font-family="Arial, sans-serif" font-size="12" fill="#333">Speak()</text>
+  <text x="24" y="108" font-family="Arial, sans-serif" font-size="12" fill="#333">　　　ShowProfile()</text>
+</svg>
