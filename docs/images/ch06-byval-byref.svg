@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="160" viewBox="0 0 520 160">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#333"/>
+    </marker>
+    <marker id="arr-l" markerWidth="8" markerHeight="6" refX="1" refY="3" orient="auto">
+      <polygon points="8 0, 0 3, 8 6" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- ByVal row label -->
+  <text x="5" y="55" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6c8ebf">ByVal</text>
+
+  <!-- ByVal: [x=5] box -->
+  <rect x="60" y="35" width="70" height="38" rx="4" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5"/>
+  <text x="95" y="54" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="13" fill="#333">x = 5</text>
+
+  <!-- Arrow: copy -->
+  <line x1="130" y1="54" x2="178" y2="54" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="154" y="47" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">コピー</text>
+
+  <!-- [n=5] box -->
+  <rect x="180" y="35" width="70" height="38" rx="4" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5"/>
+  <text x="215" y="54" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="13" fill="#333">n = 5</text>
+
+  <!-- Arrow: n=10 -->
+  <line x1="250" y1="54" x2="298" y2="54" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="274" y="47" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">n=10</text>
+
+  <!-- [x=5] result box (unchanged) -->
+  <rect x="300" y="35" width="70" height="38" rx="4" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5"/>
+  <text x="335" y="54" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="13" fill="#333">x = 5</text>
+
+  <!-- "元は変わらず" annotation -->
+  <text x="380" y="54" text-anchor="start" font-family="Arial, sans-serif" font-size="11" fill="#888">← 元は変わらず</text>
+
+  <!-- ByRef row label -->
+  <text x="5" y="120" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#82b366">ByRef</text>
+
+  <!-- ByRef: [x=5] box -->
+  <rect x="60" y="100" width="70" height="38" rx="4" fill="#d5e8d4" stroke="#82b366" stroke-width="1.5"/>
+  <text x="95" y="119" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="13" fill="#333">x = 5</text>
+
+  <!-- Double-headed arrow: n is alias for x -->
+  <line x1="130" y1="119" x2="248" y2="119" stroke="#333" stroke-width="1.5" marker-end="url(#arr)" marker-start="url(#arr-l)"/>
+  <text x="189" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">n は x の別名</text>
+
+  <!-- [n=10] label -->
+  <text x="254" y="119" text-anchor="start" font-family="Arial, sans-serif" font-size="11" fill="#555">n=10</text>
+
+  <!-- Arrow pointing back -->
+  <line x1="295" y1="119" x2="343" y2="119" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- [x=10] result box (changed!) -->
+  <rect x="345" y="100" width="70" height="38" rx="4" fill="#d5e8d4" stroke="#82b366" stroke-width="1.5"/>
+  <text x="380" y="119" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#333">x = 10</text>
+
+  <!-- "変わった！" annotation -->
+  <text x="420" y="119" text-anchor="start" font-family="Arial, sans-serif" font-size="11" fill="#82b366">← 変わった！</text>
+</svg>

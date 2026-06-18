@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="230" height="145" viewBox="0 0 230 145">
+  <!-- Column headers -->
+  <text x="87" y="16" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#555">列0</text>
+  <text x="137" y="16" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#555">列1</text>
+  <text x="187" y="16" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#555">列2</text>
+
+  <!-- Row 0 label -->
+  <text x="35" y="48" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#555">行0</text>
+
+  <!-- Row 0 cells -->
+  <rect x="40" y="22" width="55" height="45" rx="2" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5"/>
+  <text x="67" y="45" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333">1</text>
+
+  <rect x="95" y="22" width="55" height="45" rx="2" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5"/>
+  <text x="122" y="45" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333">2</text>
+
+  <rect x="150" y="22" width="55" height="45" rx="2" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5"/>
+  <text x="177" y="45" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333">3</text>
+
+  <!-- Row 1 label -->
+  <text x="35" y="93" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#555">行1</text>
+
+  <!-- Row 1 cells -->
+  <rect x="40" y="67" width="55" height="45" rx="2" fill="#d5e8d4" stroke="#82b366" stroke-width="1.5"/>
+  <text x="67" y="90" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333">4</text>
+
+  <rect x="95" y="67" width="55" height="45" rx="2" fill="#d5e8d4" stroke="#82b366" stroke-width="1.5"/>
+  <text x="122" y="90" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333">5</text>
+
+  <rect x="150" y="67" width="55" height="45" rx="2" fill="#d5e8d4" stroke="#82b366" stroke-width="1.5"/>
+  <text x="177" y="90" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333">6</text>
+
+  <!-- Access hint: matrix(row, col) -->
+  <text x="67" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#888">matrix(0,0)</text>
+  <text x="177" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#888">matrix(1,2)</text>
+</svg>
